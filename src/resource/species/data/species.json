@@ -1,0 +1,54 @@
+[
+  {
+    "speciesId": "spec1",
+    "speciesName": "spec1",
+    "family": "jfkdslljf",
+    "genus": "jksflj",
+    "localeName": "llk;k;s",
+    "lengthMin": 12.12,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0
+  },
+  {
+    "speciesId": "spec2",
+    "speciesName": "spec2",
+    "family": "gsdgs",
+    "genus": "sgdgs55",
+    "localeName": "spec2",
+    "lengthMin": 0,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0
+  },
+  {
+    "speciesId": "spec3",
+    "speciesName": "spec3",
+    "family": "jfkdslfjhfgnnf",
+    "genus": "spec2",
+    "localeName": "spec3",
+    "lengthMin": 0,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0
+  },
+  {
+    "speciesId": "spec4",
+    "speciesName": "spec2333",
+    "family": "fjkdk",
+    "genus": "jfkdf",
+    "localeName": "jfdkfd",
+    "lengthMin": 0,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0
+  }
+]

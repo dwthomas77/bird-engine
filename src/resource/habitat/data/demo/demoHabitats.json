@@ -1,0 +1,32 @@
+[
+    {
+        "habitatId": "habitat_001",
+        "habitatName": "Deciduous Forest",
+        "habitatDescription": "Forests dominated by oak, maple, and birch trees that lose their leaves seasonally. These areas provide rich food sources like insects, seeds, and berries, supporting many songbirds and woodpeckers."
+    },
+    {
+        "habitatId": "habitat_002",
+        "habitatName": "Coniferous Forest",
+        "habitatDescription": "Evergreen forests of pine, spruce, and fir trees that provide year-round shelter and seeds. Birds such as chickadees and crossbills thrive in these cooler, dense habitats."
+    },
+    {
+        "habitatId": "habitat_003",
+        "habitatName": "Freshwater Wetland",
+        "habitatDescription": "Marshes, swamps, and ponds with standing water and dense vegetation. These habitats support wading birds, waterfowl, and species that feed on aquatic insects and fish."
+    },
+    {
+        "habitatId": "habitat_004",
+        "habitatName": "Coastal Marsh",
+        "habitatDescription": "Salt marshes along the Atlantic coast with grasses and tidal channels. These areas attract shorebirds and seabirds that feed on crustaceans and small fish."
+    },
+    {
+        "habitatId": "habitat_005",
+        "habitatName": "Grassland Meadow",
+        "habitatDescription": "Open fields and meadows with grasses and wildflowers. These habitats are ideal for ground-nesting birds and species that hunt insects or small mammals."
+    },
+    {
+        "habitatId": "habitat_006",
+        "habitatName": "Urban/Suburban Area",
+        "habitatDescription": "Human-developed areas with parks, gardens, and buildings. Many adaptable bird species, such as pigeons, sparrows, and robins, thrive in these environments."
+    }
+]

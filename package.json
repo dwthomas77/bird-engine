@@ -1,0 +1,32 @@
+{
+  "name": "bird-engine",
+  "version": "1.0.0",
+  "description": "For the birds",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "main.ts",
+  "scripts": {
+    "dev": "npx tsx src/main.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.9.3",
+    "@typescript-eslint/eslint-plugin": "^8.61.1",
+    "@typescript-eslint/parser": "^8.61.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "@fastify/swagger": "^9.8.1",
+    "@fastify/swagger-ui": "^6.1.1",
+    "fastify": "^5.8.5",
+    "json-schema-to-ts": "^3.1.1"
+  }
+}
