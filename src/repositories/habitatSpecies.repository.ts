@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import { FromSchema } from "json-schema-to-ts";
 import { InternalServerError } from "../errors.js";
-import HabitatSpeciesSchema from "./habitatSpecies.schema.js";
+import HabitatSpeciesSchema from "../habitatSpecies.schema.js";
 
 export type HabitatSpecies = FromSchema<typeof HabitatSpeciesSchema>;
 

@@ -22,8 +22,8 @@ export class ValidationError extends AppError {
 
 export class NotFoundError extends AppError {
   readonly code = ERROR_CODES.NOT_FOUND_ERROR;
-  constructor(resource: string) {
-    super(`${resource} not found`);
+  constructor(message: string, public errors: Record<string, string>) {
+    super(message);
   }
 }
 
