@@ -6,16 +6,16 @@ import swagger from "@fastify/swagger";
 import swaggerUI from "@fastify/swagger-ui";
 import path from "node:path";
 import habitatRoutes from "./routes/habitat.routes.js";
+import speciesRoutes from "./routes/species.routes.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
 } from "./schema/habitat.schema.js";
-// import speciesRoutes from "./resource/species/species.routes.js";
-// import {
-//   SpeciesEntity,
-//   ReadSpeciesSchema,
-//   CreateSpeciesSchema,
-// } from "./resource/species/species.schema.js";
+import {
+  SpeciesSchema,
+  SpeciesRequestSchema,
+  SpeciesReadSchema,
+} from "./schema/species.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
 
 import {
@@ -26,14 +26,34 @@ import {
   habitatServiceFactory,
   HabitatService,
 } from "./services/habitat.service.js";
+import {
+  habitatSpeciesServiceFactory,
+  SpeciesHabitatService,
+} from "./services/habitatSpecies.service.js";
+import {
+  speciesServiceFactory,
+  SpeciesService,
+} from "./services/species.service.js";
+import {
+  speciesRepositoryFactory,
+  SpeciesRepository,
+} from "./repositories/species.repository.js";
+import {
+  habitatSpeciesRepositoryFactory,
+  HabitatSpeciesRepository,
+} from "./repositories/habitatSpecies.repository.js";
 
 declare module "fastify" {
   interface FastifyInstance {
     repositories: {
       habitat: HabitatRepository;
+      species: SpeciesRepository;
+      habitatSpecies: HabitatSpeciesRepository;
     };
     services: {
       habitat: HabitatService;
+      species: SpeciesService;
+      speciesHabitat: SpeciesHabitatService;
     };
   }
 }
@@ -71,11 +91,27 @@ export async function buildApp(options: appOptions = {}) {
     habitat: habitatRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
+    species: speciesRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
+    habitatSpecies: habitatSpeciesRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
   };
+
+  const speciesHabitat = habitatSpeciesServiceFactory({
+    habitatSpeciesRepository: repositories.habitatSpecies,
+    habitatRepository: repositories.habitat,
+  });
 
   const services = {
     habitat: habitatServiceFactory({
       repository: repositories.habitat,
+    }),
+    speciesHabitat,
+    species: speciesServiceFactory({
+      speciesRepository: repositories.species,
+      speciesHabitatService: speciesHabitat,
     }),
   };
 
@@ -90,13 +126,13 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(HabitatSchema);
   app.addSchema(HabitatRequestSchema);
 
-  //app.addSchema(SpeciesEntity);
-  //app.addSchema(ReadSpeciesSchema);
-  //app.addSchema(CreateSpeciesSchema);
+  app.addSchema(SpeciesSchema);
+  app.addSchema(SpeciesRequestSchema);
+  app.addSchema(SpeciesReadSchema);
 
   // Routes
   app.register(habitatRoutes);
-  //app.register(speciesRoutes);
+  app.register(speciesRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

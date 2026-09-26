@@ -41,7 +41,7 @@ const SpeciesSchema = {
     },
     ...baseSpeciesProperties,
   },
-  required: [...requiredFields, "habitatId", "habitats"],
+  required: [...requiredFields, "speciesId"],
 } as const;
 
 const SpeciesRequestSchema = {
@@ -63,7 +63,7 @@ const SpeciesRequestSchema = {
 
 const SpeciesReadSchema = {
   $id: "api/species/read",
-  title: "Species Read",
+  title: "Detailed Species",
   description: "A species of bird",
   type: "object",
   properties: {

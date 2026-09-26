@@ -1,4 +1,4 @@
-import type { Habitat, HabitatRequest } from "../types.js";
+import type { Habitat } from "../types.js";
 import fs from "fs/promises";
 import { InternalServerError } from "../errors.js";
 
@@ -8,8 +8,7 @@ export interface HabitatRepository {
   getHabitatById(habitatId: string): Promise<Habitat | undefined>;
   deleteHabitatFromRepository(habitatId: string): Promise<void>;
   updateHabitatInRepository(
-    uid: string,
-    updatedHabitat: HabitatRequest,
+    updatedHabitat: Habitat,
   ): Promise<Habitat>;
 }
 
@@ -110,8 +109,7 @@ export function habitatRepositoryFactory({
     },
 
     async updateHabitatInRepository(
-      habitatId: string,
-      updatedHabitat: HabitatRequest,
+      updatedHabitat: Habitat,
     ): Promise<Habitat> {
       try {
         // Ensure we have current data
@@ -123,7 +121,7 @@ export function habitatRepositoryFactory({
 
         // Find existing habitat
         const habitatIndex = habitats.findIndex(
-          (h) => h.habitatId === habitatId,
+          (h) => h.habitatId === updatedHabitat.habitatId,
         );
 
         if (habitatIndex === -1) {
@@ -132,20 +130,13 @@ export function habitatRepositoryFactory({
           );
         }
 
-        const updatedHabitatWithId: Habitat = {
-          habitatId,
-          ...updatedHabitat,
-        };
-
         // Replace existing habitat
-        habitats[habitatIndex] = updatedHabitatWithId;
-
+        habitats[habitatIndex] = updatedHabitat;
         // Persist changes
         await fs.writeFile(fileUrl, JSON.stringify(habitats, null, 2), "utf-8");
-
         // Update cache
         cachedHabitats = habitats;
-        return updatedHabitatWithId;
+        return updatedHabitat;
       } catch (error) {
         throw new InternalServerError(
           `Failed to update habitat: ${

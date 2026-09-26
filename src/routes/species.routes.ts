@@ -1,0 +1,99 @@
+import type { FastifyInstance } from "fastify";
+import { speciesControllerFactory } from "../controllers/species.controller.js";
+
+async function routes(fastify: FastifyInstance) {
+	const {
+		getAllSpeciesController,
+		postNewSpeciesController,
+		getSpeciesByIdController,
+		removeExistingSpeciesController,
+		updateExistingSpeciesController,
+	} = speciesControllerFactory({ service: fastify.services.species });
+
+	fastify.get(
+		"/species",
+		{
+			schema: {
+				description: "Get all species",
+				response: {
+					200: {
+						type: "array",
+						items: {
+							$ref: "api/species/read#",
+						},
+					},
+				},
+			},
+		},
+		getAllSpeciesController,
+	);
+	fastify.get(
+		"/species/:uid",
+		{
+			schema: {
+				params: {
+					type: "object",
+					properties: {
+						uid: { type: "string" },
+					},
+					required: ["uid"],
+				},
+				response: {
+					200: { $ref: "api/species/read#" },
+				},
+			},
+		},
+		getSpeciesByIdController,
+	);
+	fastify.post(
+		"/species",
+		{
+			schema: {
+				body: { $ref: "api/species/request#" },
+				response: {
+					200: { $ref: "api/species/read#" },
+				},
+			},
+		},
+		postNewSpeciesController,
+	);
+	fastify.delete(
+		"/species/:uid",
+		{
+			schema: {
+				params: {
+					type: "object",
+					properties: {
+						uid: { type: "string" },
+					},
+					required: ["uid"],
+				},
+				response: {
+					204: { type: "null" },
+				},
+			},
+		},
+		removeExistingSpeciesController,
+	);
+	fastify.put(
+		"/species/:uid",
+		{
+			schema: {
+				params: {
+					type: "object",
+					properties: {
+						uid: { type: "string" },
+					},
+					required: ["uid"],
+				},
+				body: { $ref: "api/species/request#" },
+				response: {
+					200: { $ref: "api/species/read#" },
+				},
+			},
+		},
+		updateExistingSpeciesController,
+	);
+}
+
+export default routes;

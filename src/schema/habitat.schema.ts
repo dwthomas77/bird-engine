@@ -20,8 +20,8 @@ export const HabitatSchema = {
 
 export const HabitatRequestSchema = {
   $id: "api/habitat/request",
-  title: "Create Habitat Request",
-  description: "A request to create a habitat for birds",
+  title: "Habitat Request",
+  description: "A request for a habitat",
   type: "object",
   properties: {
     "habitatName": {

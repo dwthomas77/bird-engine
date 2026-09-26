@@ -1,94 +1,131 @@
 import fs from "fs/promises";
-import { FromSchema } from "json-schema-to-ts";
 import { InternalServerError } from "../errors.js";
-import HabitatSpeciesSchema from "../habitatSpecies.schema.js";
+import type { HabitatSpeciesRelationship } from "../types.js";
 
-export type HabitatSpecies = FromSchema<typeof HabitatSpeciesSchema>;
-
-let cachedHabitatSpecies: HabitatSpecies[] | null = null;
-
-export async function getHabitatSpecies(): Promise<HabitatSpecies[]> {
-  if (!cachedHabitatSpecies) {
-    const raw = await fs.readFile(new URL("./data/habitatSpecies.json", import.meta.url), "utf-8");
-    cachedHabitatSpecies = (JSON.parse(raw) as HabitatSpecies[]) || [];
-  }
-
-  return cachedHabitatSpecies;
+export interface HabitatSpeciesRepository {
+	getRelationships(): Promise<HabitatSpeciesRelationship[]>;
+	addRelationship(habitatId: string, speciesId: string): Promise<void>;
+	removeRelationship(habitatId: string, speciesId: string): Promise<void>;
+	synchronizeHabitats(
+		speciesId: string,
+		habitatIds: string[],
+	): Promise<void>;
 }
 
-async function writeHabitatSpecies(relationships: HabitatSpecies[]): Promise<void> {
-  await fs.writeFile(
-    new URL("./data/habitatSpecies.json", import.meta.url),
-    JSON.stringify(relationships, null, 2),
-    "utf-8"
-  );
-  cachedHabitatSpecies = relationships;
-}
+export function habitatSpeciesRepositoryFactory({
+	dataDir,
+}: {
+	dataDir: string;
+}): HabitatSpeciesRepository {
+	const fileUrl = new URL(`${dataDir}/habitatSpecies.data.json`, import.meta.url);
+	let cachedRelationships: HabitatSpeciesRelationship[] | null = null;
 
-export async function addHabitatSpeciesToRepository(
-  relationship: HabitatSpecies
-): Promise<HabitatSpecies> {
-  try {
-    const relationships = await getHabitatSpecies();
-    relationships.push(relationship);
-    await writeHabitatSpecies(relationships);
-    return relationship;
-  } catch (error) {
-    throw new InternalServerError(
-      `Failed to add habitat species relationship: ${error instanceof Error ? error.message : String(error)}`
-    );
-  }
-}
+	async function readRelationshipsFile(): Promise<HabitatSpeciesRelationship[]> {
+		const raw = await fs.readFile(fileUrl, "utf-8");
+		return (JSON.parse(raw) as HabitatSpeciesRelationship[]) || [];
+	}
 
-export async function getHabitatSpeciesByHabitatAndSpecies(
-  habitatId: string,
-  speciesId: string
-): Promise<HabitatSpecies | undefined> {
-  return (await getHabitatSpecies()).find(
-    (relationship) =>
-      relationship.habitatId === habitatId && relationship.speciesId === speciesId
-  );
-}
+	async function writeRelationships(
+		relationships: HabitatSpeciesRelationship[],
+	): Promise<void> {
+		await fs.writeFile(
+			fileUrl,
+			JSON.stringify(relationships, null, 2),
+			"utf-8",
+		);
+		cachedRelationships = relationships;
+	}
 
-export async function deleteHabitatSpeciesFromRepository(
-  habitatId: string,
-  speciesId: string
-): Promise<void> {
-  try {
-    const relationships = await getHabitatSpecies();
-    await writeHabitatSpecies(
-      relationships.filter(
-        (relationship) =>
-          relationship.habitatId !== habitatId || relationship.speciesId !== speciesId
-      )
-    );
-  } catch (error) {
-    throw new InternalServerError(
-      `Failed to delete habitat species relationship: ${error instanceof Error ? error.message : String(error)}`
-    );
-  }
-}
+	async function getRelationships(): Promise<HabitatSpeciesRelationship[]> {
+		if (!cachedRelationships) {
+			cachedRelationships = await readRelationshipsFile();
+		}
+		return cachedRelationships;
+	}
 
-export async function updateHabitatSpeciesInRepository(
-  relationship: HabitatSpecies
-): Promise<HabitatSpecies> {
-  try {
-    const relationships = await getHabitatSpecies();
-    const index = relationships.findIndex(
-      (item) =>
-        item.habitatId === relationship.habitatId && item.speciesId === relationship.speciesId
-    );
+	async function addRelationship(
+		habitatId: string,
+		speciesId: string,
+	): Promise<void> {
+		try {
+			const relationships = await getRelationships();
+			const alreadyExists = relationships.some(
+				(relationship) =>
+					relationship.habitatId === habitatId &&
+					relationship.speciesId === speciesId,
+			);
+			if (!alreadyExists) {
+				await writeRelationships([
+					...relationships,
+					{ habitatId, speciesId },
+				]);
+			}
+		} catch (error) {
+			throw new InternalServerError(
+				`Failed to add relationship between habitat ${habitatId} and species ${speciesId}: ${error instanceof Error ? error.message : String(error)}`,
+			);
+		}
+	}
 
-    if (index === -1) {
-      throw new Error("Habitat species relationship not found");
-    }
+	async function removeRelationship(
+		habitatId: string,
+		speciesId: string,
+	): Promise<void> {
+		try {
+			const relationships = await getRelationships();
+			await writeRelationships(
+				relationships.filter(
+					(relationship) =>
+						relationship.habitatId !== habitatId ||
+						relationship.speciesId !== speciesId,
+				),
+			);
+		} catch (error) {
+			throw new InternalServerError(
+				`Failed to remove relationship between habitat ${habitatId} and species ${speciesId}: ${error instanceof Error ? error.message : String(error)}`,
+			);
+		}
+	}
 
-    relationships[index] = relationship;
-    await writeHabitatSpecies(relationships);
-    return relationship;
-  } catch (error) {
-    throw new InternalServerError(
-      `Failed to update habitat species relationship: ${error instanceof Error ? error.message : String(error)}`
-    );
-  }
+	async function synchronizeHabitats(
+		speciesId: string,
+		habitatIds: string[],
+	): Promise<void> {
+		try {
+			const relationships = await getRelationships();
+			const retainedRelationships = relationships.filter(
+				(relationship) =>
+				relationship.speciesId !== speciesId ||
+				habitatIds.includes(relationship.habitatId),
+			);
+			const replacementRelationships = habitatIds
+				.filter(
+					(habitatId) =>
+						!retainedRelationships.some(
+							(relationship) =>
+								relationship.speciesId === speciesId &&
+								relationship.habitatId === habitatId,
+						),
+				)
+				.map((habitatId) => ({
+					habitatId,
+					speciesId,
+				}));
+			await writeRelationships([
+				...retainedRelationships,
+				...replacementRelationships,
+			]);
+		} catch (error) {
+			throw new InternalServerError(
+				`Failed to replace habitats for species ${speciesId}: ${error instanceof Error ? error.message : String(error)}`,
+			);
+		}
+	}
+
+	return {
+		getRelationships,
+		addRelationship,
+		removeRelationship,
+		synchronizeHabitats,
+	};
 }

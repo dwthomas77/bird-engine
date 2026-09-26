@@ -2,7 +2,6 @@ import type { Habitat, HabitatRequest } from "../types.js";
 import { ValidationError, NotFoundError } from "../errors.js";
 import type { HabitatRepository } from "../repositories/habitat.repository.js";
 
-// services/user.service.js
 export interface HabitatService {
   getHabitatsService(): Promise<Habitat[]>;
   addHabitatService(newHabitat: HabitatRequest): Promise<Habitat>;
@@ -43,7 +42,7 @@ async function updateHabitatService(
       habitatId: "Habitat ID does not exist",
     });
   } else {
-    const response = await repository.updateHabitatInRepository(uid, updatedHabitat);
+    const response = await repository.updateHabitatInRepository({...updatedHabitat, habitatId: uid});
     return response;
   }
 }
@@ -110,12 +109,12 @@ export function habitatServiceFactory({
     async getHabitatsService(): Promise<Habitat[]> {
       return await getHabitatsService(repository);
     },
-    async addHabitatService(newHabitat: Habitat): Promise<Habitat> {
+    async addHabitatService(newHabitat: HabitatRequest): Promise<Habitat> {
       return await addHabitatService(newHabitat, repository);
     },
     async updateHabitatService(
       uid: string,
-      updatedHabitat: Habitat,
+      updatedHabitat: HabitatRequest,
     ): Promise<Habitat> {
       return await updateHabitatService(uid, updatedHabitat, repository);
     },

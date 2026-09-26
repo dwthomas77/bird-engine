@@ -6,14 +6,13 @@ export interface SpeciesRepository {
   getSpecies(): Promise<Species[]>;
   addSpeciesToRepository(newSpecies: Species): Promise<Species>;
   getSpeciesById(speciesId: string): Promise<Species | undefined>;
-  deleteSpeciesFromRepository(habitatId: string): Promise<void>;
+  deleteSpeciesFromRepository(speciesId: string): Promise<void>;
   updateSpeciesInRepository(
-    uid: string,
     updatedSpecies: Species,
   ): Promise<Species>;
 }
 
-export function habitatRepositoryFactory({
+export function speciesRepositoryFactory({
   dataDir,
 }: {
   dataDir: string;
@@ -71,13 +70,12 @@ export function habitatRepositoryFactory({
   }
 
   async function updateSpeciesInRepository(
-    uid: string,
     updatedSpecies: Species,
   ): Promise<Species> {
     try {
       const species = await getSpecies();
       const index = species.findIndex(
-        (item) => item.speciesId === uid,
+        (item) => item.speciesId === updatedSpecies.speciesId,
       );
       if (index === -1)
         throw new Error(

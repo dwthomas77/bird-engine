@@ -7,7 +7,7 @@ import {
   habitatRepositoryFactory,
   HabitatRepository,
 } from "../../src/repositories/habitat.repository.js";
-import type { Habitat, HabitatRequest } from "../../src/types.js";
+import type { Habitat } from "../../src/types.js";
 
 let tempDir: string;
 let dataFile: string;
@@ -106,11 +106,12 @@ describe("HabitatRepository", () => {
 
   it("updates a habitat", async () => {
     await seedHabitats([testHabitat]);
-    const updatedHabitat: HabitatRequest = {
+    const updatedHabitat: Habitat = {
+      habitatId: "1",
       habitatName: "Updated Forest",
       habitatDescription: "An updated description.",
     };
-    await repository.updateHabitatInRepository('1', updatedHabitat);
+    await repository.updateHabitatInRepository(updatedHabitat);
     const habitats = await repository.getHabitats();
     expect(habitats).toHaveLength(1);
     expect(habitats[0].habitatId).toBe("1");

@@ -3,8 +3,8 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import {
-	habitatRepositoryFactory,
 	SpeciesRepository,
+	speciesRepositoryFactory,
 } from "../../src/repositories/species.repository.js";
 import type { Species } from "../../src/types.js";
 
@@ -23,8 +23,6 @@ export const testSpecies: Species = {
 	weightMax: 2.5,
 	wingspanMin: 167,
 	wingspanMax: 201,
-	habitatId: "1",
-	habitats: ["1"],
 };
 
 export const testSpecies2: Species = {
@@ -39,8 +37,6 @@ export const testSpecies2: Species = {
 	weightMax: 6.3,
 	wingspanMin: 168,
 	wingspanMax: 244,
-	habitatId: "2",
-	habitats: ["2"],
 };
 
 describe("SpeciesRepository", () => {
@@ -50,7 +46,7 @@ describe("SpeciesRepository", () => {
 		tempDir = await mkdtemp(path.join(tmpdir(), "bird-engine-"));
 		dataFile = path.join(tempDir, "species.data.json");
 		await writeFile(dataFile, "[]", "utf8");
-		repository = habitatRepositoryFactory({ dataDir: tempDir });
+		repository = speciesRepositoryFactory({ dataDir: tempDir });
 	});
 
 	afterEach(async () => {
@@ -118,7 +114,7 @@ describe("SpeciesRepository", () => {
 			localeName: "Updated Heron",
 		};
 
-		await repository.updateSpeciesInRepository("1", updatedSpecies);
+		await repository.updateSpeciesInRepository(updatedSpecies);
 
 		const species = await repository.getSpecies();
 		expect(species).toHaveLength(1);
