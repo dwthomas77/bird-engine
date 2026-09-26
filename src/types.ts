@@ -1,7 +1,7 @@
 import { FromSchema } from "json-schema-to-ts";
 import { HabitatSchema, HabitatRequestSchema} from './schema/habitat.schema.js';
 import { HabitatSpeciesSchema } from './schema/habitatSpecies.schema.js';
-import { SpeciesSchema, SpeciesRequestSchema, SpeciesReadSchema } from './schema/species.schema.js';
+import { SpeciesSchema, SpeciesRequestSchema } from './schema/species.schema.js';
 import ServerErrorResponseSchema from './schema/server.errorResponse.schema.js';
 
 export type Habitat = FromSchema<typeof HabitatSchema>;
