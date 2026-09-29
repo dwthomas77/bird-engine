@@ -7,14 +7,16 @@ import type { Habitat, HabitatRequest } from "../../src/types.js";
 
 const forest: Habitat = {
   habitatId: "1",
-  habitatName: "Forest",
-  habitatDescription: "A dense forest with tall trees.",
+  code: "forest",
+  name: "Forest",
+  description: "A dense forest with tall trees.",
 };
 
 const desert: Habitat = {
   habitatId: "2",
-  habitatName: "Desert",
-  habitatDescription: "A hot and arid desert.",
+  code: "desert",
+  name: "Desert",
+  description: "A hot and arid desert.",
 };
 
 describe("GET /habitats", () => {
@@ -85,8 +87,9 @@ describe("GET /habitats", () => {
 
   it("creates a habitat", async () => {
     const creationPayload = {
-      habitatName: forest.habitatName,
-      habitatDescription: forest.habitatDescription,
+      code: forest.code,
+      name: forest.name,
+      description: forest.description,
     };
     const response = await app.inject({
       method: "POST",
@@ -96,8 +99,9 @@ describe("GET /habitats", () => {
 
     expect(response.statusCode).toBe(200);
     expect(response.json()).toMatchObject({
-      habitatName: forest.habitatName,
-      habitatDescription: forest.habitatDescription,
+      code: forest.code,
+      name: forest.name,
+      description: forest.description,
       habitatId: expect.any(String),
     });
   });
@@ -134,13 +138,14 @@ describe("GET /habitats", () => {
     );
 
     const updateForestPayload: HabitatRequest = {
-      habitatName: forest.habitatName,
-      habitatDescription: forest.habitatDescription,
+      code: forest.code,
+      name: forest.name,
+      description: forest.description,
     };
 
     const updatedForest = {
       ...updateForestPayload,
-      habitatName: "Old-growth forest",
+      name: "Old-growth forest",
     };
 
     const response = await app.inject({
@@ -153,8 +158,8 @@ describe("GET /habitats", () => {
 
     expect(response.statusCode).toBe(200);
     expect(body).toMatchObject({
-      habitatName: updatedForest.habitatName,
-      habitatDescription: updatedForest.habitatDescription,
+      name: updatedForest.name,
+      description: updatedForest.description,
       habitatId: expect.any(String),
     });
   });

@@ -1,6 +1,6 @@
 import { it, expect, vi } from "vitest";
 import { HabitatRepository } from "../../src/repositories/habitat.repository.js";
-import type { Habitat } from "../../src/types.js";
+import type { HabitatRequest } from "../../src/types.js";
 import {
   testHabitat,
   testHabitat2,
@@ -26,14 +26,14 @@ it("throws NotFoundError when updating a habitat that does not exist", async () 
     testHabitat2,
   ]);
 
-  const updatedHabitat: Habitat = {
-    habitatId: "non-existent-id",
-    habitatName: "Updated Name",
-    habitatDescription: "Updated Description",
+  const updatedHabitat: HabitatRequest = {
+    code: "updated",
+    name: "Updated Name",
+    description: "Updated Description",
   };
 
   await expect(
-    habitatServiceFactory({ repository }).updateHabitatService(updatedHabitat.habitatId, updatedHabitat),
+    habitatServiceFactory({ repository }).updateHabitatService("non-existent-id", updatedHabitat),
   ).rejects.toThrow(NotFoundError);
   expect(repository.updateHabitatInRepository).not.toHaveBeenCalled();
 });

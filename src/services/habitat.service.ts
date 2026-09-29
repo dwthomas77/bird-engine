@@ -22,8 +22,7 @@ async function addHabitatService(
 ) {
   const newHabitatWithId: Habitat = {
     habitatId: crypto.randomUUID(),
-    habitatName: newHabitat.habitatName,
-    habitatDescription: newHabitat.habitatDescription,
+    ...newHabitat,
   };
   return await repository.addHabitatToRepository(newHabitatWithId);
 }

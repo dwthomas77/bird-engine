@@ -14,14 +14,16 @@ let dataFile: string;
 
 export const testHabitat: Habitat = {
   habitatId: "1",
-  habitatName: "Forest",
-  habitatDescription: "A dense forest with tall trees.",
+  code: "forest",
+  name: "Forest",
+  description: "A dense forest with tall trees.",
 };
 
 export const testHabitat2: Habitat = {
   habitatId: "2",
-  habitatName: "Desert",
-  habitatDescription: "A hot and arid desert.",
+  code: "desert",
+  name: "Desert",
+  description: "A hot and arid desert.",
 };
 
 describe("HabitatRepository", () => {
@@ -59,13 +61,13 @@ describe("HabitatRepository", () => {
     const habitats = await repository.getHabitats();
     expect(habitats).toHaveLength(2);
     expect(habitats[0].habitatId).toBe("1");
-    expect(habitats[0].habitatName).toBe("Forest");
-    expect(habitats[0].habitatDescription).toBe(
+    expect(habitats[0].name).toBe("Forest");
+    expect(habitats[0].description).toBe(
       "A dense forest with tall trees.",
     );
     expect(habitats[1].habitatId).toBe("2");
-    expect(habitats[1].habitatName).toBe("Desert");
-    expect(habitats[1].habitatDescription).toBe("A hot and arid desert.");
+    expect(habitats[1].name).toBe("Desert");
+    expect(habitats[1].description).toBe("A hot and arid desert.");
   });
 
   it("retrieves a habitat by id", async () => {
@@ -88,8 +90,8 @@ describe("HabitatRepository", () => {
 
     expect(habitats).toHaveLength(1);
     expect(habitats[0].habitatId).toBe("1");
-    expect(habitats[0].habitatName).toBe("Forest");
-    expect(habitats[0].habitatDescription).toBe(
+    expect(habitats[0].name).toBe("Forest");
+    expect(habitats[0].description).toBe(
       "A dense forest with tall trees.",
     );
   });
@@ -108,14 +110,15 @@ describe("HabitatRepository", () => {
     await seedHabitats([testHabitat]);
     const updatedHabitat: Habitat = {
       habitatId: "1",
-      habitatName: "Updated Forest",
-      habitatDescription: "An updated description.",
+      code: "forest",
+      name: "Updated Forest",
+      description: "An updated description.",
     };
     await repository.updateHabitatInRepository(updatedHabitat);
     const habitats = await repository.getHabitats();
     expect(habitats).toHaveLength(1);
     expect(habitats[0].habitatId).toBe("1");
-    expect(habitats[0].habitatName).toBe("Updated Forest");
-    expect(habitats[0].habitatDescription).toBe("An updated description.");
+    expect(habitats[0].name).toBe("Updated Forest");
+    expect(habitats[0].description).toBe("An updated description.");
   });
 });

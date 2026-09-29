@@ -106,16 +106,19 @@ Represents a habitat where bird species may be found.
 | Field | Type | Description |
 |---------|---------|---------|
 | habitatId | string | Unique habitat identifier |
-| habitatName | string | Name of the habitat |
-| habitatDescription | string | Description of the habitat |
+| code | string | Unique habitat code |
+| name | string | Name of the habitat |
+| parentHabitatId | string (optional) | Parent habitat identifier |
+| description | string (optional) | Description of the habitat |
 
 ### Example
 
 ```json
 {
   "habitatId": "forest",
-  "habitatName": "Temperate Forest",
-  "habitatDescription": "Dense woodland with seasonal climate"
+  "code": "forest",
+  "name": "Temperate Forest",
+  "description": "Dense woodland with seasonal climate"
 }
 ```
 
@@ -160,8 +163,9 @@ Represents a bird species.
   "habitats": [
     {
       "habitatId": "wetlands",
-      "habitatName": "Wetlands",
-      "habitatDescription": "Marshes, lakes, and rivers"
+      "code": "wetlands",
+      "name": "Wetlands",
+      "description": "Marshes, lakes, and rivers"
     }
   ]
 }
