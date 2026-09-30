@@ -7,6 +7,7 @@ import swaggerUI from "@fastify/swagger-ui";
 import path from "node:path";
 import habitatRoutes from "./routes/habitat.routes.js";
 import speciesRoutes from "./routes/species.routes.js";
+import birdRoutes from "./routes/bird.routes.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
@@ -16,6 +17,7 @@ import {
   SpeciesRequestSchema,
   SpeciesReadSchema,
 } from "./schema/species.schema.js";
+import { BirdSchema } from "./schema/bird.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
 
 import {
@@ -34,6 +36,10 @@ import {
   speciesServiceFactory,
   SpeciesService,
 } from "./services/species.service.js";
+import {
+  birdServiceFactory,
+  BirdService,
+} from "./services/bird.service.js";
 import {
   speciesRepositoryFactory,
   SpeciesRepository,
@@ -54,6 +60,7 @@ declare module "fastify" {
       habitat: HabitatService;
       species: SpeciesService;
       speciesHabitat: SpeciesHabitatService;
+      bird: BirdService;
     };
   }
 }
@@ -113,6 +120,9 @@ export async function buildApp(options: appOptions = {}) {
       speciesRepository: repositories.species,
       speciesHabitatService: speciesHabitat,
     }),
+    bird: birdServiceFactory({
+      speciesRepository: repositories.species,
+    }),
   };
 
   app.decorate("repositories", repositories);
@@ -129,10 +139,12 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(SpeciesSchema);
   app.addSchema(SpeciesRequestSchema);
   app.addSchema(SpeciesReadSchema);
+  app.addSchema(BirdSchema);
 
   // Routes
   app.register(habitatRoutes);
   app.register(speciesRoutes);
+  app.register(birdRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

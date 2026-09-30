@@ -10,6 +10,13 @@
     "weightMax": 3.5,
     "wingspanMin": 13,
     "wingspanMax": 17,
+    "habitats": [
+      "b9d514e3-ad0b-497b-9e47-968cf18df597",
+      "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
+      "5354f680-8fc5-414b-8864-ffdfbf38c590",
+      "cad105e7-7848-4ad6-86a8-d47568055da2",
+      "b0041a8c-8f8d-497d-bf33-35ff67dae5a9"
+    ],
     "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
   },
   {
@@ -23,6 +30,19 @@
     "weightMax": 1.7,
     "wingspanMin": 9.8,
     "wingspanMax": 12.2,
+    "habitats": [
+      "b9d514e3-ad0b-497b-9e47-968cf18df597",
+      "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
+      "a623635e-7020-47b4-919f-e9c4011f10ec",
+      "21d0e302-d624-4029-96f4-a244717eeb81",
+      "1baa669f-7584-4e6d-b3bb-f15bad6cd773",
+      "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+      "690d3853-8b2c-4fe0-97ff-722f99e30f2a",
+      "5d8ebaf7-1c9e-48bc-b917-c89202d5cd96",
+      "5354f680-8fc5-414b-8864-ffdfbf38c590",
+      "cad105e7-7848-4ad6-86a8-d47568055da2",
+      "b0041a8c-8f8d-497d-bf33-35ff67dae5a9"
+    ],
     "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
   },
   {
@@ -36,6 +56,10 @@
     "weightMax": 0.5,
     "wingspanMin": 6.3,
     "wingspanMax": 8.3,
+    "habitats": [
+      "b9d514e3-ad0b-497b-9e47-968cf18df597",
+      "b71edc21-1c0f-430f-9c34-a3a1fd88c158"
+    ],
     "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712"
   },
   {
@@ -46,7 +70,7 @@
     "lengthMin": 9.1,
     "lengthMax": 11,
     "weightMin": 2.7,
-    "weightMax": 3.0,
+    "weightMax": 3,
     "wingspanMin": 12.2,
     "wingspanMax": 15.8,
     "speciesId": "8f0c4ddc-40bc-4823-beca-c6f4baf454fc"
@@ -62,6 +86,13 @@
     "weightMax": 222,
     "wingspanMin": 66,
     "wingspanMax": 96,
+    "habitats": [
+      "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+      "ef73177d-163c-4aa3-bda9-70d4b6ad0648",
+      "a7a51d47-6f32-465a-b619-fdcefb8cbbdf",
+      "3798eb00-4aef-4311-a54c-d5f19fc12c7b",
+      "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    ],
     "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
   },
   {
@@ -71,7 +102,7 @@
     "localeName": "Red-bellied Woodpecker",
     "lengthMin": 9.4,
     "lengthMax": 10.6,
-    "weightMin": 2.0,
+    "weightMin": 2,
     "weightMax": 3.2,
     "wingspanMin": 15,
     "wingspanMax": 18,
@@ -85,7 +116,7 @@
     "lengthMin": 9.1,
     "lengthMax": 13.4,
     "weightMin": 3.4,
-    "weightMax": 6.0,
+    "weightMax": 6,
     "wingspanMin": 17.5,
     "wingspanMax": 18.1,
     "speciesId": "aa631f3c-d6fb-4146-a2de-3e75960b1cf1"
@@ -202,7 +233,7 @@
     "lengthMin": 5.1,
     "lengthMax": 5.5,
     "weightMin": 0.6,
-    "weightMax": 1.0,
+    "weightMax": 1,
     "wingspanMin": 7.9,
     "wingspanMax": 10.6,
     "speciesId": "d5836893-4202-47ed-ab0b-3012f0c9282d"
@@ -292,7 +323,7 @@
     "localeName": "Baltimore Oriole",
     "lengthMin": 6.7,
     "lengthMax": 7.5,
-    "weightMin": 1.0,
+    "weightMin": 1,
     "weightMax": 1.5,
     "wingspanMin": 9.1,
     "wingspanMax": 11.8,

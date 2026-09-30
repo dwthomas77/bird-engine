@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
+  },
+  {
+    "habitatId": "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
+    "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
+  },
+  {
+    "habitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
+  },
+  {
+    "habitatId": "cad105e7-7848-4ad6-86a8-d47568055da2",
+    "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
+  },
+  {
+    "habitatId": "b0041a8c-8f8d-497d-bf33-35ff67dae5a9",
+    "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10"
+  },
+  {
+    "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "a623635e-7020-47b4-919f-e9c4011f10ec",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "1baa669f-7584-4e6d-b3bb-f15bad6cd773",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "690d3853-8b2c-4fe0-97ff-722f99e30f2a",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "5d8ebaf7-1c9e-48bc-b917-c89202d5cd96",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "cad105e7-7848-4ad6-86a8-d47568055da2",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "b0041a8c-8f8d-497d-bf33-35ff67dae5a9",
+    "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe"
+  },
+  {
+    "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712"
+  },
+  {
+    "habitatId": "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
+    "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712"
+  },
+  {
+    "habitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
+  },
+  {
+    "habitatId": "ef73177d-163c-4aa3-bda9-70d4b6ad0648",
+    "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
+  },
+  {
+    "habitatId": "a7a51d47-6f32-465a-b619-fdcefb8cbbdf",
+    "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
+  },
+  {
+    "habitatId": "3798eb00-4aef-4311-a54c-d5f19fc12c7b",
+    "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
+  },
+  {
+    "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e"
+  }
+]

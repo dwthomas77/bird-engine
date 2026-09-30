@@ -2,724 +2,785 @@
   {
     "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
     "code": "1",
-    "name": "Forest"
+    "name": "Forest",
+    "description": "This habitat represents Forest."
   },
   {
     "habitatId": "3bd4a17c-cf28-4366-b9c0-fe4285880a19",
     "code": "1.1",
     "name": "Forest – Boreal",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Boreal."
   },
   {
     "habitatId": "a78ba836-a467-47b9-a23c-a43ce721adf8",
     "code": "1.2",
     "name": "Forest – Subarctic",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subarctic."
   },
   {
     "habitatId": "b615396c-7148-490d-98c9-2cc620414352",
     "code": "1.3",
     "name": "Forest – Subantarctic",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subantarctic."
   },
   {
     "habitatId": "b71edc21-1c0f-430f-9c34-a3a1fd88c158",
     "code": "1.4",
     "name": "Forest – Temperate",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Temperate."
   },
   {
     "habitatId": "bb266a76-1cd4-4224-ba0b-ff1dbd88f941",
     "code": "1.5",
     "name": "Forest – Subtropical/tropical dry",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subtropical/tropical dry."
   },
   {
     "habitatId": "08d3882a-85f1-4701-a447-fec016500cf2",
     "code": "1.6",
     "name": "Forest – Subtropical/tropical moist lowland",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subtropical/tropical moist lowland."
   },
   {
     "habitatId": "9ce26585-61a5-4de4-ae8e-73eec2a6c79c",
     "code": "1.7",
     "name": "Forest – Subtropical/tropical mangrove vegetation above high tide level",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subtropical/tropical mangrove vegetation above high tide level."
   },
   {
     "habitatId": "1cdaf8f0-968e-453d-8d86-cd5693866bd9",
     "code": "1.8",
     "name": "Forest – Subtropical/tropical swamp",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subtropical/tropical swamp."
   },
   {
     "habitatId": "5e4f1117-d5d1-4542-908b-7469c3a69fea",
     "code": "1.9",
     "name": "Forest – Subtropical/tropical moist montane",
-    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    "parentHabitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597",
+    "description": "This habitat represents Forest – Subtropical/tropical moist montane."
   },
   {
     "habitatId": "a623635e-7020-47b4-919f-e9c4011f10ec",
     "code": "2",
-    "name": "Savanna"
+    "name": "Savanna",
+    "description": "This habitat represents Savanna."
   },
   {
     "habitatId": "7308b142-3a77-4aec-a954-70acb4f543b6",
     "code": "2.1",
     "name": "Savanna – Dry",
-    "parentHabitatId": "a623635e-7020-47b4-919f-e9c4011f10ec"
+    "parentHabitatId": "a623635e-7020-47b4-919f-e9c4011f10ec",
+    "description": "This habitat represents Savanna – Dry."
   },
   {
     "habitatId": "659822ee-a96e-425d-bee4-89792dcd0d27",
     "code": "2.2",
     "name": "Savanna – Moist",
-    "parentHabitatId": "a623635e-7020-47b4-919f-e9c4011f10ec"
+    "parentHabitatId": "a623635e-7020-47b4-919f-e9c4011f10ec",
+    "description": "This habitat represents Savanna – Moist."
   },
   {
     "habitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
     "code": "3",
-    "name": "Shrubland"
+    "name": "Shrubland",
+    "description": "This habitat represents Shrubland."
   },
   {
     "habitatId": "fcb57ceb-d548-4c48-b79f-1a451baa8e7f",
     "code": "3.1",
     "name": "Shrubland – Subarctic",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Subarctic."
   },
   {
     "habitatId": "2065b1a2-f213-454a-9c8f-fbbe38acc17a",
     "code": "3.2",
     "name": "Shrubland – Subantarctic",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Subantarctic."
   },
   {
     "habitatId": "1d20511b-3f5f-46d9-ad49-5051a9c1bbe1",
     "code": "3.3",
     "name": "Shrubland – Boreal",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Boreal."
   },
   {
     "habitatId": "1baa669f-7584-4e6d-b3bb-f15bad6cd773",
     "code": "3.4",
     "name": "Shrubland – Temperate",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Temperate."
   },
   {
     "habitatId": "a235402b-6364-4da5-93e1-0c7acc4df745",
     "code": "3.5",
     "name": "Shrubland – Subtropical/tropical dry",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Subtropical/tropical dry."
   },
   {
     "habitatId": "c782fb5a-a371-473f-9237-ef5fe5dbacd9",
     "code": "3.6",
     "name": "Shrubland – Subtropical/tropical moist",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Subtropical/tropical moist."
   },
   {
     "habitatId": "adfcbd8f-ad7d-4da2-94a9-9d494b0d5a2d",
     "code": "3.7",
     "name": "Shrubland – Subtropical/tropical high altitude",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Subtropical/tropical high altitude."
   },
   {
     "habitatId": "db4b6516-b5d5-4dd5-b483-a4afe59de1a7",
     "code": "3.8",
     "name": "Shrubland – Mediterranean-type shrubby vegetation",
-    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81"
+    "parentHabitatId": "21d0e302-d624-4029-96f4-a244717eeb81",
+    "description": "This habitat represents Shrubland – Mediterranean-type shrubby vegetation."
   },
   {
     "habitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
     "code": "4",
-    "name": "Grassland"
+    "name": "Grassland",
+    "description": "This habitat represents Grassland."
   },
   {
     "habitatId": "08aadc22-4067-4f24-8412-de551f1cb3f5",
     "code": "4.1",
     "name": "Grassland – Tundra",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Tundra."
   },
   {
     "habitatId": "6953975b-fe4f-4bfa-9ce5-393e5e631b63",
     "code": "4.2",
     "name": "Grassland – Subarctic",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Subarctic."
   },
   {
     "habitatId": "76ec763c-a60b-4738-b351-e3e1afa2a6ad",
     "code": "4.3",
     "name": "Grassland – Subantarctic",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Subantarctic."
   },
   {
     "habitatId": "848c78a9-c0c4-4932-8767-a8e747649fcd",
     "code": "4.4",
     "name": "Grassland – Temperate",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Temperate."
   },
   {
     "habitatId": "d237f4c8-da63-4a55-894e-6b7283d41688",
     "code": "4.5",
     "name": "Grassland – Subtropical/tropical dry",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Subtropical/tropical dry."
   },
   {
     "habitatId": "222ffc51-02bc-4399-8ceb-2c5ed72f738c",
     "code": "4.6",
     "name": "Grassland – Subtropical/tropical seasonally wet/flooded",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Subtropical/tropical seasonally wet/flooded."
   },
   {
     "habitatId": "4dea89a7-0de9-4f7d-9228-cff621f6dd3c",
     "code": "4.7",
     "name": "Grassland – Subtropical/tropical high altitude",
-    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345"
+    "parentHabitatId": "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+    "description": "This habitat represents Grassland – Subtropical/tropical high altitude."
   },
   {
     "habitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
     "code": "5",
-    "name": "Wetlands (inland)"
+    "name": "Wetlands (inland)",
+    "description": "This habitat represents Wetlands (inland)."
   },
   {
     "habitatId": "ef73177d-163c-4aa3-bda9-70d4b6ad0648",
     "code": "5.1",
     "name": "Wetlands (inland) – Permanent rivers/streams/creeks (includes waterfalls)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent rivers/streams/creeks (includes waterfalls)."
   },
   {
     "habitatId": "65e4ff41-8acb-4d61-aff8-65529edf1e8e",
     "code": "5.2",
     "name": "Wetlands (inland) – Seasonal/intermittent/irregular rivers/streams/creeks",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Seasonal/intermittent/irregular rivers/streams/creeks."
   },
   {
     "habitatId": "690d3853-8b2c-4fe0-97ff-722f99e30f2a",
     "code": "5.3",
     "name": "Wetlands (inland) – Shrub dominated wetlands",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Shrub dominated wetlands."
   },
   {
     "habitatId": "5d8ebaf7-1c9e-48bc-b917-c89202d5cd96",
     "code": "5.4",
     "name": "Wetlands (inland) – Bogs, marshes, swamps, fens, peatlands",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Bogs, marshes, swamps, fens, peatlands."
   },
   {
     "habitatId": "a7a51d47-6f32-465a-b619-fdcefb8cbbdf",
     "code": "5.5",
     "name": "Wetlands (inland) – Permanent freshwater lakes (over 8 ha)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent freshwater lakes (over 8 ha)."
   },
   {
     "habitatId": "ea836728-7a83-4310-a947-8bbbaff55fdf",
     "code": "5.6",
     "name": "Wetlands (inland) – Seasonal/intermittent freshwater lakes (over 8 ha)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Seasonal/intermittent freshwater lakes (over 8 ha)."
   },
   {
     "habitatId": "3798eb00-4aef-4311-a54c-d5f19fc12c7b",
     "code": "5.7",
     "name": "Wetlands (inland) – Permanent freshwater marshes/pools (under 8 ha)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent freshwater marshes/pools (under 8 ha)."
   },
   {
     "habitatId": "b8995343-96e6-4bb8-b5b0-1ed253894ba4",
     "code": "5.8",
     "name": "Wetlands (inland) – Seasonal/intermittent freshwater marshes/pools (under 8 ha)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Seasonal/intermittent freshwater marshes/pools (under 8 ha)."
   },
   {
     "habitatId": "78755002-3005-4a67-aa8a-6dc595327513",
     "code": "5.9",
     "name": "Wetlands (inland) – Freshwater springs and oases",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Freshwater springs and oases."
   },
   {
     "habitatId": "1c7be6b0-8e9c-46c5-a8fd-174bc68e7fd4",
     "code": "5.10",
     "name": "Wetlands (inland) – Tundra wetlands (inc. pools and temporary waters from snowmelt)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Tundra wetlands (inc. pools and temporary waters from snowmelt)."
   },
   {
     "habitatId": "a6893ad0-086d-40a8-b179-fef9c3f1578d",
     "code": "5.11",
     "name": "Wetlands (inland) – Alpine wetlands (inc. temporary waters from snowmelt)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Alpine wetlands (inc. temporary waters from snowmelt)."
   },
   {
     "habitatId": "f51a8382-5041-4369-8173-578a6e80ecae",
     "code": "5.12",
     "name": "Wetlands (inland) – Geothermal wetlands",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Geothermal wetlands."
   },
   {
     "habitatId": "5b5b1ab9-209a-48e5-8885-1b8e5090a77e",
     "code": "5.13",
     "name": "Wetlands (inland) – Permanent inland deltas",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent inland deltas."
   },
   {
     "habitatId": "8cb1695c-5ce9-48c7-9a9c-fae528173c67",
     "code": "5.14",
     "name": "Wetlands (inland) – Permanent saline, brackish or alkaline lakes",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent saline, brackish or alkaline lakes."
   },
   {
     "habitatId": "b23aef36-ae1a-4ab4-9888-272a56da09b5",
     "code": "5.15",
     "name": "Wetlands (inland) – Seasonal/intermittent saline, brackish or alkaline lakes and flats",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Seasonal/intermittent saline, brackish or alkaline lakes and flats."
   },
   {
     "habitatId": "328df2cc-2170-4c82-96d1-472168c32080",
     "code": "5.16",
     "name": "Wetlands (inland) – Permanent saline, brackish or alkaline marshes/pools",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Permanent saline, brackish or alkaline marshes/pools."
   },
   {
     "habitatId": "8eb597fc-82e9-4fc9-8475-1dfdbbafda7b",
     "code": "5.17",
     "name": "Wetlands (inland) – Seasonal/intermittent saline, brackish or alkaline marshes/pools",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Seasonal/intermittent saline, brackish or alkaline marshes/pools."
   },
   {
     "habitatId": "654a2d79-7b2e-494d-a682-d495e7505023",
     "code": "5.18",
     "name": "Wetlands (inland) – Karst and other subterranean hydrological systems (inland)",
-    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b"
+    "parentHabitatId": "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+    "description": "This habitat represents Wetlands (inland) – Karst and other subterranean hydrological systems (inland)."
   },
   {
     "habitatId": "8eeae1b3-c3b9-4467-b246-a448d3f372e0",
     "code": "6",
-    "name": "Rocky Areas (e.g., inland cliffs, mountain peaks)"
+    "name": "Rocky Areas (e.g., inland cliffs, mountain peaks)",
+    "description": "This habitat represents Rocky Areas (e.g., inland cliffs, mountain peaks)."
   },
   {
     "habitatId": "2729fa91-460c-44e5-a45b-b931c7bb7eab",
     "code": "7",
-    "name": "Caves & Subterranean Habitats (non-aquatic)"
+    "name": "Caves & Subterranean Habitats (non-aquatic)",
+    "description": "This habitat represents Caves & Subterranean Habitats (non-aquatic)."
   },
   {
     "habitatId": "fe5a300d-199d-43d3-a10a-21a6b8d809fc",
     "code": "7.1",
     "name": "Caves and Subterranean Habitats (non-aquatic) – Caves",
-    "parentHabitatId": "2729fa91-460c-44e5-a45b-b931c7bb7eab"
+    "parentHabitatId": "2729fa91-460c-44e5-a45b-b931c7bb7eab",
+    "description": "This habitat represents Caves and Subterranean Habitats (non-aquatic) – Caves."
   },
   {
     "habitatId": "5fdd7c97-eb2a-4fae-829e-782249bd6a1f",
     "code": "7.2",
     "name": "Caves and Subterranean Habitats (non-aquatic) – Other subterranean habitats",
-    "parentHabitatId": "2729fa91-460c-44e5-a45b-b931c7bb7eab"
+    "parentHabitatId": "2729fa91-460c-44e5-a45b-b931c7bb7eab",
+    "description": "This habitat represents Caves and Subterranean Habitats (non-aquatic) – Other subterranean habitats."
   },
   {
     "habitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1",
     "code": "8",
-    "name": "Desert"
+    "name": "Desert",
+    "description": "This habitat represents Desert."
   },
   {
     "habitatId": "2d685504-d605-46ce-a0ba-b07132259143",
     "code": "8.1",
     "name": "Desert – Hot",
-    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1"
+    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1",
+    "description": "This habitat represents Desert – Hot."
   },
   {
     "habitatId": "950001e0-a9e5-4c5f-85ef-361f7dc5c47c",
     "code": "8.2",
     "name": "Desert – Temperate",
-    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1"
+    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1",
+    "description": "This habitat represents Desert – Temperate."
   },
   {
     "habitatId": "f34eb149-af68-4379-a280-7cad1697953d",
     "code": "8.3",
     "name": "Desert – Cold",
-    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1"
+    "parentHabitatId": "bde065c0-a06a-42b7-8a4b-0075e7a4aad1",
+    "description": "This habitat represents Desert – Cold."
   },
   {
     "habitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
     "code": "9",
-    "name": "Marine Neritic"
+    "name": "Marine Neritic",
+    "description": "This habitat represents Marine Neritic."
   },
   {
     "habitatId": "c3537c1a-302f-46b9-abd8-2136d5f57ce0",
     "code": "9.1",
     "name": "Marine Neritic – Pelagic",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Pelagic."
   },
   {
     "habitatId": "137c1310-3325-4c66-a9bf-0f80ab1f7ebc",
     "code": "9.2",
     "name": "Marine Neritic – Subtidal rock and rocky reefs",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Subtidal rock and rocky reefs."
   },
   {
     "habitatId": "efb0a805-1e6c-481d-8df3-007a19576927",
     "code": "9.3",
     "name": "Marine Neritic – Subtidal loose rock/pebble/gravel",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Subtidal loose rock/pebble/gravel."
   },
   {
     "habitatId": "b1b0280a-d935-4816-92b9-1bfbe05479bb",
     "code": "9.4",
     "name": "Marine Neritic – Subtidal sandy",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Subtidal sandy."
   },
   {
     "habitatId": "a4c098c8-ae2d-4209-8c22-22ddac4f8608",
     "code": "9.5",
     "name": "Marine Neritic – Subtidal sandy-mud",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Subtidal sandy-mud."
   },
   {
     "habitatId": "bed3b5d3-b92e-4178-b2ae-884498c70ebc",
     "code": "9.6",
     "name": "Marine Neritic – Subtidal muddy",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Subtidal muddy."
   },
   {
     "habitatId": "11455c1a-b956-411f-91d0-9275cde65b91",
     "code": "9.7",
     "name": "Marine Neritic – Macroalgal/kelp",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Macroalgal/kelp."
   },
   {
     "habitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
     "code": "9.8",
     "name": "Marine Neritic – Coral Reef",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Marine Neritic – Coral Reef."
   },
   {
     "habitatId": "de1f4aab-7be4-4681-8650-11a0371ba1b0",
     "code": "9.8.1",
     "name": "Outer reef channel",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Outer reef channel."
   },
   {
     "habitatId": "cf9ce370-6898-4319-a863-a570ba0e09a2",
     "code": "9.8.2",
     "name": "Back slope",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Back slope."
   },
   {
     "habitatId": "3d74ff93-a23b-463a-8151-29c4fe905899",
     "code": "9.8.3",
     "name": "Foreslope (outer reef slope)",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Foreslope (outer reef slope)."
   },
   {
     "habitatId": "289d78f9-b62a-4614-9477-a142fff21f20",
     "code": "9.8.4",
     "name": "Lagoon",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Lagoon."
   },
   {
     "habitatId": "63ce487f-c8a6-426e-9d4f-13ebb3885a82",
     "code": "9.8.5",
     "name": "Inter-reef soft substrate",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Inter-reef soft substrate."
   },
   {
     "habitatId": "52277545-0b82-431f-a856-19e8e1d2f405",
     "code": "9.8.6",
     "name": "Inter-reef rubble substrate",
-    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058"
+    "parentHabitatId": "59bceb33-7c95-4fac-b6b0-6fe580ba7058",
+    "description": "This habitat represents Inter-reef rubble substrate."
   },
   {
     "habitatId": "a675dba1-7c56-4f38-83a6-7dcab4a11f42",
     "code": "9.9",
     "name": "Seagrass (Submerged)",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Seagrass (Submerged)."
   },
   {
     "habitatId": "28a06e05-3c1f-40bf-a03b-294ad58ce9bf",
     "code": "9.10",
     "name": "Estuaries",
-    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    "parentHabitatId": "3e3d96a7-f459-45d9-abda-04d255c5469d",
+    "description": "This habitat represents Estuaries."
   },
   {
     "habitatId": "90791bdc-8d99-4741-9929-e224e9188ffc",
     "code": "10",
-    "name": "Marine Oceanic"
+    "name": "Marine Oceanic",
+    "description": "This habitat represents Marine Oceanic."
   },
   {
     "habitatId": "7edb7b9f-ddde-4bd8-9663-4749c34e89c6",
     "code": "10.1",
     "name": "Epipelagic (0–200 m)",
-    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc"
+    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc",
+    "description": "This habitat represents Epipelagic (0–200 m)."
   },
   {
     "habitatId": "7131d310-3853-41d2-b17a-619c401f2c26",
     "code": "10.2",
     "name": "Mesopelagic (200–1,000 m)",
-    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc"
+    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc",
+    "description": "This habitat represents Mesopelagic (200–1,000 m)."
   },
   {
     "habitatId": "3cf42ffb-c427-43ce-a8f9-bd6c1b605275",
     "code": "10.3",
     "name": "Bathypelagic (1,000–4,000 m)",
-    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc"
+    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc",
+    "description": "This habitat represents Bathypelagic (1,000–4,000 m)."
   },
   {
     "habitatId": "31faf141-164b-4426-8d43-3c628fedd60f",
     "code": "10.4",
     "name": "Abyssopelagic (4,000–6,000 m)",
-    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc"
-  },
-  {
-    "habitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f",
-    "code": "11",
-    "name": "Marine Deep Ocean Floor (Benthic and Demersal)"
-  },
-  {
-    "habitatId": "5a5ec7e4-9574-44d1-8abc-613d565a4642",
-    "code": "11.1",
-    "name": "Continental Slope/Bathyl Zone (200–4,000 m)",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
-  },
-  {
-    "habitatId": "514a6541-18cf-4682-9893-5b2832216382",
-    "code": "11.1.1",
-    "name": "Hard Substrate",
-    "parentHabitatId": "5a5ec7e4-9574-44d1-8abc-613d565a4642"
-  },
-  {
-    "habitatId": "4500724b-3c51-400d-aff1-4409878893ff",
-    "code": "11.1.2",
-    "name": "Soft Substrate",
-    "parentHabitatId": "5a5ec7e4-9574-44d1-8abc-613d565a4642"
-  },
-  {
-    "habitatId": "71aa06df-088d-498c-9c42-53d674ca67de",
-    "code": "11.2",
-    "name": "Abyssal Plain (4,000–6,000 m)",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
-  },
-  {
-    "habitatId": "3e34bed2-1120-4064-8634-7c6bd398c2f4",
-    "code": "11.3",
-    "name": "Abyssal Mountain/Hills (4,000–6,000 m)",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
-  },
-  {
-    "habitatId": "ec1ae764-81a7-4adf-b3bd-adb0dc7fe5d4",
-    "code": "11.4",
-    "name": "Hadal/Deep Sea Trench (>6,000 m)",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
-  },
-  {
-    "habitatId": "e86b4a7c-0334-4b11-beb1-84f776dbd866",
-    "code": "11.5",
-    "name": "Seamount",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
-  },
-  {
-    "habitatId": "572eca11-7708-4012-b3bb-4dd75fe36a63",
-    "code": "11.6",
-    "name": "Deep Sea Vents (Rifts/Seeps)",
-    "parentHabitatId": "5ff1a399-fbaa-4be1-89ba-8420eb2aad4f"
+    "parentHabitatId": "90791bdc-8d99-4741-9929-e224e9188ffc",
+    "description": "This habitat represents Abyssopelagic (4,000–6,000 m)."
   },
   {
     "habitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
     "code": "12",
-    "name": "Marine Intertidal"
+    "name": "Marine Intertidal",
+    "description": "This habitat represents Marine Intertidal."
   },
   {
     "habitatId": "05429cf1-8745-4b5d-8f8c-cb4f3f1c1150",
     "code": "12.1",
     "name": "Rocky Shoreline",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Rocky Shoreline."
   },
   {
     "habitatId": "0240fcbb-eb10-4cc6-8add-14e1a5ae6a97",
     "code": "12.2",
     "name": "Sandy Shoreline and/or Beaches, Sand Bars, Spits, etc.",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Sandy Shoreline and/or Beaches, Sand Bars, Spits, etc.."
   },
   {
     "habitatId": "81ab9500-eda1-4339-ab1a-7605a14fa131",
     "code": "12.3",
     "name": "Shingle and/or Pebble Shoreline and/or Beaches",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Shingle and/or Pebble Shoreline and/or Beaches."
   },
   {
     "habitatId": "1117b214-a9e5-4287-aa78-f0a101191edc",
     "code": "12.4",
     "name": "Mud Shoreline and Intertidal Mud Flats",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Mud Shoreline and Intertidal Mud Flats."
   },
   {
     "habitatId": "85c0c097-186c-441e-90de-9fcc798a199e",
     "code": "12.5",
     "name": "Salt Marshes (Emergent Grasses)",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Salt Marshes (Emergent Grasses)."
   },
   {
     "habitatId": "e24d943b-8704-4935-8106-cb6c98256221",
     "code": "12.6",
     "name": "Tidepools",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Tidepools."
   },
   {
     "habitatId": "5d57b167-a846-4094-ae8d-8fc73576e460",
     "code": "12.7",
     "name": "Mangrove Submerged Roots",
-    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381"
+    "parentHabitatId": "9081224c-7073-4a62-b8f4-b93cbc154381",
+    "description": "This habitat represents Mangrove Submerged Roots."
   },
   {
     "habitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
     "code": "13",
-    "name": "Marine Coastal/Supratidal"
+    "name": "Marine Coastal/Supratidal",
+    "description": "This habitat represents Marine Coastal/Supratidal."
   },
   {
     "habitatId": "fa3d03ff-aeaa-4d27-a824-7ed4c7820cc6",
     "code": "13.1",
     "name": "Sea Cliffs and Rocky Offshore Islands",
-    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf"
+    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
+    "description": "This habitat represents Sea Cliffs and Rocky Offshore Islands."
   },
   {
     "habitatId": "37e8ce13-ed65-4e5f-ba4d-71ec1d107be7",
     "code": "13.2",
     "name": "Coastal Caves/Karst",
-    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf"
+    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
+    "description": "This habitat represents Coastal Caves/Karst."
   },
   {
     "habitatId": "f79c7e0b-e2f6-4145-806f-516f2ce29c29",
     "code": "13.3",
     "name": "Coastal Sand Dunes",
-    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf"
+    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
+    "description": "This habitat represents Coastal Sand Dunes."
   },
   {
     "habitatId": "131c39d1-a93b-4188-8d44-d86e442fea0f",
     "code": "13.4",
     "name": "Coastal Brackish/Saline Lagoons/Marine Lakes",
-    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf"
+    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
+    "description": "This habitat represents Coastal Brackish/Saline Lagoons/Marine Lakes."
   },
   {
     "habitatId": "c7710978-c0fa-4bdb-b042-e428cf719ed6",
     "code": "13.5",
     "name": "Coastal Freshwater Lakes",
-    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf"
+    "parentHabitatId": "87378889-8bda-4e58-8fc6-4758ea350cbf",
+    "description": "This habitat represents Coastal Freshwater Lakes."
   },
   {
     "habitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
     "code": "14",
-    "name": "Artificial - Terrestrial"
+    "name": "Artificial - Terrestrial",
+    "description": "This habitat represents Artificial - Terrestrial."
   },
   {
     "habitatId": "43589b34-1ced-4f67-b2c9-11435e71f150",
     "code": "14.1",
     "name": "Arable Land",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Arable Land."
   },
   {
     "habitatId": "273de874-e373-4ff4-933b-ac8db13412bc",
     "code": "14.2",
     "name": "Pastureland",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Pastureland."
   },
   {
     "habitatId": "15e10a2b-7560-4828-9a1b-ddb2cf8e47ff",
     "code": "14.3",
     "name": "Plantations",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Plantations."
   },
   {
     "habitatId": "cad105e7-7848-4ad6-86a8-d47568055da2",
     "code": "14.4",
     "name": "Rural Gardens",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Rural Gardens."
   },
   {
     "habitatId": "b0041a8c-8f8d-497d-bf33-35ff67dae5a9",
     "code": "14.5",
     "name": "Urban Areas",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Urban Areas."
   },
   {
     "habitatId": "2a4f8963-beae-4103-b789-5ac65345cf42",
     "code": "14.6",
     "name": "Subtropical/Tropical Heavily Degraded Former Forest",
-    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590"
+    "parentHabitatId": "5354f680-8fc5-414b-8864-ffdfbf38c590",
+    "description": "This habitat represents Subtropical/Tropical Heavily Degraded Former Forest."
   },
   {
     "habitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
     "code": "15",
-    "name": "Artificial - Aquatic"
+    "name": "Artificial - Aquatic",
+    "description": "This habitat represents Artificial - Aquatic."
   },
   {
     "habitatId": "9f74f46b-fc46-46c6-a222-451a5d103d07",
     "code": "15.1",
     "name": "Water Storage Areas [over 8 ha]",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Water Storage Areas [over 8 ha]."
   },
   {
     "habitatId": "beeadbe9-1027-414d-8d47-889bb0f15472",
     "code": "15.2",
     "name": "Ponds [below 8 ha]",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Ponds [below 8 ha]."
   },
   {
     "habitatId": "68f78b8f-d0c3-40fa-b1e5-84bd499198c5",
     "code": "15.3",
     "name": "Aquaculture Ponds",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Aquaculture Ponds."
   },
   {
     "habitatId": "3d9c484b-8ff3-4822-81b1-02bce746260d",
     "code": "15.4",
     "name": "Salt Exploitation Sites",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Salt Exploitation Sites."
   },
   {
     "habitatId": "b40e592e-fe43-4342-89b1-f11aa5906aef",
     "code": "15.5",
     "name": "Excavations (open)",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Excavations (open)."
   },
   {
     "habitatId": "bcad8020-e403-4a22-a289-b4249bffcd46",
     "code": "15.6",
     "name": "Wastewater Treatment Areas",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Wastewater Treatment Areas."
   },
   {
     "habitatId": "b8cbb75e-4e7f-4f8f-9096-d4566de4c2fb",
     "code": "15.7",
     "name": "Irrigated Land [includes irrigation channels]",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Irrigated Land [includes irrigation channels]."
   },
   {
     "habitatId": "eaac722c-7fe1-403a-a27b-7d950f6f3e08",
     "code": "15.8",
     "name": "Seasonally Flooded Agricultural Land",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Seasonally Flooded Agricultural Land."
   },
   {
     "habitatId": "cc91deef-f9ca-4c9f-85f7-a8485b1d8c47",
     "code": "15.9",
     "name": "Canals and Drainage Channels, Ditches",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Canals and Drainage Channels, Ditches."
   },
   {
     "habitatId": "27b0f738-7b4e-44d3-a4e2-0a6b06d77ade",
     "code": "15.10",
     "name": "Karst and Other Subterranean Hydrological Systems [human-made]",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Karst and Other Subterranean Hydrological Systems [human-made]."
   },
   {
     "habitatId": "4e1d7c75-f3fa-45f9-ac6d-938409a326fa",
     "code": "15.11",
     "name": "Marine Anthropogenic Structures",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Marine Anthropogenic Structures."
   },
   {
     "habitatId": "5d891e80-3171-40c2-adb0-5617cc2ee79e",
     "code": "15.12",
     "name": "Mariculture Cages",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Mariculture Cages."
   },
   {
     "habitatId": "077afb8b-3750-4db8-bb31-af60a9383b42",
     "code": "15.13",
     "name": "Mari/Brackish-culture Ponds",
-    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a"
+    "parentHabitatId": "32b7bed5-3687-4296-a5c6-9b43e725c20a",
+    "description": "This habitat represents Mari/Brackish-culture Ponds."
   }
 ]
