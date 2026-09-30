@@ -8,6 +8,7 @@ import path from "node:path";
 import habitatRoutes from "./routes/habitat.routes.js";
 import speciesRoutes from "./routes/species.routes.js";
 import birdRoutes from "./routes/bird.routes.js";
+import userRoutes from "./routes/user.routes.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
@@ -18,6 +19,7 @@ import {
   SpeciesReadSchema,
 } from "./schema/species.schema.js";
 import { BirdSchema } from "./schema/bird.schema.js";
+import { UserSchema, UserRequestSchema } from "./schema/user.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
 
 import {
@@ -48,6 +50,11 @@ import {
   habitatSpeciesRepositoryFactory,
   HabitatSpeciesRepository,
 } from "./repositories/habitatSpecies.repository.js";
+import {
+  userRepositoryFactory,
+  UserRepository,
+} from "./repositories/user.repository.js";
+import { userServiceFactory, UserService } from "./services/user.service.js";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -55,12 +62,14 @@ declare module "fastify" {
       habitat: HabitatRepository;
       species: SpeciesRepository;
       habitatSpecies: HabitatSpeciesRepository;
+      user: UserRepository;
     };
     services: {
       habitat: HabitatService;
       species: SpeciesService;
       speciesHabitat: SpeciesHabitatService;
       bird: BirdService;
+      user: UserService;
     };
   }
 }
@@ -104,6 +113,9 @@ export async function buildApp(options: appOptions = {}) {
     habitatSpecies: habitatSpeciesRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
+    user: userRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
   };
 
   const speciesHabitat = habitatSpeciesServiceFactory({
@@ -123,6 +135,9 @@ export async function buildApp(options: appOptions = {}) {
     bird: birdServiceFactory({
       speciesRepository: repositories.species,
     }),
+    user: userServiceFactory({
+      userRepository: repositories.user,
+    }),
   };
 
   app.decorate("repositories", repositories);
@@ -140,11 +155,14 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(SpeciesRequestSchema);
   app.addSchema(SpeciesReadSchema);
   app.addSchema(BirdSchema);
+  app.addSchema(UserSchema);
+  app.addSchema(UserRequestSchema);
 
   // Routes
   app.register(habitatRoutes);
   app.register(speciesRoutes);
   app.register(birdRoutes);
+  app.register(userRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

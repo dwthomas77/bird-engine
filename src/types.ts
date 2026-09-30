@@ -3,9 +3,12 @@ import { HabitatSchema, HabitatRequestSchema} from './schema/habitat.schema.js';
 import { HabitatSpeciesSchema } from './schema/habitatSpecies.schema.js';
 import { BirdSchema } from './schema/bird.schema.js';
 import { SpeciesSchema, SpeciesRequestSchema } from './schema/species.schema.js';
+import { UserSchema, UserRequestSchema } from './schema/user.schema.js';
 import ServerErrorResponseSchema from './schema/server.errorResponse.schema.js';
 
 export type Bird = FromSchema<typeof BirdSchema>;
+export type User = FromSchema<typeof UserSchema>;
+export type UserRequest = FromSchema<typeof UserRequestSchema>;
 export type Habitat = FromSchema<typeof HabitatSchema>;
 export type HabitatRequest= FromSchema<typeof HabitatRequestSchema>;
 export type Species = FromSchema<typeof SpeciesSchema>;
