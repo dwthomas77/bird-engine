@@ -9,6 +9,7 @@ import habitatRoutes from "./routes/habitat.routes.js";
 import speciesRoutes from "./routes/species.routes.js";
 import birdRoutes from "./routes/bird.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import observationRoutes from "./routes/observation.routes.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
@@ -20,6 +21,11 @@ import {
 } from "./schema/species.schema.js";
 import { BirdSchema } from "./schema/bird.schema.js";
 import { UserSchema, UserRequestSchema } from "./schema/user.schema.js";
+import {
+  ObservationSchema,
+  ObservationRequestSchema,
+} from "./schema/observation.schema.js";
+import { LocationSchema } from "./schema/location.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
 
 import {
@@ -55,6 +61,14 @@ import {
   UserRepository,
 } from "./repositories/user.repository.js";
 import { userServiceFactory, UserService } from "./services/user.service.js";
+import {
+  observationRepositoryFactory,
+  ObservationRepository,
+} from "./repositories/observation.repository.js";
+import {
+  observationServiceFactory,
+  ObservationService,
+} from "./services/observation.service.js";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -63,6 +77,7 @@ declare module "fastify" {
       species: SpeciesRepository;
       habitatSpecies: HabitatSpeciesRepository;
       user: UserRepository;
+      observation: ObservationRepository;
     };
     services: {
       habitat: HabitatService;
@@ -70,6 +85,7 @@ declare module "fastify" {
       speciesHabitat: SpeciesHabitatService;
       bird: BirdService;
       user: UserService;
+      observation: ObservationService;
     };
   }
 }
@@ -94,6 +110,13 @@ export async function buildApp(options: appOptions = {}) {
         title: "Bird Engine API",
         version: "1.0.0",
       },
+      tags: [
+        { name: "habitat", description: "Habitats where Species are found" },
+        { name: "species", description: "Species of Birds" },
+        { name: "bird", description: "Birds" },
+        { name: "user", description: "Users" },
+        { name: "observation", description: "Observations of Birds" },
+      ]
     },
   });
 
@@ -114,6 +137,9 @@ export async function buildApp(options: appOptions = {}) {
       dataDir: options.dataFilePath || dataSource,
     }),
     user: userRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
+    observation: observationRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
   };
@@ -138,6 +164,9 @@ export async function buildApp(options: appOptions = {}) {
     user: userServiceFactory({
       userRepository: repositories.user,
     }),
+    observation: observationServiceFactory({
+      observationRepository: repositories.observation,
+    }),
   };
 
   app.decorate("repositories", repositories);
@@ -157,12 +186,16 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(BirdSchema);
   app.addSchema(UserSchema);
   app.addSchema(UserRequestSchema);
+  app.addSchema(ObservationSchema);
+  app.addSchema(ObservationRequestSchema);
+  app.addSchema(LocationSchema);
 
   // Routes
   app.register(habitatRoutes);
   app.register(speciesRoutes);
   app.register(birdRoutes);
   app.register(userRoutes);
+  app.register(observationRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

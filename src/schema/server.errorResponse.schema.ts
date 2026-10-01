@@ -1,5 +1,4 @@
 const schema = {
-  $schema: "https://json-schema.org/draft/2020-12/schema",
   $id: "serverErrorResponse",
   title: "Server Error Response",
   description: "Error response format for 400+ level errors",

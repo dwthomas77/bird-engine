@@ -14,6 +14,7 @@ async function routes(fastify: FastifyInstance) {
 		"/species",
 		{
 			schema: {
+				tags: ["species"],
 				description: "Get all species",
 				response: {
 					200: {
@@ -31,6 +32,7 @@ async function routes(fastify: FastifyInstance) {
 		"/species/:uid",
 		{
 			schema: {
+				tags: ["species"],
 				params: {
 					type: "object",
 					properties: {
@@ -49,6 +51,7 @@ async function routes(fastify: FastifyInstance) {
 		"/species",
 		{
 			schema: {
+				tags: ["species"],
 				body: { $ref: "api/species/request#" },
 				response: {
 					200: { $ref: "api/species/read#" },
@@ -61,6 +64,7 @@ async function routes(fastify: FastifyInstance) {
 		"/species/:uid",
 		{
 			schema: {
+				tags: ["species"],
 				params: {
 					type: "object",
 					properties: {
@@ -79,6 +83,7 @@ async function routes(fastify: FastifyInstance) {
 		"/species/:uid",
 		{
 			schema: {
+				tags: ["species"],
 				params: {
 					type: "object",
 					properties: {

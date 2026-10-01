@@ -10,6 +10,7 @@ async function routes(fastify: FastifyInstance) {
     "/bird",
     {
       schema: {
+        tags: ["bird"],
         description: "Get a randomly generated bird",
         response: {
           200: { $ref: "api/bird#" },

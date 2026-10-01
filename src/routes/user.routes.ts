@@ -10,6 +10,7 @@ async function routes(fastify: FastifyInstance) {
     "/users",
     {
       schema: {
+        tags: ["user"],
         description: "Get all users",
         response: {
           200: {
@@ -25,6 +26,7 @@ async function routes(fastify: FastifyInstance) {
     "/users/:userId",
     {
       schema: {
+        tags: ["user"],
         params: {
           type: "object",
           properties: { userId: { type: "string" } },
@@ -41,6 +43,7 @@ async function routes(fastify: FastifyInstance) {
     "/users",
     {
       schema: {
+        tags: ["user"],
         body: { $ref: "api/user/request#" },
         response: {
           200: { $ref: "api/user#" },
@@ -53,6 +56,7 @@ async function routes(fastify: FastifyInstance) {
     "/users/:userId",
     {
       schema: {
+        tags: ["user"],
         params: {
           type: "object",
           properties: { userId: { type: "string" } },
@@ -70,6 +74,7 @@ async function routes(fastify: FastifyInstance) {
     "/users/:userId",
     {
       schema: {
+        tags: ["user"],
         params: {
           type: "object",
           properties: { userId: { type: "string" } },

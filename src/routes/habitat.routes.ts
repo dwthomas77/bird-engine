@@ -14,6 +14,7 @@ async function routes(fastify: FastifyInstance) {
     "/habitats",
     {
       schema: {
+        tags: ["habitat"],
         description: "Get all habitats",
         response: {
           200: {
@@ -31,6 +32,7 @@ async function routes(fastify: FastifyInstance) {
     "/habitats/:uid",
     {
       schema: {
+        tags: ["habitat"],
         params: {
           type: "object",
           properties: {
@@ -49,6 +51,7 @@ async function routes(fastify: FastifyInstance) {
     "/habitats",
     {
       schema: {
+        tags: ["habitat"],
         body: { $ref: "api/habitat/request#" },
         response: {
           200: { $ref: "api/habitat#" },
@@ -61,6 +64,7 @@ async function routes(fastify: FastifyInstance) {
     "/habitats/:uid",
     {
       schema: {
+        tags: ["habitat"],
         params: {
           type: "object",
           properties: {
@@ -79,6 +83,7 @@ async function routes(fastify: FastifyInstance) {
     "/habitats/:uid",
     {
       schema: {
+        tags: ["habitat"],
         params: {
           type: "object",
           properties: {
