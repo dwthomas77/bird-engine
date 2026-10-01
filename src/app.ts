@@ -10,6 +10,7 @@ import speciesRoutes from "./routes/species.routes.js";
 import birdRoutes from "./routes/bird.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import observationRoutes from "./routes/observation.routes.js";
+import journalRoutes from "./routes/journal.routes.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
@@ -25,6 +26,10 @@ import {
   ObservationSchema,
   ObservationRequestSchema,
 } from "./schema/observation.schema.js";
+import {
+  JournalSchema,
+  JournalRequestSchema,
+} from "./schema/journal.schema.js";
 import { LocationSchema } from "./schema/location.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
 
@@ -69,6 +74,14 @@ import {
   observationServiceFactory,
   ObservationService,
 } from "./services/observation.service.js";
+import {
+  journalRepositoryFactory,
+  JournalRepository,
+} from "./repositories/journal.repository.js";
+import {
+  journalServiceFactory,
+  JournalService,
+} from "./services/journal.service.js";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -78,6 +91,7 @@ declare module "fastify" {
       habitatSpecies: HabitatSpeciesRepository;
       user: UserRepository;
       observation: ObservationRepository;
+      journal: JournalRepository;
     };
     services: {
       habitat: HabitatService;
@@ -86,6 +100,7 @@ declare module "fastify" {
       bird: BirdService;
       user: UserService;
       observation: ObservationService;
+      journal: JournalService;
     };
   }
 }
@@ -116,6 +131,7 @@ export async function buildApp(options: appOptions = {}) {
         { name: "bird", description: "Birds" },
         { name: "user", description: "Users" },
         { name: "observation", description: "Observations of Birds" },
+        { name: "journal", description: "Journals of Bird Observations" },
       ]
     },
   });
@@ -140,6 +156,9 @@ export async function buildApp(options: appOptions = {}) {
       dataDir: options.dataFilePath || dataSource,
     }),
     observation: observationRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
+    journal: journalRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
   };
@@ -167,6 +186,9 @@ export async function buildApp(options: appOptions = {}) {
     observation: observationServiceFactory({
       observationRepository: repositories.observation,
     }),
+    journal: journalServiceFactory({
+      journalRepository: repositories.journal,
+    }),
   };
 
   app.decorate("repositories", repositories);
@@ -188,6 +210,8 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(UserRequestSchema);
   app.addSchema(ObservationSchema);
   app.addSchema(ObservationRequestSchema);
+  app.addSchema(JournalSchema);
+  app.addSchema(JournalRequestSchema);
   app.addSchema(LocationSchema);
 
   // Routes
@@ -196,6 +220,7 @@ export async function buildApp(options: appOptions = {}) {
   app.register(birdRoutes);
   app.register(userRoutes);
   app.register(observationRoutes);
+  app.register(journalRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

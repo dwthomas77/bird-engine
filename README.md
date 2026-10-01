@@ -12,6 +12,7 @@ Bird Engine is a RESTful API built with **Node.js**, **Fastify**, and **TypeScri
 - CRUD operations for:
   - Species
   - Habitats
+  - Journals
 - ESLint-based code quality checks
 
 ---
@@ -276,6 +277,23 @@ DELETE /species/{uid}
 ```
 
 Deletes a species.
+
+---
+
+## Journals
+
+Journals can be listed, retrieved, created, updated, and deleted using:
+
+```http
+GET    /journals
+GET    /journals/{journalId}
+POST   /journals
+PUT    /journals/{journalId}
+DELETE /journals/{journalId}
+```
+
+Journal creation and update requests include `userId`, `name`, `createdAt`,
+and `updatedAt`; `description` is optional. The API generates `journalId`.
 
 ---
 

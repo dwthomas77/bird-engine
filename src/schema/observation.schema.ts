@@ -4,10 +4,9 @@ const baseObservationProperties = {
   "observedAt": { type: "string", format: "date-time" },
   "quantity": { type: "number" },
   "notes": { type: "string" },
-  "observerId": { type: "string" },
 } as const;
 
-const requiredObservationProperties = ["speciesId", "locationId", "observedAt", "quantity", "observerId"] as const;
+const requiredObservationProperties = ["speciesId", "locationId", "observedAt", "quantity"] as const;
 
 export const ObservationSchema = {
   $id: "api/observation",

@@ -23,7 +23,6 @@ const observation: Observation = {
   },
   observedAt: "2026-10-01T13:00:00.000Z",
   quantity: 2,
-  observerId: "observer-1",
 };
 
 const observationRequest: ObservationRequest = {
@@ -31,7 +30,6 @@ const observationRequest: ObservationRequest = {
   locationId: observation.locationId,
   observedAt: observation.observedAt,
   quantity: observation.quantity,
-  observerId: observation.observerId,
 };
 
 describe("Observation routes", () => {
