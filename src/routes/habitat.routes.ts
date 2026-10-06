@@ -15,7 +15,15 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["habitat"],
-        description: "Get all habitats",
+        description:
+          "Get habitats, optionally filtered by code and parentId. parentId=null (or empty) returns only habitats with no parent",
+        querystring: {
+          type: "object",
+          properties: {
+            code: { type: "string" },
+            parentId: { type: "string" },
+          },
+        },
         response: {
           200: {
             type: "array",

@@ -38,6 +38,43 @@ describe("GET /habitats", () => {
     await app.close();
   });
 
+  describe("filtering", () => {
+    const pine: Habitat = {
+      habitatId: "3",
+      code: "pine",
+      name: "Pine",
+      parentHabitatId: "1",
+    };
+
+    beforeEach(async () => {
+      await app.close();
+      await fs.writeFile(
+        path.join(testDir, "habitats.data.json"),
+        JSON.stringify([forest, desert, pine]),
+      );
+      app = await buildApp({ dataFilePath: testDir });
+    });
+
+    const get = async (query: string) =>
+      (await app.inject({ method: "GET", url: `/habitats${query}` })).json();
+
+    it("filters by code", async () => {
+      expect(await get("?code=desert")).toEqual([desert]);
+    });
+
+    it("filters by parentId", async () => {
+      expect(await get("?parentId=1")).toEqual([pine]);
+    });
+
+    it("returns only parentless habitats for parentId=null", async () => {
+      expect(await get("?parentId=null")).toEqual([forest, desert]);
+    });
+
+    it("returns only parentless habitats for an empty parentId", async () => {
+      expect(await get("?parentId=")).toEqual([forest, desert]);
+    });
+  });
+
   it("returns an empty list", async () => {
     const response = await app.inject({
       method: "GET",

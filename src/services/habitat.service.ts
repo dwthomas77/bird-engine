@@ -2,8 +2,14 @@ import type { Habitat, HabitatRequest } from "../types.js";
 import { ValidationError, NotFoundError } from "../errors.js";
 import type { HabitatRepository } from "../repositories/habitat.repository.js";
 
+export interface HabitatFilter {
+  code?: string;
+  // null means only habitats with no parent
+  parentId?: string | null;
+}
+
 export interface HabitatService {
-  getHabitatsService(): Promise<Habitat[]>;
+  getHabitatsService(filter?: HabitatFilter): Promise<Habitat[]>;
   addHabitatService(newHabitat: HabitatRequest): Promise<Habitat>;
   updateHabitatService(uid: string, updatedHabitat: HabitatRequest): Promise<Habitat>;
   removeHabitatService(habitatId: string): Promise<void>;
@@ -11,9 +17,19 @@ export interface HabitatService {
   getHabitatsByIdsService(habitatIds: string[]): Promise<Habitat[]>;
 }
 
-async function getHabitatsService(repository: HabitatRepository) {
-  const habitatsFromRepo = await repository.getHabitats();
-  return habitatsFromRepo || [];
+async function getHabitatsService(
+  repository: HabitatRepository,
+  filter: HabitatFilter = {},
+) {
+  const habitatsFromRepo = (await repository.getHabitats()) || [];
+  return habitatsFromRepo.filter((habitat) => {
+    if (filter.code !== undefined && habitat.code !== filter.code) return false;
+    if (filter.parentId === null) return !habitat.parentHabitatId;
+    if (filter.parentId !== undefined) {
+      return habitat.parentHabitatId === filter.parentId;
+    }
+    return true;
+  });
 }
 
 async function addHabitatService(
@@ -105,8 +121,8 @@ export function habitatServiceFactory({
   repository: HabitatRepository;
 }): HabitatService {
   return {
-    async getHabitatsService(): Promise<Habitat[]> {
-      return await getHabitatsService(repository);
+    async getHabitatsService(filter?: HabitatFilter): Promise<Habitat[]> {
+      return await getHabitatsService(repository, filter);
     },
     async addHabitatService(newHabitat: HabitatRequest): Promise<Habitat> {
       return await addHabitatService(newHabitat, repository);

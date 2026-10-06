@@ -53,3 +53,40 @@ it("throws NotFoundError when removing a habitat that does not exist", async () 
   ).rejects.toThrow(NotFoundError);
   expect(repository.deleteHabitatFromRepository).not.toHaveBeenCalled();
 });
+
+const parentHabitat = { habitatId: "p", code: "forest", name: "Forest" };
+const childHabitat = {
+  habitatId: "c",
+  code: "pine",
+  name: "Pine",
+  parentHabitatId: "p",
+};
+
+async function filterHabitats(filter: Parameters<ReturnType<typeof habitatServiceFactory>["getHabitatsService"]>[0]) {
+  const repository = createMockHabitatRepository();
+  vi.mocked(repository.getHabitats).mockResolvedValue([
+    parentHabitat,
+    childHabitat,
+  ]);
+  return habitatServiceFactory({ repository }).getHabitatsService(filter);
+}
+
+it("returns all habitats without a filter", async () => {
+  expect(await filterHabitats(undefined)).toEqual([parentHabitat, childHabitat]);
+});
+
+it("filters habitats by code", async () => {
+  expect(await filterHabitats({ code: "pine" })).toEqual([childHabitat]);
+});
+
+it("filters habitats by parentId", async () => {
+  expect(await filterHabitats({ parentId: "p" })).toEqual([childHabitat]);
+});
+
+it("returns only parentless habitats when parentId is null", async () => {
+  expect(await filterHabitats({ parentId: null })).toEqual([parentHabitat]);
+});
+
+it("combines code and parentId filters", async () => {
+  expect(await filterHabitats({ code: "forest", parentId: "p" })).toEqual([]);
+});
