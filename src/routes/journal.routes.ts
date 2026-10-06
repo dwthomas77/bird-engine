@@ -11,7 +11,11 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["journal"],
-        description: "Get all journals",
+        description: "Get all journals, optionally filtered by userId",
+        querystring: {
+          type: "object",
+          properties: { userId: { type: "string" } },
+        },
         response: {
           200: {
             type: "array",

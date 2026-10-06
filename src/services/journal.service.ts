@@ -4,7 +4,7 @@ import type { JournalRepository } from "../repositories/journal.repository.js";
 import type { Journal, JournalRequest } from "../types.js";
 
 export interface JournalService {
-  getJournalsService(): Promise<Journal[]>;
+  getJournalsService(userId?: string): Promise<Journal[]>;
   addJournalService(newJournal: JournalRequest): Promise<Journal>;
   getJournalByIdService(journalId: string): Promise<Journal>;
   updateJournalService(
@@ -19,8 +19,11 @@ export function journalServiceFactory({
 }: {
   journalRepository: JournalRepository;
 }): JournalService {
-  async function getJournalsService(): Promise<Journal[]> {
-    return journalRepository.getJournals();
+  async function getJournalsService(userId?: string): Promise<Journal[]> {
+    const journals = await journalRepository.getJournals();
+    return userId === undefined
+      ? journals
+      : journals.filter((journal) => journal.userId === userId);
   }
 
   async function addJournalService(

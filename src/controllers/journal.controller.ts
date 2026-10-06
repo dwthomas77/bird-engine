@@ -4,10 +4,11 @@ import type { JournalService } from "../services/journal.service.js";
 
 function journalControllerFactory({ service }: { service: JournalService }) {
   async function getAllJournalsController(
-    _request: FastifyRequest,
+    request: FastifyRequest,
     reply: FastifyReply,
   ) {
-    return reply.send(await service.getJournalsService());
+    const { userId } = request.query as { userId?: string };
+    return reply.send(await service.getJournalsService(userId));
   }
 
   async function postNewJournalController(
