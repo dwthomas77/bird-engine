@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { userControllerFactory } from "../controllers/user.controller.js";
 
@@ -15,7 +16,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: "https://bird-engine.local/api/user#" },
+            items: { $ref: schemaRef("user") },
           },
         },
       },
@@ -33,7 +34,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["userId"],
         },
         response: {
-          200: { $ref: "https://bird-engine.local/api/user#" },
+          200: { $ref: schemaRef("user") },
         },
       },
     },
@@ -44,9 +45,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["user"],
-        body: { $ref: "https://bird-engine.local/api/user/request#" },
+        body: { $ref: schemaRef("user/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/user#" },
+          200: { $ref: schemaRef("user") },
         },
       },
     },
@@ -62,9 +63,9 @@ async function routes(fastify: FastifyInstance) {
           properties: { userId: { type: "string" } },
           required: ["userId"],
         },
-        body: { $ref: "https://bird-engine.local/api/user/request#" },
+        body: { $ref: schemaRef("user/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/user#" },
+          200: { $ref: schemaRef("user") },
         },
       },
     },

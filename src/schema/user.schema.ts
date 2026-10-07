@@ -1,5 +1,6 @@
+import { schemaId } from "./ids.js";
 export const UserSchema = {
-  $id: "https://bird-engine.local/api/user",
+  $id: schemaId("user"),
   title: "User",
   description: "A user",
   type: "object",
@@ -12,7 +13,7 @@ export const UserSchema = {
 } as const;
 
 export const UserRequestSchema = {
-  $id: "https://bird-engine.local/api/user/request",
+  $id: schemaId("user/request"),
   title: "User Request",
   description: "A request to create or update a user",
   type: "object",

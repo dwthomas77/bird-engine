@@ -1,3 +1,4 @@
+import { schemaId } from "./ids.js";
 const baseJournalProperties = {
   "userId": { type: "string" },
   "name": { type: "string" },
@@ -9,7 +10,7 @@ const baseJournalProperties = {
 const requiredJournalProperties = ["userId", "name", "createdAt", "updatedAt"] as const;
 
 export const JournalSchema = {
-  $id: "https://bird-engine.local/api/journal",
+  $id: schemaId("journal"),
   title: "Journal",
   description: "A journal of bird observations",
   type: "object",
@@ -22,7 +23,7 @@ export const JournalSchema = {
 } as const;
 
 export const JournalRequestSchema = {
-  $id: "https://bird-engine.local/api/journal/request",
+  $id: schemaId("journal/request"),
   title: "Journal Request",
   description: "A request to create a journal of bird observations",
   type: "object",

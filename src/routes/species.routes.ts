@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { speciesControllerFactory } from "../controllers/species.controller.js";
 
@@ -20,7 +21,7 @@ async function routes(fastify: FastifyInstance) {
 					200: {
 						type: "array",
 						items: {
-							$ref: "https://bird-engine.local/api/species/read#",
+							$ref: schemaRef("species/read"),
 						},
 					},
 				},
@@ -41,7 +42,7 @@ async function routes(fastify: FastifyInstance) {
 					required: ["uid"],
 				},
 				response: {
-					200: { $ref: "https://bird-engine.local/api/species/read#" },
+					200: { $ref: schemaRef("species/read") },
 				},
 			},
 		},
@@ -52,9 +53,9 @@ async function routes(fastify: FastifyInstance) {
 		{
 			schema: {
 				tags: ["species"],
-				body: { $ref: "https://bird-engine.local/api/species/request#" },
+				body: { $ref: schemaRef("species/request") },
 				response: {
-					200: { $ref: "https://bird-engine.local/api/species/read#" },
+					200: { $ref: schemaRef("species/read") },
 				},
 			},
 		},
@@ -91,9 +92,9 @@ async function routes(fastify: FastifyInstance) {
 					},
 					required: ["uid"],
 				},
-				body: { $ref: "https://bird-engine.local/api/species/request#" },
+				body: { $ref: schemaRef("species/request") },
 				response: {
-					200: { $ref: "https://bird-engine.local/api/species/read#" },
+					200: { $ref: schemaRef("species/read") },
 				},
 			},
 		},

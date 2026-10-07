@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { birdControllerFactory } from "../controllers/bird.controller.js";
 
@@ -13,7 +14,7 @@ async function routes(fastify: FastifyInstance) {
         tags: ["bird"],
         description: "Get a randomly generated bird",
         response: {
-          200: { $ref: "https://bird-engine.local/api/bird#" },
+          200: { $ref: schemaRef("bird") },
         },
       },
     },

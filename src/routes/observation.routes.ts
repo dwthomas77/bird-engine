@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { observationControllerFactory } from "../controllers/observation.controller.js";
 
@@ -19,7 +20,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: "https://bird-engine.local/api/observation#" },
+            items: { $ref: schemaRef("observation") },
           },
         },
       },
@@ -37,7 +38,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["uid"],
         },
         response: {
-          200: { $ref: "https://bird-engine.local/api/observation#" },
+          200: { $ref: schemaRef("observation") },
         },
       },
     },
@@ -48,9 +49,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["observation"],
-        body: { $ref: "https://bird-engine.local/api/observation/request#" },
+        body: { $ref: schemaRef("observation/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/observation#" },
+          200: { $ref: schemaRef("observation") },
         },
       },
     },
@@ -83,9 +84,9 @@ async function routes(fastify: FastifyInstance) {
           properties: { uid: { type: "string" } },
           required: ["uid"],
         },
-        body: { $ref: "https://bird-engine.local/api/observation/request#" },
+        body: { $ref: schemaRef("observation/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/observation#" },
+          200: { $ref: schemaRef("observation") },
         },
       },
     },

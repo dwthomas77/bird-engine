@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { journalControllerFactory } from "../controllers/journal.controller.js";
 
@@ -19,7 +20,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: "https://bird-engine.local/api/journal#" },
+            items: { $ref: schemaRef("journal") },
           },
         },
       },
@@ -37,7 +38,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["journalId"],
         },
         response: {
-          200: { $ref: "https://bird-engine.local/api/journal#" },
+          200: { $ref: schemaRef("journal") },
         },
       },
     },
@@ -48,9 +49,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["journal"],
-        body: { $ref: "https://bird-engine.local/api/journal/request#" },
+        body: { $ref: schemaRef("journal/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/journal#" },
+          200: { $ref: schemaRef("journal") },
         },
       },
     },
@@ -66,9 +67,9 @@ async function routes(fastify: FastifyInstance) {
           properties: { journalId: { type: "string" } },
           required: ["journalId"],
         },
-        body: { $ref: "https://bird-engine.local/api/journal/request#" },
+        body: { $ref: schemaRef("journal/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/journal#" },
+          200: { $ref: schemaRef("journal") },
         },
       },
     },

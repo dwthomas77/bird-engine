@@ -1,3 +1,4 @@
+import { schemaRef } from "../schema/ids.js";
 import type { FastifyInstance } from "fastify";
 import { habitatControllerFactory } from "../controllers/habitat.controller.js";
 
@@ -28,7 +29,7 @@ async function routes(fastify: FastifyInstance) {
           200: {
             type: "array",
             items: {
-              $ref: "https://bird-engine.local/api/habitat#",
+              $ref: schemaRef("habitat"),
             },
           },
         },
@@ -49,7 +50,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["uid"],
         },
         response: {
-          200: { $ref: "https://bird-engine.local/api/habitat#" },
+          200: { $ref: schemaRef("habitat") },
         },
       },
     },
@@ -60,9 +61,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["habitat"],
-        body: { $ref: "https://bird-engine.local/api/habitat/request#" },
+        body: { $ref: schemaRef("habitat/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/habitat#" },
+          200: { $ref: schemaRef("habitat") },
         },
       },
     },
@@ -99,9 +100,9 @@ async function routes(fastify: FastifyInstance) {
           },
           required: ["uid"],
         },
-        body: { $ref: "https://bird-engine.local/api/habitat/request#" },
+        body: { $ref: schemaRef("habitat/request") },
         response: {
-          200: { $ref: "https://bird-engine.local/api/habitat#" },
+          200: { $ref: schemaRef("habitat") },
         },
       },
     },

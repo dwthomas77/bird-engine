@@ -1,5 +1,6 @@
+import { schemaId } from "./ids.js";
 export const HabitatSpeciesSchema = {
-  $id: "https://bird-engine.local/api/habitat-species",
+  $id: schemaId("habitat-species"),
   title: "Habitat - Species",
   description: "A relationship between a Habitat and a Species",
   type: "object",

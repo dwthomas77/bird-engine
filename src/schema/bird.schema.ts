@@ -1,3 +1,4 @@
+import { schemaId } from "./ids.js";
 const requiredFields = [
   'birdId',
   'speciesId',
@@ -42,7 +43,7 @@ const baseBirdProperties = {
 } as const;
 
 const BirdSchema = {
-  $id: "https://bird-engine.local/api/bird",
+  $id: schemaId("bird"),
   title: "Bird",
   description: "A bird",
   type: "object",

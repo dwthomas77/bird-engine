@@ -1,3 +1,4 @@
+import { schemaId } from "./ids.js";
 const baseHabitatProperties = {
   "code": { type: "string" },
   "name": { type: "string" },
@@ -6,7 +7,7 @@ const baseHabitatProperties = {
 } as const;
 
 export const HabitatSchema = {
-  $id: "https://bird-engine.local/api/habitat",
+  $id: schemaId("habitat"),
   title: "Habitat", 
   description: "A habitat for birds",
   type: "object",
@@ -19,7 +20,7 @@ export const HabitatSchema = {
 } as const;
 
 export const HabitatRequestSchema = {
-  $id: "https://bird-engine.local/api/habitat/request",
+  $id: schemaId("habitat/request"),
   title: "Habitat Request",
   description: "A request for a habitat",
   type: "object",

@@ -1,3 +1,4 @@
+import { schemaId, schemaRef } from "./ids.js";
 const requiredFields = [
   "speciesName",
   "family",
@@ -31,7 +32,7 @@ const baseSpeciesProperties = {
 } as const;
 
 const SpeciesSchema = {
-  $id: "https://bird-engine.local/api/species",
+  $id: schemaId("species"),
   title: "Species",
   description: "A species of bird",
   type: "object",
@@ -45,7 +46,7 @@ const SpeciesSchema = {
 } as const;
 
 const SpeciesRequestSchema = {
-  $id: "https://bird-engine.local/api/species/request",
+  $id: schemaId("species/request"),
   title: "Species Request",
   description: "A request to update or create a species of bird",
   type: "object",
@@ -62,7 +63,7 @@ const SpeciesRequestSchema = {
 } as const;
 
 const SpeciesReadSchema = {
-  $id: "https://bird-engine.local/api/species/read",
+  $id: schemaId("species/read"),
   title: "Detailed Species",
   description: "A species of bird",
   type: "object",
@@ -74,7 +75,7 @@ const SpeciesReadSchema = {
     habitats: {
       type: "array",
       items: {
-        $ref: "https://bird-engine.local/api/habitat#",
+        $ref: schemaRef("habitat"),
       },
     },
   },

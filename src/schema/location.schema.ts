@@ -1,5 +1,6 @@
+import { schemaId } from "./ids.js";
 export const LocationSchema = {
-  "$id": "https://bird-engine.local/api/location",
+  "$id": schemaId("location"),
   "type": "object",
   "properties": {
     "name": {
