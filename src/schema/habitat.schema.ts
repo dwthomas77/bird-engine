@@ -6,7 +6,7 @@ const baseHabitatProperties = {
 } as const;
 
 export const HabitatSchema = {
-  $id: "api/habitat",
+  $id: "https://bird-engine.local/api/habitat",
   title: "Habitat", 
   description: "A habitat for birds",
   type: "object",
@@ -19,7 +19,7 @@ export const HabitatSchema = {
 } as const;
 
 export const HabitatRequestSchema = {
-  $id: "api/habitat/request",
+  $id: "https://bird-engine.local/api/habitat/request",
   title: "Habitat Request",
   description: "A request for a habitat",
   type: "object",

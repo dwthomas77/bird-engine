@@ -21,11 +21,11 @@ export type HabitatSpecies = FromSchema<typeof HabitatSpeciesSchema>;
 export type HabitatSpeciesRelationship = HabitatSpecies;
 export type Observation = FromSchema<
   Omit<typeof ObservationSchema, "$schema">,
-  { references: [typeof LocationSchema] }
+  { references: [typeof LocationSchema, typeof BirdSchema] }
 >;
 export type ObservationRequest = FromSchema<
   Omit<typeof ObservationRequestSchema, "$schema">,
-  { references: [typeof LocationSchema] }
+  { references: [typeof LocationSchema, typeof BirdSchema] }
 >;
 export type Journal = FromSchema<typeof JournalSchema>;
 export type JournalRequest = FromSchema<typeof JournalRequestSchema>;

@@ -42,7 +42,7 @@ const baseBirdProperties = {
 } as const;
 
 const BirdSchema = {
-  $id: "api/bird",
+  $id: "https://bird-engine.local/api/bird",
   title: "Bird",
   description: "A bird",
   type: "object",

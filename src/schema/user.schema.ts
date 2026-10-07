@@ -1,5 +1,5 @@
 export const UserSchema = {
-  $id: "api/user",
+  $id: "https://bird-engine.local/api/user",
   title: "User",
   description: "A user",
   type: "object",
@@ -12,7 +12,7 @@ export const UserSchema = {
 } as const;
 
 export const UserRequestSchema = {
-  $id: "api/user/request",
+  $id: "https://bird-engine.local/api/user/request",
   title: "User Request",
   description: "A request to create or update a user",
   type: "object",

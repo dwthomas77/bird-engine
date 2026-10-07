@@ -1,5 +1,5 @@
 export const HabitatSpeciesSchema = {
-  $id: "api/habitat-species",
+  $id: "https://bird-engine.local/api/habitat-species",
   title: "Habitat - Species",
   description: "A relationship between a Habitat and a Species",
   type: "object",

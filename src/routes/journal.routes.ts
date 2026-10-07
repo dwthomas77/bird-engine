@@ -19,7 +19,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: "api/journal#" },
+            items: { $ref: "https://bird-engine.local/api/journal#" },
           },
         },
       },
@@ -37,7 +37,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["journalId"],
         },
         response: {
-          200: { $ref: "api/journal#" },
+          200: { $ref: "https://bird-engine.local/api/journal#" },
         },
       },
     },
@@ -48,9 +48,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["journal"],
-        body: { $ref: "api/journal/request#" },
+        body: { $ref: "https://bird-engine.local/api/journal/request#" },
         response: {
-          200: { $ref: "api/journal#" },
+          200: { $ref: "https://bird-engine.local/api/journal#" },
         },
       },
     },
@@ -66,9 +66,9 @@ async function routes(fastify: FastifyInstance) {
           properties: { journalId: { type: "string" } },
           required: ["journalId"],
         },
-        body: { $ref: "api/journal/request#" },
+        body: { $ref: "https://bird-engine.local/api/journal/request#" },
         response: {
-          200: { $ref: "api/journal#" },
+          200: { $ref: "https://bird-engine.local/api/journal#" },
         },
       },
     },

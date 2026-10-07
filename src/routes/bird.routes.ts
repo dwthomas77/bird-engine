@@ -13,7 +13,7 @@ async function routes(fastify: FastifyInstance) {
         tags: ["bird"],
         description: "Get a randomly generated bird",
         response: {
-          200: { $ref: "api/bird#" },
+          200: { $ref: "https://bird-engine.local/api/bird#" },
         },
       },
     },

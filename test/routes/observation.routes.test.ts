@@ -9,6 +9,7 @@ import {
   ObservationSchema,
   ObservationRequestSchema,
 } from "../../src/schema/observation.schema.js";
+import { BirdSchema } from "../../src/schema/bird.schema.js";
 import { LocationSchema } from "../../src/schema/location.schema.js";
 import { observationRepositoryFactory } from "../../src/repositories/observation.repository.js";
 import { observationServiceFactory } from "../../src/services/observation.service.js";
@@ -16,8 +17,16 @@ import { AppError, errorToProblemDetails } from "../../src/errors.js";
 
 const observation: Observation = {
   observationId: "observation-1",
-  speciesId: "species-1",
-  locationId: {
+  journalId: "journal-1",
+  bird: {
+    birdId: "bird-1",
+    speciesId: "species-1",
+    speciesName: "Mallard",
+    localeName: "Duck",
+    genus: "Anas",
+    family: "Anatidae",
+  },
+  location: {
     name: "Wetland",
     habitatId: "habitat-1",
   },
@@ -26,8 +35,9 @@ const observation: Observation = {
 };
 
 const observationRequest: ObservationRequest = {
-  speciesId: observation.speciesId,
-  locationId: observation.locationId,
+  journalId: observation.journalId,
+  bird: observation.bird,
+  location: observation.location,
   observedAt: observation.observedAt,
   quantity: observation.quantity,
 };
@@ -43,6 +53,7 @@ describe("Observation routes", () => {
       "[]",
     );
     app = Fastify();
+    app.addSchema(BirdSchema);
     app.addSchema(LocationSchema);
     app.addSchema(ObservationSchema);
     app.addSchema(ObservationRequestSchema);

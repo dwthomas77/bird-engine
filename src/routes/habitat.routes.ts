@@ -28,7 +28,7 @@ async function routes(fastify: FastifyInstance) {
           200: {
             type: "array",
             items: {
-              $ref: "api/habitat#",
+              $ref: "https://bird-engine.local/api/habitat#",
             },
           },
         },
@@ -49,7 +49,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["uid"],
         },
         response: {
-          200: { $ref: "api/habitat#" },
+          200: { $ref: "https://bird-engine.local/api/habitat#" },
         },
       },
     },
@@ -60,9 +60,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["habitat"],
-        body: { $ref: "api/habitat/request#" },
+        body: { $ref: "https://bird-engine.local/api/habitat/request#" },
         response: {
-          200: { $ref: "api/habitat#" },
+          200: { $ref: "https://bird-engine.local/api/habitat#" },
         },
       },
     },
@@ -99,9 +99,9 @@ async function routes(fastify: FastifyInstance) {
           },
           required: ["uid"],
         },
-        body: { $ref: "api/habitat/request#" },
+        body: { $ref: "https://bird-engine.local/api/habitat/request#" },
         response: {
-          200: { $ref: "api/habitat#" },
+          200: { $ref: "https://bird-engine.local/api/habitat#" },
         },
       },
     },

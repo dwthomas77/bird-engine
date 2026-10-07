@@ -119,6 +119,21 @@ export async function buildApp(options: appOptions = {}) {
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   });
 
+    // Schema
+  app.addSchema(HabitatSchema);
+  app.addSchema(HabitatRequestSchema);
+  app.addSchema(UserSchema);
+  app.addSchema(UserRequestSchema);
+  app.addSchema(JournalSchema);
+  app.addSchema(JournalRequestSchema);
+  app.addSchema(LocationSchema);
+  app.addSchema(SpeciesSchema);
+  app.addSchema(SpeciesRequestSchema);
+  app.addSchema(SpeciesReadSchema);
+  app.addSchema(BirdSchema);
+  app.addSchema(ObservationSchema);
+  app.addSchema(ObservationRequestSchema);
+
   app.register(swagger, {
     openapi: {
       info: {
@@ -198,29 +213,15 @@ export async function buildApp(options: appOptions = {}) {
     reply.send({ health: "ok" });
   });
 
-  // Schema
-  app.addSchema(HabitatSchema);
-  app.addSchema(HabitatRequestSchema);
 
-  app.addSchema(SpeciesSchema);
-  app.addSchema(SpeciesRequestSchema);
-  app.addSchema(SpeciesReadSchema);
-  app.addSchema(BirdSchema);
-  app.addSchema(UserSchema);
-  app.addSchema(UserRequestSchema);
-  app.addSchema(ObservationSchema);
-  app.addSchema(ObservationRequestSchema);
-  app.addSchema(JournalSchema);
-  app.addSchema(JournalRequestSchema);
-  app.addSchema(LocationSchema);
 
   // Routes
   app.register(habitatRoutes);
+  app.register(userRoutes);
+  app.register(journalRoutes);
   app.register(speciesRoutes);
   app.register(birdRoutes);
-  app.register(userRoutes);
   app.register(observationRoutes);
-  app.register(journalRoutes);
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
     if (error instanceof AppError) {

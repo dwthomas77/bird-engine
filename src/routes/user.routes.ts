@@ -15,7 +15,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: "api/user#" },
+            items: { $ref: "https://bird-engine.local/api/user#" },
           },
         },
       },
@@ -33,7 +33,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["userId"],
         },
         response: {
-          200: { $ref: "api/user#" },
+          200: { $ref: "https://bird-engine.local/api/user#" },
         },
       },
     },
@@ -44,9 +44,9 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["user"],
-        body: { $ref: "api/user/request#" },
+        body: { $ref: "https://bird-engine.local/api/user/request#" },
         response: {
-          200: { $ref: "api/user#" },
+          200: { $ref: "https://bird-engine.local/api/user#" },
         },
       },
     },
@@ -62,9 +62,9 @@ async function routes(fastify: FastifyInstance) {
           properties: { userId: { type: "string" } },
           required: ["userId"],
         },
-        body: { $ref: "api/user/request#" },
+        body: { $ref: "https://bird-engine.local/api/user/request#" },
         response: {
-          200: { $ref: "api/user#" },
+          200: { $ref: "https://bird-engine.local/api/user#" },
         },
       },
     },

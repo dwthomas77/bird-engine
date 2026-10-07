@@ -9,7 +9,7 @@ const baseJournalProperties = {
 const requiredJournalProperties = ["userId", "name", "createdAt", "updatedAt"] as const;
 
 export const JournalSchema = {
-  $id: "api/journal",
+  $id: "https://bird-engine.local/api/journal",
   title: "Journal",
   description: "A journal of bird observations",
   type: "object",
@@ -22,7 +22,7 @@ export const JournalSchema = {
 } as const;
 
 export const JournalRequestSchema = {
-  $id: "api/journal/request",
+  $id: "https://bird-engine.local/api/journal/request",
   title: "Journal Request",
   description: "A request to create a journal of bird observations",
   type: "object",

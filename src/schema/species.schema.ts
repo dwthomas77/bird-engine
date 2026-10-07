@@ -31,7 +31,7 @@ const baseSpeciesProperties = {
 } as const;
 
 const SpeciesSchema = {
-  $id: "api/species",
+  $id: "https://bird-engine.local/api/species",
   title: "Species",
   description: "A species of bird",
   type: "object",
@@ -45,7 +45,7 @@ const SpeciesSchema = {
 } as const;
 
 const SpeciesRequestSchema = {
-  $id: "api/species/request",
+  $id: "https://bird-engine.local/api/species/request",
   title: "Species Request",
   description: "A request to update or create a species of bird",
   type: "object",
@@ -62,7 +62,7 @@ const SpeciesRequestSchema = {
 } as const;
 
 const SpeciesReadSchema = {
-  $id: "api/species/read",
+  $id: "https://bird-engine.local/api/species/read",
   title: "Detailed Species",
   description: "A species of bird",
   type: "object",
@@ -74,7 +74,7 @@ const SpeciesReadSchema = {
     habitats: {
       type: "array",
       items: {
-        $ref: "api/habitat#",
+        $ref: "https://bird-engine.local/api/habitat#",
       },
     },
   },
