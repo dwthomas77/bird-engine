@@ -194,6 +194,7 @@ export async function buildApp(options: appOptions = {}) {
     }),
     bird: birdServiceFactory({
       speciesRepository: repositories.species,
+      speciesHabitatService: speciesHabitat,
     }),
     user: userServiceFactory({
       userRepository: repositories.user,

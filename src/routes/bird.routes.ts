@@ -12,7 +12,14 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["bird"],
-        description: "Get a randomly generated bird",
+        description:
+          "Get a randomly generated bird, optionally limited to species found in a habitat",
+        querystring: {
+          type: "object",
+          properties: {
+            habitatId: { type: "string" },
+          },
+        },
         response: {
           200: { $ref: schemaRef("bird") },
         },

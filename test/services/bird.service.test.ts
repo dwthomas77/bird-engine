@@ -2,6 +2,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import type { SpeciesRepository } from "../../src/repositories/species.repository.js";
 import { birdServiceFactory } from "../../src/services/bird.service.js";
 import { NotFoundError } from "../../src/errors.js";
+import type { SpeciesHabitatService } from "../../src/services/habitatSpecies.service.js";
 import type { Species } from "../../src/types.js";
 
 const firstSpecies: Species = {
@@ -28,6 +29,14 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
+function createHabitatService(speciesIds: string[] = []): SpeciesHabitatService {
+  return {
+    synchronizeHabitats: vi.fn(),
+    getHabitatsForSpecies: vi.fn(),
+    getSpeciesIdsForHabitat: vi.fn().mockResolvedValue(speciesIds),
+  };
+}
+
 function createSpeciesRepository(species: Species[]): SpeciesRepository {
   return {
     getSpecies: vi.fn().mockResolvedValue(species),
@@ -46,7 +55,10 @@ it("creates a bird from a random species with values within its ranges", async (
   const randomValues = [0.75, 0.25, 0, 0.5, 0.999];
   vi.spyOn(Math, "random").mockImplementation(() => randomValues.shift() ?? 0);
 
-  const bird = await birdServiceFactory({ speciesRepository }).getBird();
+  const bird = await birdServiceFactory({
+    speciesRepository,
+    speciesHabitatService: createHabitatService(),
+  }).getBird();
 
   expect(bird).toEqual({
     birdId: expect.any(String),
@@ -69,6 +81,36 @@ it("throws when no species are available", async () => {
   const speciesRepository = createSpeciesRepository([]);
 
   await expect(
-    birdServiceFactory({ speciesRepository }).getBird(),
+    birdServiceFactory({
+    speciesRepository,
+    speciesHabitatService: createHabitatService(),
+  }).getBird(),
+  ).rejects.toThrow(NotFoundError);
+});
+
+it("only selects species found in the requested habitat", async () => {
+  const speciesRepository = createSpeciesRepository([
+    firstSpecies,
+    secondSpecies,
+  ]);
+  const speciesHabitatService = createHabitatService(["species-1"]);
+
+  const bird = await birdServiceFactory({
+    speciesRepository,
+    speciesHabitatService,
+  }).getBird({ habitatId: "habitat-1" });
+
+  expect(bird.speciesId).toBe(firstSpecies.speciesId);
+  expect(speciesHabitatService.getSpeciesIdsForHabitat).toHaveBeenCalledWith(
+    "habitat-1",
+  );
+});
+
+it("throws when the habitat has no species", async () => {
+  await expect(
+    birdServiceFactory({
+      speciesRepository: createSpeciesRepository([firstSpecies]),
+      speciesHabitatService: createHabitatService([]),
+    }).getBird({ habitatId: "habitat-1" }),
   ).rejects.toThrow(NotFoundError);
 });

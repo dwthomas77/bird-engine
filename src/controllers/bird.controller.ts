@@ -6,7 +6,8 @@ function birdControllerFactory({ service }: { service: BirdService }) {
     request: FastifyRequest,
     reply: FastifyReply,
   ) {
-    const bird = await service.getBird();
+    const { habitatId } = request.query as { habitatId?: string };
+    const bird = await service.getBird({ habitatId });
     return reply.send(bird);
   }
 

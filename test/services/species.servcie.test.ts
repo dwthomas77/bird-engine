@@ -51,6 +51,7 @@ function createMockSpeciesHabitatService(): SpeciesHabitatService {
 	return {
 		synchronizeHabitats: vi.fn(),
 		getHabitatsForSpecies: vi.fn(),
+		getSpeciesIdsForHabitat: vi.fn(),
 	};
 }
 

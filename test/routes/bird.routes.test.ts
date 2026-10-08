@@ -74,4 +74,41 @@ describe("GET /bird", () => {
       detail: "No species available to create a bird",
     });
   });
+
+  it("filters birds by habitatId", async () => {
+    const other = { ...peregrine, speciesId: "species-2", speciesName: "Eagle" };
+    await Promise.all([
+      fs.writeFile(
+        path.join(testDir, "species.data.json"),
+        JSON.stringify([peregrine, other]),
+      ),
+      fs.writeFile(
+        path.join(testDir, "habitats.data.json"),
+        JSON.stringify([
+          { habitatId: "h1", code: "H1", name: "One", level: 1, parentId: null },
+        ]),
+      ),
+      fs.writeFile(
+        path.join(testDir, "habitatSpecies.data.json"),
+        JSON.stringify([{ habitatId: "h1", speciesId: "species-2" }]),
+      ),
+    ]);
+
+    for (let i = 0; i < 5; i++) {
+      const response = await app.inject({
+        method: "GET",
+        url: "/bird?habitatId=h1",
+      });
+      expect(response.statusCode).toBe(200);
+      expect(response.json().speciesId).toBe("species-2");
+    }
+  });
+
+  it("returns not found for an unknown habitatId", async () => {
+    const response = await app.inject({
+      method: "GET",
+      url: "/bird?habitatId=missing",
+    });
+    expect(response.statusCode).toBe(404);
+  });
 });
