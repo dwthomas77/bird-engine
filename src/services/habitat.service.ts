@@ -6,6 +6,8 @@ export interface HabitatFilter {
   code?: string;
   // null means only habitats with no parent
   parentId?: string | null;
+  // level of the habitat in the hierarchy
+  level?: number;
 }
 
 export interface HabitatService {
@@ -17,6 +19,11 @@ export interface HabitatService {
   getHabitatsByIdsService(habitatIds: string[]): Promise<Habitat[]>;
 }
 
+// Code format XX.XX.XX: level = number of "." separators + 1
+function getHabitatLevel(code: string): number {
+  return code.split(".").length;
+}
+
 async function getHabitatsService(
   repository: HabitatRepository,
   filter: HabitatFilter = {},
@@ -24,9 +31,19 @@ async function getHabitatsService(
   const habitatsFromRepo = (await repository.getHabitats()) || [];
   return habitatsFromRepo.filter((habitat) => {
     if (filter.code !== undefined && habitat.code !== filter.code) return false;
-    if (filter.parentId === null) return !habitat.parentHabitatId;
-    if (filter.parentId !== undefined) {
-      return habitat.parentHabitatId === filter.parentId;
+    if (filter.parentId === null && habitat.parentHabitatId) return false;
+    if (
+      filter.parentId !== undefined &&
+      filter.parentId !== null &&
+      habitat.parentHabitatId !== filter.parentId
+    ) {
+      return false;
+    }
+    if (
+      filter.level !== undefined &&
+      getHabitatLevel(habitat.code) !== filter.level
+    ) {
+      return false;
     }
     return true;
   });

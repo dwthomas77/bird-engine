@@ -23,6 +23,7 @@ async function routes(fastify: FastifyInstance) {
           properties: {
             code: { type: "string" },
             parentId: { type: "string" },
+            level: { type: "number" },
           },
         },
         response: {

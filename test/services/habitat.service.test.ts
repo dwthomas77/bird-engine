@@ -90,3 +90,17 @@ it("returns only parentless habitats when parentId is null", async () => {
 it("combines code and parentId filters", async () => {
   expect(await filterHabitats({ code: "forest", parentId: "p" })).toEqual([]);
 });
+
+it("filters habitats by level based on code", async () => {
+  const level1 = { habitatId: "1", code: "01", name: "L1" };
+  const level2 = { habitatId: "2", code: "01.02", name: "L2" };
+  const level3 = { habitatId: "3", code: "01.02.03", name: "L3" };
+  const repository = createMockHabitatRepository();
+  vi.mocked(repository.getHabitats).mockResolvedValue([level1, level2, level3]);
+  const service = habitatServiceFactory({ repository });
+
+  expect(await service.getHabitatsService({ level: 1 })).toEqual([level1]);
+  expect(await service.getHabitatsService({ level: 2 })).toEqual([level2]);
+  expect(await service.getHabitatsService({ level: 3 })).toEqual([level3]);
+  expect(await service.getHabitatsService({ level: 4 })).toEqual([]);
+});

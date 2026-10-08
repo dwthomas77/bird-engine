@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "userId": "4926842444d149e0291b23531b5886ec269009c6dca04dfe435e50ca41cc27ed",
+    "name": "The St Clair Journal",
+    "description": "A collection of St Clair's Observations",
+    "createdAt": "2026-10-08T12:37:25.324Z",
+    "updatedAt": "2026-10-08T12:37:25.324Z",
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113"
+  }
+]

@@ -7,15 +7,17 @@ function habitatControllerFactory({ service }: { service: HabitatService }) {
     request: FastifyRequest,
     reply: FastifyReply,
   ) {
-    const { code, parentId } = request.query as {
+    const { code, parentId, level } = request.query as {
       code?: string;
       parentId?: string;
+      level?: number;
     };
     // "null" or an empty value selects habitats with no parent
     const habitats = await service.getHabitatsService({
       code,
       parentId:
         parentId === "null" || parentId === "" ? null : parentId,
+      level,
     });
     reply.send(habitats || []);
   }
