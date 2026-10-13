@@ -16,6 +16,10 @@ async function routes(fastify: FastifyInstance) {
     {
       schema: {
         tags: ["observation"],
+        params: {
+          type: "object",
+          properties: { journalId: { type: "string" } },
+        },
         description: "Get all observations",
         response: {
           200: {

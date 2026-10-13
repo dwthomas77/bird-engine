@@ -3,7 +3,7 @@ import { NotFoundError } from "../errors.js";
 import type { ObservationRepository } from "../repositories/observation.repository.js";
 
 export interface ObservationService {
-  getObservationsService(): Promise<Observation[]>;
+  getObservationsService(journalId?: string): Promise<Observation[]>;
   addObservationService(newObservation: ObservationRequest): Promise<Observation>;
   updateObservationService(
     observationId: string,
@@ -19,8 +19,13 @@ export function observationServiceFactory({
 }: {
   observationRepository: ObservationRepository;
 }): ObservationService {
-  async function getObservationsService(): Promise<Observation[]> {
-    return observationRepository.getObservations();
+  async function getObservationsService(
+    journalId?: string,
+  ): Promise<Observation[]> {
+    const observations = await observationRepository.getObservations();
+    return journalId === undefined
+      ? observations
+      : observations.filter((o) => o.journalId === journalId);
   }
 
   async function addObservationService(

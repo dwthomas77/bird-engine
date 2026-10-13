@@ -11,7 +11,8 @@ function observationControllerFactory({
     request: FastifyRequest,
     reply: FastifyReply,
   ) {
-    const observations = await service.getObservationsService();
+    const { journalId } = request.params as { journalId: string };
+    const observations = await service.getObservationsService(journalId);
     return reply.send(observations);
   }
 
