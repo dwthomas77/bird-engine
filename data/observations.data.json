@@ -21,5 +21,166 @@
       "habitatId": "a623635e-7020-47b4-919f-e9c4011f10ec"
     },
     "observationId": "c0757e6a-0e51-4e91-bd14-2889d2575f23"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "983a68f4-6e48-4401-8f78-96e99b2b8f91",
+      "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe",
+      "speciesName": "Cardinalis cardinalis",
+      "localeName": "Northern Cardinal",
+      "genus": "Cardinalis",
+      "family": "Cardinalidae",
+      "sex": "male",
+      "length": 8.576825242997586,
+      "weight": 1.624245457527303,
+      "wingspan": 12.110685318832484
+    },
+    "observedAt": "2026-10-13T19:38:23.829Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "lively Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "d7a4678b-407f-4fb5-9163-e86c334e60be"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "9f28e700-046c-43d8-a225-462eb9810cb1",
+      "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712",
+      "speciesName": "Poecile atricapillus",
+      "localeName": "Black-capped Chickadee",
+      "genus": "Poecile",
+      "family": "Paridae",
+      "sex": "female",
+      "length": 5.038623286643174,
+      "weight": 0.418208188895984,
+      "wingspan": 6.463168383098067
+    },
+    "observedAt": "2026-10-13T19:38:44.084Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "lively Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "29e765a1-5a00-44ea-a2f3-d4da610a5476"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "95531d00-7acd-4a75-91df-66ecffc67258",
+      "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e",
+      "speciesName": "Haliaeetus leucocephalus",
+      "localeName": "Bald Eagle",
+      "genus": "Haliaeetus",
+      "family": "Accipitridae",
+      "sex": "male",
+      "length": 28.93974550458816,
+      "weight": 158.40083095693433,
+      "wingspan": 70.0559486945856
+    },
+    "observedAt": "2026-10-13T19:53:22.365Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "blooming Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "c7d7d200-a1df-405c-b1cb-a7d21d2de8e3"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "c5392007-4150-4776-ab3b-6a735e1c097c",
+      "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe",
+      "speciesName": "Cardinalis cardinalis",
+      "localeName": "Northern Cardinal",
+      "genus": "Cardinalis",
+      "family": "Cardinalidae",
+      "sex": "male",
+      "length": 8.793972843391359,
+      "weight": 1.6516848771748076,
+      "wingspan": 11.02647346386003
+    },
+    "observedAt": "2026-10-13T19:53:24.986Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "blooming Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "b38bf872-b27e-4e97-b434-e2199695f0cc"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "44023089-816d-4b3d-9c0a-1562eb5baf1f",
+      "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe",
+      "speciesName": "Cardinalis cardinalis",
+      "localeName": "Northern Cardinal",
+      "genus": "Cardinalis",
+      "family": "Cardinalidae",
+      "sex": "male",
+      "length": 8.376296841143342,
+      "weight": 1.6985739545479968,
+      "wingspan": 11.52308358507712
+    },
+    "observedAt": "2026-10-13T19:53:26.784Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "blooming Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "d31683fc-3b00-44fb-bf6e-a89c93c63cc0"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "e66d591d-dbd2-4bca-8d3c-0238db10cbcd",
+      "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712",
+      "speciesName": "Poecile atricapillus",
+      "localeName": "Black-capped Chickadee",
+      "genus": "Poecile",
+      "family": "Paridae",
+      "sex": "male",
+      "length": 5.608343241365342,
+      "weight": 0.3661016723013727,
+      "wingspan": 7.304128802828899
+    },
+    "observedAt": "2026-10-13T19:53:28.343Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "blooming Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "ebcff354-933d-4096-97dc-679d86752d9f"
+  },
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "66bc5eed-4dc1-47ce-97d6-1de020f5fce0",
+      "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e",
+      "speciesName": "Haliaeetus leucocephalus",
+      "localeName": "Bald Eagle",
+      "genus": "Haliaeetus",
+      "family": "Accipitridae",
+      "sex": "female",
+      "length": 34.20230994561664,
+      "weight": 156.71579723759476,
+      "wingspan": 80.06831503791847
+    },
+    "observedAt": "2026-10-13T19:53:29.584Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "blooming Forest",
+      "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
+    },
+    "observationId": "84a34936-255c-4b3c-ae45-7a7368a6e21c"
   }
 ]

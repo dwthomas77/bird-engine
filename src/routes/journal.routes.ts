@@ -38,7 +38,7 @@ async function routes(fastify: FastifyInstance) {
           required: ["journalId"],
         },
         response: {
-          200: { $ref: schemaRef("journal") },
+          200: { $ref: schemaRef("journal/summary") },
         },
       },
     },

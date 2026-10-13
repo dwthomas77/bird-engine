@@ -25,7 +25,7 @@ function journalControllerFactory({ service }: { service: JournalService }) {
     reply: FastifyReply,
   ) {
     const { journalId } = request.params as { journalId: string };
-    return reply.send(await service.getJournalByIdService(journalId));
+    return reply.send(await service.getJournalSummaryByIdService(journalId));
   }
 
   async function updateJournalController(

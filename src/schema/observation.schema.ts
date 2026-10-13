@@ -8,7 +8,7 @@ const baseObservationProperties = {
   "notes": { type: "string" },
 } as const;
 
-const requiredObservationProperties = ["journalId", "bird", "location", "observedAt", "quantity"] as const;
+const requiredObservationProperties = ["journalId", "bird", "location", "observedAt"] as const;
 
 export const ObservationSchema = {
   $id: schemaId("observation"),
