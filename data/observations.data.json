@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113",
+    "bird": {
+      "birdId": "a570a1e0-1197-4aba-a152-fa4956793d84",
+      "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe",
+      "speciesName": "Cardinalis cardinalis",
+      "localeName": "Northern Cardinal",
+      "genus": "Cardinalis",
+      "family": "Cardinalidae",
+      "sex": "female",
+      "length": 8.35717077606129,
+      "weight": 1.5007213306998597,
+      "wingspan": 11.898196160368482
+    },
+    "observedAt": "2026-10-08T18:21:39.698Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "bright Savanna",
+      "habitatId": "a623635e-7020-47b4-919f-e9c4011f10ec"
+    },
+    "observationId": "c0757e6a-0e51-4e91-bd14-2889d2575f23"
+  }
+]

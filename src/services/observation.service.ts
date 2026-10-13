@@ -11,6 +11,7 @@ export interface ObservationService {
   ): Promise<Observation>;
   removeObservationService(observationId: string): Promise<void>;
   getObservationByIdService(observationId: string): Promise<Observation>;
+  getObservationCountbyJournalService(journalId: string): Promise<number>;
 }
 
 export function observationServiceFactory({
@@ -75,11 +76,18 @@ export function observationServiceFactory({
     return observation;
   }
 
+  async function getObservationCountbyJournalService(
+    journalId: string,
+  ): Promise<number> {
+    return observationRepository.getObservationCountbyJournal(journalId);
+  }
+
   return {
     getObservationsService,
     addObservationService,
     updateObservationService,
     removeObservationService,
     getObservationByIdService,
+    getObservationCountbyJournalService,
   };
 }

@@ -33,3 +33,23 @@ export const JournalRequestSchema = {
   "required": requiredJournalProperties,
   "additionalProperties": false
 } as const;
+
+export const JournalSummarySchema = {
+  $id: schemaId("journal/summary"),
+  title: "Journal Summary",
+  description: "A summary of a journal of bird observations",
+  type: "object",
+  properties: {
+    "journalId": { type: "string" },
+    "name": { type: "string" },
+    "description": { type: "string" },
+    "createdAt": { type: "string", format: "date-time" },
+    "updatedAt": { type: "string", format: "date-time" },
+    "owner": { type: "object", properties: {
+      "userId": { type: "string" },
+      "displayName": { type: "string" }
+    }},
+    "entryCount": { type: "integer" }
+  },
+  "required": ["journalId", "name", "createdAt", "updatedAt", "owner", "entryCount"],
+} as const;

@@ -5,7 +5,7 @@ import { BirdSchema } from './schema/bird.schema.js';
 import { SpeciesSchema, SpeciesRequestSchema } from './schema/species.schema.js';
 import { UserSchema, UserRequestSchema } from './schema/user.schema.js';
 import { ObservationSchema, ObservationRequestSchema } from './schema/observation.schema.js';
-import { JournalSchema, JournalRequestSchema } from './schema/journal.schema.js';
+import { JournalSchema, JournalRequestSchema, JournalSummarySchema } from './schema/journal.schema.js';
 import { LocationSchema } from './schema/location.schema.js';
 import ServerErrorResponseSchema from './schema/server.errorResponse.schema.js';
 
@@ -29,4 +29,5 @@ export type ObservationRequest = FromSchema<
 >;
 export type Journal = FromSchema<typeof JournalSchema>;
 export type JournalRequest = FromSchema<typeof JournalRequestSchema>;
+export type JournalSummary = FromSchema<typeof JournalSummarySchema>;
 export type ServerErrorResponse = FromSchema<typeof ServerErrorResponseSchema>;

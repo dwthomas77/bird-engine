@@ -29,6 +29,7 @@ import {
 import {
   JournalSchema,
   JournalRequestSchema,
+  JournalSummarySchema,
 } from "./schema/journal.schema.js";
 import { LocationSchema } from "./schema/location.schema.js";
 import { AppError, errorToProblemDetails } from "./errors.js";
@@ -49,10 +50,7 @@ import {
   speciesServiceFactory,
   SpeciesService,
 } from "./services/species.service.js";
-import {
-  birdServiceFactory,
-  BirdService,
-} from "./services/bird.service.js";
+import { birdServiceFactory, BirdService } from "./services/bird.service.js";
 import {
   speciesRepositoryFactory,
   SpeciesRepository,
@@ -119,13 +117,14 @@ export async function buildApp(options: appOptions = {}) {
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   });
 
-    // Schema
+  // Schema
   app.addSchema(HabitatSchema);
   app.addSchema(HabitatRequestSchema);
   app.addSchema(UserSchema);
   app.addSchema(UserRequestSchema);
   app.addSchema(JournalSchema);
   app.addSchema(JournalRequestSchema);
+   app.addSchema(JournalSummarySchema);
   app.addSchema(LocationSchema);
   app.addSchema(SpeciesSchema);
   app.addSchema(SpeciesRequestSchema);
@@ -147,7 +146,7 @@ export async function buildApp(options: appOptions = {}) {
         { name: "user", description: "Users" },
         { name: "observation", description: "Observations of Birds" },
         { name: "journal", description: "Journals of Bird Observations" },
-      ]
+      ],
     },
   });
 
@@ -183,6 +182,14 @@ export async function buildApp(options: appOptions = {}) {
     habitatRepository: repositories.habitat,
   });
 
+  const observationService = observationServiceFactory({
+    observationRepository: repositories.observation,
+  });
+
+  const userService = userServiceFactory({
+    userRepository: repositories.user,
+  });
+
   const services = {
     habitat: habitatServiceFactory({
       repository: repositories.habitat,
@@ -196,14 +203,12 @@ export async function buildApp(options: appOptions = {}) {
       speciesRepository: repositories.species,
       speciesHabitatService: speciesHabitat,
     }),
-    user: userServiceFactory({
-      userRepository: repositories.user,
-    }),
-    observation: observationServiceFactory({
-      observationRepository: repositories.observation,
-    }),
+    user: userService,
+    observation: observationService,
     journal: journalServiceFactory({
       journalRepository: repositories.journal,
+      userService: userService,
+      observationService: observationService,
     }),
   };
 
@@ -213,8 +218,6 @@ export async function buildApp(options: appOptions = {}) {
   app.get("/health-check", function (request, reply) {
     reply.send({ health: "ok" });
   });
-
-
 
   // Routes
   app.register(habitatRoutes);

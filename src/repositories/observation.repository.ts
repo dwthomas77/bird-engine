@@ -4,10 +4,14 @@ import { InternalServerError } from "../errors.js";
 
 export interface ObservationRepository {
   getObservations(): Promise<Observation[]>;
+  getObservationCountbyJournal(journalId: string): Promise<number>;
   addObservationToRepository(newObservation: Observation): Promise<Observation>;
   getObservationById(observationId: string): Promise<Observation | undefined>;
   deleteObservationFromRepository(observationId: string): Promise<void>;
-  updateObservationInRepository(updatedObservation: Observation): Promise<Observation>;
+  updateObservationInRepository(
+    updatedObservation: Observation,
+  ): Promise<Observation>;
+  getObservationCountbyJournal(journalId: string): Promise<number>;
 }
 
 export function observationRepositoryFactory({
@@ -94,11 +98,21 @@ export function observationRepositoryFactory({
     }
   }
 
+  async function getObservationCountbyJournal(
+    journalId: string,
+  ): Promise<number> {
+    const observations = await getObservations();
+    return observations.filter(
+      (observation) => observation.journalId === journalId,
+    ).length;
+  }
+
   return {
     getObservations,
     addObservationToRepository,
     getObservationById,
     deleteObservationFromRepository,
     updateObservationInRepository,
+    getObservationCountbyJournal,
   };
 }

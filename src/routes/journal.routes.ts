@@ -20,7 +20,7 @@ async function routes(fastify: FastifyInstance) {
         response: {
           200: {
             type: "array",
-            items: { $ref: schemaRef("journal") },
+            items: { $ref: schemaRef("journal/summary") },
           },
         },
       },
