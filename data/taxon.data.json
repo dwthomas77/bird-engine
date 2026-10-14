@@ -1,0 +1,860 @@
+{
+  "families": [
+    {
+      "taxonId": "anatidae",
+      "rank": "family",
+      "name": "Ducks, Geese and Swans"
+    },
+    {
+      "taxonId": "corvidae",
+      "rank": "family",
+      "name": "Crows and Jays"
+    },
+    {
+      "taxonId": "paridae",
+      "rank": "family",
+      "name": "Chickadees and Titmice"
+    },
+    {
+      "taxonId": "fringillidae",
+      "rank": "family",
+      "name": "Finches"
+    },
+    {
+      "taxonId": "passerellidae",
+      "rank": "family",
+      "name": "New World Sparrows"
+    },
+    {
+      "taxonId": "parulidae",
+      "rank": "family",
+      "name": "New World Warblers"
+    },
+    {
+      "taxonId": "turdidae",
+      "rank": "family",
+      "name": "Thrushes"
+    },
+    {
+      "taxonId": "icteridae",
+      "rank": "family",
+      "name": "Blackbirds and Orioles"
+    },
+    {
+      "taxonId": "picidae",
+      "rank": "family",
+      "name": "Woodpeckers"
+    },
+    {
+      "taxonId": "accipitridae",
+      "rank": "family",
+      "name": "Hawks, Eagles and Kites"
+    },
+    {
+      "taxonId": "cardinalidae",
+      "rank": "family",
+      "name": "Cardinals and Allies"
+    },
+    {
+      "taxonId": "columbidae",
+      "rank": "family",
+      "name": "Pigeons and Doves"
+    },
+    {
+      "taxonId": "trochilidae",
+      "rank": "family",
+      "name": "Hummingbirds"
+    },
+    {
+      "taxonId": "sittidae",
+      "rank": "family",
+      "name": "Nuthatches"
+    },
+    {
+      "taxonId": "cathartidae",
+      "rank": "family",
+      "name": "New World Vultures"
+    },
+    {
+      "taxonId": "pandionidae",
+      "rank": "family",
+      "name": "Ospreys"
+    },
+    {
+      "taxonId": "ardeidae",
+      "rank": "family",
+      "name": "Herons and Egrets"
+    },
+    {
+      "taxonId": "strigidae",
+      "rank": "family",
+      "name": "Typical Owls"
+    }
+  ],
+  "genera": [
+    {
+      "taxonId": "anas",
+      "rank": "genus",
+      "name": "Anas",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "aix",
+      "rank": "genus",
+      "name": "Aix",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "branta",
+      "rank": "genus",
+      "name": "Branta",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "mergus",
+      "rank": "genus",
+      "name": "Mergus",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "cyanocitta",
+      "rank": "genus",
+      "name": "Cyanocitta",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "corvus",
+      "rank": "genus",
+      "name": "Corvus",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "poecile",
+      "rank": "genus",
+      "name": "Poecile",
+      "familyId": "paridae"
+    },
+    {
+      "taxonId": "baeolophus",
+      "rank": "genus",
+      "name": "Baeolophus",
+      "familyId": "paridae"
+    },
+    {
+      "taxonId": "haemorhous",
+      "rank": "genus",
+      "name": "Haemorhous",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "spinus",
+      "rank": "genus",
+      "name": "Spinus",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "coccothraustes",
+      "rank": "genus",
+      "name": "Coccothraustes",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "melospiza",
+      "rank": "genus",
+      "name": "Melospiza",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "zonotrichia",
+      "rank": "genus",
+      "name": "Zonotrichia",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "junco",
+      "rank": "genus",
+      "name": "Junco",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "spizella",
+      "rank": "genus",
+      "name": "Spizella",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "pipilo",
+      "rank": "genus",
+      "name": "Pipilo",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "setophaga",
+      "rank": "genus",
+      "name": "Setophaga",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "geothlypis",
+      "rank": "genus",
+      "name": "Geothlypis",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "seiurus",
+      "rank": "genus",
+      "name": "Seiurus",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "mniotilta",
+      "rank": "genus",
+      "name": "Mniotilta",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "turdus",
+      "rank": "genus",
+      "name": "Turdus",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "hylocichla",
+      "rank": "genus",
+      "name": "Hylocichla",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "sialia",
+      "rank": "genus",
+      "name": "Sialia",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "catharus",
+      "rank": "genus",
+      "name": "Catharus",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "agelaius",
+      "rank": "genus",
+      "name": "Agelaius",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "quiscalus",
+      "rank": "genus",
+      "name": "Quiscalus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "icterus",
+      "rank": "genus",
+      "name": "Icterus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "molothrus",
+      "rank": "genus",
+      "name": "Molothrus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "dolichonyx",
+      "rank": "genus",
+      "name": "Dolichonyx",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "dryobates",
+      "rank": "genus",
+      "name": "Dryobates",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "colaptes",
+      "rank": "genus",
+      "name": "Colaptes",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "dryocopus",
+      "rank": "genus",
+      "name": "Dryocopus",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "melanerpes",
+      "rank": "genus",
+      "name": "Melanerpes",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "sphyrapicus",
+      "rank": "genus",
+      "name": "Sphyrapicus",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "buteo",
+      "rank": "genus",
+      "name": "Buteo",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "haliaeetus",
+      "rank": "genus",
+      "name": "Haliaeetus",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "accipiter",
+      "rank": "genus",
+      "name": "Accipiter",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "cardinalis",
+      "rank": "genus",
+      "name": "Cardinalis",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "passerina",
+      "rank": "genus",
+      "name": "Passerina",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "piranga",
+      "rank": "genus",
+      "name": "Piranga",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "zenaida",
+      "rank": "genus",
+      "name": "Zenaida",
+      "familyId": "columbidae"
+    },
+    {
+      "taxonId": "archilochus",
+      "rank": "genus",
+      "name": "Archilochus",
+      "familyId": "trochilidae"
+    },
+    {
+      "taxonId": "sitta",
+      "rank": "genus",
+      "name": "Sitta",
+      "familyId": "sittidae"
+    },
+    {
+      "taxonId": "cathartes",
+      "rank": "genus",
+      "name": "Cathartes",
+      "familyId": "cathartidae"
+    },
+    {
+      "taxonId": "pandion",
+      "rank": "genus",
+      "name": "Pandion",
+      "familyId": "pandionidae"
+    },
+    {
+      "taxonId": "ardea",
+      "rank": "genus",
+      "name": "Ardea",
+      "familyId": "ardeidae"
+    },
+    {
+      "taxonId": "bubo",
+      "rank": "genus",
+      "name": "Bubo",
+      "familyId": "strigidae"
+    }
+  ],
+  "species": [
+    {
+      "taxonId": "mallard",
+      "rank": "species",
+      "name": "Mallard",
+      "scientificName": "Anas platyrhynchos",
+      "genusId": "anas",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "american-black-duck",
+      "rank": "species",
+      "name": "American Black Duck",
+      "scientificName": "Anas rubripes",
+      "genusId": "anas",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "wood-duck",
+      "rank": "species",
+      "name": "Wood Duck",
+      "scientificName": "Aix sponsa",
+      "genusId": "aix",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "canada-goose",
+      "rank": "species",
+      "name": "Canada Goose",
+      "scientificName": "Branta canadensis",
+      "genusId": "branta",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "common-merganser",
+      "rank": "species",
+      "name": "Common Merganser",
+      "scientificName": "Mergus merganser",
+      "genusId": "mergus",
+      "familyId": "anatidae"
+    },
+    {
+      "taxonId": "blue-jay",
+      "rank": "species",
+      "name": "Blue Jay",
+      "scientificName": "Cyanocitta cristata",
+      "genusId": "cyanocitta",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "american-crow",
+      "rank": "species",
+      "name": "American Crow",
+      "scientificName": "Corvus brachyrhynchos",
+      "genusId": "corvus",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "common-raven",
+      "rank": "species",
+      "name": "Common Raven",
+      "scientificName": "Corvus corax",
+      "genusId": "corvus",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "fish-crow",
+      "rank": "species",
+      "name": "Fish Crow",
+      "scientificName": "Corvus ossifragus",
+      "genusId": "corvus",
+      "familyId": "corvidae"
+    },
+    {
+      "taxonId": "black-capped-chickadee",
+      "rank": "species",
+      "name": "Black-capped Chickadee",
+      "scientificName": "Poecile atricapillus",
+      "genusId": "poecile",
+      "familyId": "paridae"
+    },
+    {
+      "taxonId": "carolina-chickadee",
+      "rank": "species",
+      "name": "Carolina Chickadee",
+      "scientificName": "Poecile carolinensis",
+      "genusId": "poecile",
+      "familyId": "paridae"
+    },
+    {
+      "taxonId": "tufted-titmouse",
+      "rank": "species",
+      "name": "Tufted Titmouse",
+      "scientificName": "Baeolophus bicolor",
+      "genusId": "baeolophus",
+      "familyId": "paridae"
+    },
+    {
+      "taxonId": "house-finch",
+      "rank": "species",
+      "name": "House Finch",
+      "scientificName": "Haemorhous mexicanus",
+      "genusId": "haemorhous",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "purple-finch",
+      "rank": "species",
+      "name": "Purple Finch",
+      "scientificName": "Haemorhous purpureus",
+      "genusId": "haemorhous",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "american-goldfinch",
+      "rank": "species",
+      "name": "American Goldfinch",
+      "scientificName": "Spinus tristis",
+      "genusId": "spinus",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "pine-siskin",
+      "rank": "species",
+      "name": "Pine Siskin",
+      "scientificName": "Spinus pinus",
+      "genusId": "spinus",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "evening-grosbeak",
+      "rank": "species",
+      "name": "Evening Grosbeak",
+      "scientificName": "Coccothraustes vespertinus",
+      "genusId": "coccothraustes",
+      "familyId": "fringillidae"
+    },
+    {
+      "taxonId": "song-sparrow",
+      "rank": "species",
+      "name": "Song Sparrow",
+      "scientificName": "Melospiza melodia",
+      "genusId": "melospiza",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "swamp-sparrow",
+      "rank": "species",
+      "name": "Swamp Sparrow",
+      "scientificName": "Melospiza georgiana",
+      "genusId": "melospiza",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "white-throated-sparrow",
+      "rank": "species",
+      "name": "White-throated Sparrow",
+      "scientificName": "Zonotrichia albicollis",
+      "genusId": "zonotrichia",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "dark-eyed-junco",
+      "rank": "species",
+      "name": "Dark-eyed Junco",
+      "scientificName": "Junco hyemalis",
+      "genusId": "junco",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "chipping-sparrow",
+      "rank": "species",
+      "name": "Chipping Sparrow",
+      "scientificName": "Spizella passerina",
+      "genusId": "spizella",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "eastern-towhee",
+      "rank": "species",
+      "name": "Eastern Towhee",
+      "scientificName": "Pipilo erythrophthalmus",
+      "genusId": "pipilo",
+      "familyId": "passerellidae"
+    },
+    {
+      "taxonId": "yellow-warbler",
+      "rank": "species",
+      "name": "Yellow Warbler",
+      "scientificName": "Setophaga petechia",
+      "genusId": "setophaga",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "yellow-rumped-warbler",
+      "rank": "species",
+      "name": "Yellow-rumped Warbler",
+      "scientificName": "Setophaga coronata",
+      "genusId": "setophaga",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "american-redstart",
+      "rank": "species",
+      "name": "American Redstart",
+      "scientificName": "Setophaga ruticilla",
+      "genusId": "setophaga",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "common-yellowthroat",
+      "rank": "species",
+      "name": "Common Yellowthroat",
+      "scientificName": "Geothlypis trichas",
+      "genusId": "geothlypis",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "ovenbird",
+      "rank": "species",
+      "name": "Ovenbird",
+      "scientificName": "Seiurus aurocapilla",
+      "genusId": "seiurus",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "black-and-white-warbler",
+      "rank": "species",
+      "name": "Black-and-white Warbler",
+      "scientificName": "Mniotilta varia",
+      "genusId": "mniotilta",
+      "familyId": "parulidae"
+    },
+    {
+      "taxonId": "american-robin",
+      "rank": "species",
+      "name": "American Robin",
+      "scientificName": "Turdus migratorius",
+      "genusId": "turdus",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "wood-thrush",
+      "rank": "species",
+      "name": "Wood Thrush",
+      "scientificName": "Hylocichla mustelina",
+      "genusId": "hylocichla",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "eastern-bluebird",
+      "rank": "species",
+      "name": "Eastern Bluebird",
+      "scientificName": "Sialia sialis",
+      "genusId": "sialia",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "hermit-thrush",
+      "rank": "species",
+      "name": "Hermit Thrush",
+      "scientificName": "Catharus guttatus",
+      "genusId": "catharus",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "veery",
+      "rank": "species",
+      "name": "Veery",
+      "scientificName": "Catharus fuscescens",
+      "genusId": "catharus",
+      "familyId": "turdidae"
+    },
+    {
+      "taxonId": "red-winged-blackbird",
+      "rank": "species",
+      "name": "Red-winged Blackbird",
+      "scientificName": "Agelaius phoeniceus",
+      "genusId": "agelaius",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "common-grackle",
+      "rank": "species",
+      "name": "Common Grackle",
+      "scientificName": "Quiscalus quiscula",
+      "genusId": "quiscalus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "baltimore-oriole",
+      "rank": "species",
+      "name": "Baltimore Oriole",
+      "scientificName": "Icterus galbula",
+      "genusId": "icterus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "brown-headed-cowbird",
+      "rank": "species",
+      "name": "Brown-headed Cowbird",
+      "scientificName": "Molothrus ater",
+      "genusId": "molothrus",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "bobolink",
+      "rank": "species",
+      "name": "Bobolink",
+      "scientificName": "Dolichonyx oryzivorus",
+      "genusId": "dolichonyx",
+      "familyId": "icteridae"
+    },
+    {
+      "taxonId": "downy-woodpecker",
+      "rank": "species",
+      "name": "Downy Woodpecker",
+      "scientificName": "Dryobates pubescens",
+      "genusId": "dryobates",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "hairy-woodpecker",
+      "rank": "species",
+      "name": "Hairy Woodpecker",
+      "scientificName": "Dryobates villosus",
+      "genusId": "dryobates",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "northern-flicker",
+      "rank": "species",
+      "name": "Northern Flicker",
+      "scientificName": "Colaptes auratus",
+      "genusId": "colaptes",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "pileated-woodpecker",
+      "rank": "species",
+      "name": "Pileated Woodpecker",
+      "scientificName": "Dryocopus pileatus",
+      "genusId": "dryocopus",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "red-bellied-woodpecker",
+      "rank": "species",
+      "name": "Red-bellied Woodpecker",
+      "scientificName": "Melanerpes carolinus",
+      "genusId": "melanerpes",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "yellow-bellied-sapsucker",
+      "rank": "species",
+      "name": "Yellow-bellied Sapsucker",
+      "scientificName": "Sphyrapicus varius",
+      "genusId": "sphyrapicus",
+      "familyId": "picidae"
+    },
+    {
+      "taxonId": "red-tailed-hawk",
+      "rank": "species",
+      "name": "Red-tailed Hawk",
+      "scientificName": "Buteo jamaicensis",
+      "genusId": "buteo",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "red-shouldered-hawk",
+      "rank": "species",
+      "name": "Red-shouldered Hawk",
+      "scientificName": "Buteo lineatus",
+      "genusId": "buteo",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "bald-eagle",
+      "rank": "species",
+      "name": "Bald Eagle",
+      "scientificName": "Haliaeetus leucocephalus",
+      "genusId": "haliaeetus",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "coopers-hawk",
+      "rank": "species",
+      "name": "Cooper's Hawk",
+      "scientificName": "Accipiter cooperii",
+      "genusId": "accipiter",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "sharp-shinned-hawk",
+      "rank": "species",
+      "name": "Sharp-shinned Hawk",
+      "scientificName": "Accipiter striatus",
+      "genusId": "accipiter",
+      "familyId": "accipitridae"
+    },
+    {
+      "taxonId": "northern-cardinal",
+      "rank": "species",
+      "name": "Northern Cardinal",
+      "scientificName": "Cardinalis cardinalis",
+      "genusId": "cardinalis",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "indigo-bunting",
+      "rank": "species",
+      "name": "Indigo Bunting",
+      "scientificName": "Passerina cyanea",
+      "genusId": "passerina",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "scarlet-tanager",
+      "rank": "species",
+      "name": "Scarlet Tanager",
+      "scientificName": "Piranga olivacea",
+      "genusId": "piranga",
+      "familyId": "cardinalidae"
+    },
+    {
+      "taxonId": "mourning-dove",
+      "rank": "species",
+      "name": "Mourning Dove",
+      "scientificName": "Zenaida macroura",
+      "genusId": "zenaida",
+      "familyId": "columbidae"
+    },
+    {
+      "taxonId": "ruby-throated-hummingbird",
+      "rank": "species",
+      "name": "Ruby-throated Hummingbird",
+      "scientificName": "Archilochus colubris",
+      "genusId": "archilochus",
+      "familyId": "trochilidae"
+    },
+    {
+      "taxonId": "white-breasted-nuthatch",
+      "rank": "species",
+      "name": "White-breasted Nuthatch",
+      "scientificName": "Sitta carolinensis",
+      "genusId": "sitta",
+      "familyId": "sittidae"
+    },
+    {
+      "taxonId": "turkey-vulture",
+      "rank": "species",
+      "name": "Turkey Vulture",
+      "scientificName": "Cathartes aura",
+      "genusId": "cathartes",
+      "familyId": "cathartidae"
+    },
+    {
+      "taxonId": "osprey",
+      "rank": "species",
+      "name": "Osprey",
+      "scientificName": "Pandion haliaetus",
+      "genusId": "pandion",
+      "familyId": "pandionidae"
+    },
+    {
+      "taxonId": "great-blue-heron",
+      "rank": "species",
+      "name": "Great Blue Heron",
+      "scientificName": "Ardea herodias",
+      "genusId": "ardea",
+      "familyId": "ardeidae"
+    },
+    {
+      "taxonId": "great-horned-owl",
+      "rank": "species",
+      "name": "Great Horned Owl",
+      "scientificName": "Bubo virginianus",
+      "genusId": "bubo",
+      "familyId": "strigidae"
+    }
+  ]
+}

@@ -5,7 +5,8 @@ import type {
 } from "../types.js";
 import type { SpeciesRepository } from "../repositories/species.repository.js";
 import type { SpeciesHabitatService } from "../services/habitatSpecies.service.js";
-import { NotFoundError } from "../errors.js";
+import type { TaxonRepository } from "../repositories/taxon.repository.js";
+import { NotFoundError, ValidationError } from "../errors.js";
 
 // services/user.service.js
 export interface SpeciesService {
@@ -22,10 +23,36 @@ export interface SpeciesService {
 export function speciesServiceFactory({
   speciesRepository,
   speciesHabitatService,
+  taxonRepository,
 }: {
   speciesRepository: SpeciesRepository;
   speciesHabitatService: SpeciesHabitatService;
+  taxonRepository: TaxonRepository;
 }): SpeciesService {
+
+  async function validateTaxonomy(
+    species: Pick<SpeciesRequest, "taxonId" | "genusId" | "familyId">,
+  ): Promise<void> {
+    const errors: Record<string, string> = {};
+    const taxon = await taxonRepository.getSpeciesById(species.taxonId);
+    if (!taxon) {
+      errors.taxonId = "Taxon species ID does not exist";
+    } else {
+      if (!(await taxonRepository.getGenusById(species.genusId))) {
+        errors.genusId = "Genus ID does not exist";
+      } else if (species.genusId !== taxon.genusId) {
+        errors.genusId = "Genus ID does not match the taxon species";
+      }
+      if (!(await taxonRepository.getFamilyById(species.familyId))) {
+        errors.familyId = "Family ID does not exist";
+      } else if (species.familyId !== taxon.familyId) {
+        errors.familyId = "Family ID does not match the taxon species";
+      }
+    }
+    if (Object.keys(errors).length > 0) {
+      throw new ValidationError("Invalid taxonomy", errors);
+    }
+  }
 
   async function enrichSpeciesWithHabitats(
     species: Species,
@@ -60,6 +87,7 @@ export function speciesServiceFactory({
   async function addSpeciesService(
     newSpecies: SpeciesRequest,
   ): Promise<SpeciesRead> {
+    await validateTaxonomy(newSpecies);
     const newSpeciesWithId: Species = {
       ...newSpecies,
       speciesId: crypto.randomUUID(),
@@ -88,6 +116,8 @@ export function speciesServiceFactory({
         speciesId: "Species ID does not exist",
       });
     }
+
+    await validateTaxonomy(updatedSpecies);
 
     const updatedSpeciesWithId: Species = {
       ...updatedSpecies,

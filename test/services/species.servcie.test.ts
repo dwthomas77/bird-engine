@@ -1,7 +1,8 @@
-import { expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { NotFoundError } from "../../src/errors.js";
 import type { SpeciesRepository } from "../../src/repositories/species.repository.js";
 import type { SpeciesHabitatService } from "../../src/services/habitatSpecies.service.js";
+import type { TaxonRepository } from "../../src/repositories/taxon.repository.js";
 import { speciesServiceFactory } from "../../src/services/species.service.js";
 import type { Habitat, Species, SpeciesRequest } from "../../src/types.js";
 import {
@@ -12,8 +13,9 @@ import {
 const testSpecies: Species = {
 	speciesId: "species-1",
 	speciesName: "Peregrine Falcon",
-	family: "Falconidae",
-	genus: "Falco",
+	taxonId: "falco-test",
+	genusId: "falco",
+	familyId: "falconidae",
 	localeName: "Peregrine",
 	lengthMin: 34,
 	lengthMax: 58,
@@ -25,8 +27,9 @@ const testSpecies: Species = {
 
 const testSpeciesRequest: SpeciesRequest = {
 	speciesName: testSpecies.speciesName,
-	family: testSpecies.family,
-	genus: testSpecies.genus,
+	taxonId: testSpecies.taxonId,
+	genusId: testSpecies.genusId,
+	familyId: testSpecies.familyId,
 	localeName: testSpecies.localeName,
 	lengthMin: testSpecies.lengthMin,
 	lengthMax: testSpecies.lengthMax,
@@ -55,17 +58,49 @@ function createMockSpeciesHabitatService(): SpeciesHabitatService {
 	};
 }
 
+function createMockTaxonRepository(): TaxonRepository {
+	return {
+		getTaxa: vi.fn(),
+		getTaxonById: vi.fn(),
+		getFamilies: vi.fn(),
+		getFamilyById: vi.fn().mockResolvedValue({
+			taxonId: testSpecies.familyId,
+			rank: "family",
+			name: "Falcons",
+		}),
+		getGenera: vi.fn(),
+		getGenusById: vi.fn().mockResolvedValue({
+			taxonId: testSpecies.genusId,
+			rank: "genus",
+			name: "Falco",
+			familyId: testSpecies.familyId,
+		}),
+		getSpecies: vi.fn(),
+		getSpeciesById: vi.fn().mockResolvedValue({
+			taxonId: testSpecies.taxonId,
+			rank: "species",
+			name: "Peregrine Falcon",
+			scientificName: testSpecies.speciesName,
+			genusId: testSpecies.genusId,
+			familyId: testSpecies.familyId,
+		}),
+	};
+}
+
 function createService(
 	speciesRepository = createMockSpeciesRepository(),
 	speciesHabitatService = createMockSpeciesHabitatService(),
+	taxonRepository = createMockTaxonRepository(),
 ) {
 	return {
 		service: speciesServiceFactory({
 			speciesRepository,
 			speciesHabitatService,
+			taxonRepository,
 		}),
 		speciesRepository,
 		speciesHabitatService,
+		taxonRepository,
 	};
 }
 
@@ -192,4 +227,45 @@ it("throws NotFoundError when getting a species that does not exist", async () =
 		service.getSpeciesByIdService("missing-species"),
 	).rejects.toThrow(NotFoundError);
 	expect(speciesHabitatService.getHabitatsForSpecies).not.toHaveBeenCalled();
+});
+
+describe("taxonomy validation", () => {
+	it("rejects an unknown taxon id on create", async () => {
+		const { service, speciesRepository, taxonRepository } = createService();
+		vi.mocked(taxonRepository.getSpeciesById).mockResolvedValue(undefined);
+
+		await expect(
+			service.addSpeciesService(testSpeciesRequest),
+		).rejects.toMatchObject({
+			code: "VALIDATION_ERROR",
+			errors: { taxonId: expect.any(String) },
+		});
+		expect(speciesRepository.addSpeciesToRepository).not.toHaveBeenCalled();
+	});
+
+	it("rejects genus and family ids that don't exist or don't match the taxon", async () => {
+		const { service, taxonRepository } = createService();
+		vi.mocked(taxonRepository.getGenusById).mockResolvedValue(undefined);
+
+		await expect(
+			service.addSpeciesService({ ...testSpeciesRequest, familyId: "other" }),
+		).rejects.toMatchObject({
+			code: "VALIDATION_ERROR",
+			errors: {
+				genusId: "Genus ID does not exist",
+				familyId: "Family ID does not match the taxon species",
+			},
+		});
+	});
+
+	it("validates taxonomy on update before changing anything", async () => {
+		const { service, speciesRepository, taxonRepository } = createService();
+		vi.mocked(speciesRepository.getSpeciesById).mockResolvedValue(testSpecies);
+		vi.mocked(taxonRepository.getSpeciesById).mockResolvedValue(undefined);
+
+		await expect(
+			service.updateSpeciesService(testSpecies.speciesId, testSpeciesRequest),
+		).rejects.toMatchObject({ code: "VALIDATION_ERROR" });
+		expect(speciesRepository.updateSpeciesInRepository).not.toHaveBeenCalled();
+	});
 });

@@ -21,6 +21,11 @@ describe("Journal routes", () => {
   beforeEach(async () => {
     testDir = await fs.mkdtemp(path.join(tmpdir(), "bird-engine-journal-"));
     await fs.writeFile(path.join(testDir, "journals.data.json"), "[]");
+    await fs.writeFile(
+      path.join(testDir, "users.data.json"),
+      JSON.stringify([{ userId: "user-1", displayName: "Test User" }]),
+    );
+    await fs.writeFile(path.join(testDir, "observations.data.json"), "[]");
     app = await buildApp({ dataFilePath: testDir });
   });
 
@@ -57,7 +62,15 @@ describe("Journal routes", () => {
       url: `/journals/${createdJournal.journalId}`,
     });
     expect(getResponse.statusCode).toBe(200);
-    expect(getResponse.json()).toEqual(createdJournal);
+    expect(getResponse.json()).toEqual({
+      journalId: createdJournal.journalId,
+      name: journalRequest.name,
+      description: journalRequest.description,
+      createdAt: journalRequest.createdAt,
+      updatedAt: journalRequest.updatedAt,
+      owner: { userId: "user-1", displayName: "Test User" },
+      entryCount: 0,
+    });
 
     const updatedRequest: JournalRequest = {
       ...journalRequest,

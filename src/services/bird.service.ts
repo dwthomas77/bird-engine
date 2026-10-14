@@ -38,10 +38,11 @@ export function birdServiceFactory({
     return {
       birdId: crypto.randomUUID(),
       speciesId: selectedSpecies.speciesId,
+      taxonId: selectedSpecies.taxonId,
       speciesName: selectedSpecies.speciesName,
       localeName: selectedSpecies.localeName,
-      genus: selectedSpecies.genus,
-      family: selectedSpecies.family,
+      genusId: selectedSpecies.genusId,
+      familyId: selectedSpecies.familyId,
       sex: Math.random() < 0.5 ? "male" : "female",
       length:
         selectedSpecies.lengthMin +

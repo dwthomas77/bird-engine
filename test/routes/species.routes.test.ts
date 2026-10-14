@@ -8,8 +8,9 @@ import type { Species, SpeciesRequest } from "../../src/types.js";
 const peregrine: Species = {
 	speciesId: "species-1",
 	speciesName: "Peregrine Falcon",
-	family: "Falconidae",
-	genus: "Falco",
+	taxonId: "falco-test",
+	genusId: "falco",
+	familyId: "falconidae",
 	localeName: "Peregrine",
 	lengthMin: 34,
 	lengthMax: 58,
@@ -22,8 +23,9 @@ const peregrine: Species = {
 const eagle: Species = {
 	speciesId: "species-2",
 	speciesName: "Golden Eagle",
-	family: "Accipitridae",
-	genus: "Aquila",
+	taxonId: "aquila-test",
+	genusId: "aquila",
+	familyId: "accipitridae",
 	localeName: "Golden Eagle",
 	lengthMin: 70,
 	lengthMax: 84,
@@ -45,6 +47,32 @@ describe("Species routes", () => {
 			fs.writeFile(path.join(testDir, "species.data.json"), "[]"),
 			fs.writeFile(path.join(testDir, "habitats.data.json"), "[]"),
 			fs.writeFile(path.join(testDir, "habitatSpecies.data.json"), "[]"),
+			fs.writeFile(
+				path.join(testDir, "taxon.data.json"),
+				JSON.stringify({
+					families: [
+						{ taxonId: "falconidae", rank: "family", name: "Falcons" },
+					],
+					genera: [
+						{
+							taxonId: "falco",
+							rank: "genus",
+							name: "Falco",
+							familyId: "falconidae",
+						},
+					],
+					species: [
+						{
+							taxonId: "falco-test",
+							rank: "species",
+							name: "Peregrine Falcon",
+							scientificName: "Falco peregrinus",
+							genusId: "falco",
+							familyId: "falconidae",
+						},
+					],
+				}),
+			),
 		]);
 
 		app = await buildApp({
@@ -112,8 +140,9 @@ describe("Species routes", () => {
 	it("creates a species", async () => {
 		const creationPayload: SpeciesRequest = {
 			speciesName: peregrine.speciesName,
-			family: peregrine.family,
-			genus: peregrine.genus,
+			taxonId: peregrine.taxonId,
+			genusId: peregrine.genusId,
+			familyId: peregrine.familyId,
 			localeName: peregrine.localeName,
 			lengthMin: peregrine.lengthMin,
 			lengthMax: peregrine.lengthMax,
@@ -173,8 +202,9 @@ describe("Species routes", () => {
 
 		const updatePayload: SpeciesRequest = {
 			speciesName: "Barbary Falcon",
-			family: peregrine.family,
-			genus: peregrine.genus,
+			taxonId: peregrine.taxonId,
+			genusId: peregrine.genusId,
+			familyId: peregrine.familyId,
 			localeName: peregrine.localeName,
 			lengthMin: peregrine.lengthMin,
 			lengthMax: peregrine.lengthMax,
@@ -205,8 +235,9 @@ describe("Species routes", () => {
 			url: "/species/unknown",
 			payload: {
 				speciesName: peregrine.speciesName,
-				family: peregrine.family,
-				genus: peregrine.genus,
+				taxonId: peregrine.taxonId,
+				genusId: peregrine.genusId,
+				familyId: peregrine.familyId,
 				localeName: peregrine.localeName,
 				lengthMin: peregrine.lengthMin,
 				lengthMax: peregrine.lengthMax,
@@ -223,5 +254,17 @@ describe("Species routes", () => {
 			type: "NOT_FOUND_ERROR",
 			detail: "Species not found",
 		});
+	});
+
+	it("rejects a species with an unknown taxon", async () => {
+		const { speciesId, ...rest } = peregrine;
+		const response = await app.inject({
+			method: "POST",
+			url: "/species",
+			payload: { ...rest, taxonId: "missing", habitats: [] },
+		});
+
+		expect(response.statusCode).toBe(400);
+		expect(response.json().errors).toHaveProperty("taxonId");
 	});
 });

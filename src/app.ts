@@ -56,6 +56,10 @@ import {
   SpeciesRepository,
 } from "./repositories/species.repository.js";
 import {
+  taxonRepositoryFactory,
+  TaxonRepository,
+} from "./repositories/taxon.repository.js";
+import {
   habitatSpeciesRepositoryFactory,
   HabitatSpeciesRepository,
 } from "./repositories/habitatSpecies.repository.js";
@@ -86,6 +90,7 @@ declare module "fastify" {
     repositories: {
       habitat: HabitatRepository;
       species: SpeciesRepository;
+      taxon: TaxonRepository;
       habitatSpecies: HabitatSpeciesRepository;
       user: UserRepository;
       observation: ObservationRepository;
@@ -163,6 +168,9 @@ export async function buildApp(options: appOptions = {}) {
     species: speciesRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
+    taxon: taxonRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
     habitatSpecies: habitatSpeciesRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
@@ -198,6 +206,7 @@ export async function buildApp(options: appOptions = {}) {
     species: speciesServiceFactory({
       speciesRepository: repositories.species,
       speciesHabitatService: speciesHabitat,
+      taxonRepository: repositories.taxon,
     }),
     bird: birdServiceFactory({
       speciesRepository: repositories.species,

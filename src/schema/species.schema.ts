@@ -1,8 +1,9 @@
 import { schemaId, schemaRef } from "./ids.js";
 const requiredFields = [
+  "taxonId",
   "speciesName",
-  "family",
-  "genus",
+  "genusId",
+  "familyId",
   "localeName",
   "lengthMin",
   "lengthMax",
@@ -13,13 +14,16 @@ const requiredFields = [
 ] as const;
 
 const baseSpeciesProperties = {
+  taxonId: {
+    type: "string",
+  },
   speciesName: {
     type: "string",
   },
-  family: {
+  genusId: {
     type: "string",
   },
-  genus: {
+  familyId: {
     type: "string",
   },
   localeName: { type: "string" },

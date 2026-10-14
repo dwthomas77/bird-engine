@@ -23,8 +23,9 @@ const observation: Observation = {
     speciesId: "species-1",
     speciesName: "Mallard",
     localeName: "Duck",
-    genus: "Anas",
-    family: "Anatidae",
+    taxonId: "anas-test",
+    genusId: "anas",
+    familyId: "anatidae",
   },
   location: {
     name: "Wetland",

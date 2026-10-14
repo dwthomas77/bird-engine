@@ -14,8 +14,9 @@ let dataFile: string;
 export const testSpecies: Species = {
 	speciesId: "1",
 	speciesName: "Great Blue Heron",
-	family: "Ardeidae",
-	genus: "Ardea",
+	taxonId: "ardea-test",
+	genusId: "ardea",
+	familyId: "ardeidae",
 	localeName: "Great Blue Heron",
 	lengthMin: 91,
 	lengthMax: 137,
@@ -28,8 +29,9 @@ export const testSpecies: Species = {
 export const testSpecies2: Species = {
 	speciesId: "2",
 	speciesName: "Bald Eagle",
-	family: "Accipitridae",
-	genus: "Haliaeetus",
+	taxonId: "haliaeetus-test",
+	genusId: "haliaeetus",
+	familyId: "accipitridae",
 	localeName: "Bald Eagle",
 	lengthMin: 71,
 	lengthMax: 96,

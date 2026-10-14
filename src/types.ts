@@ -31,3 +31,27 @@ export type Journal = FromSchema<typeof JournalSchema>;
 export type JournalRequest = FromSchema<typeof JournalRequestSchema>;
 export type JournalSummary = FromSchema<typeof JournalSummarySchema>;
 export type ServerErrorResponse = FromSchema<typeof ServerErrorResponseSchema>;
+export type TaxonRank = "family" | "genus" | "species";
+export interface Taxon {
+  taxonId: string;
+  rank: TaxonRank;
+  name: string;
+}
+export interface TaxonFamily extends Taxon {
+  rank: "family";
+}
+export interface TaxonGenus extends Taxon {
+  rank: "genus";
+  familyId: string;
+}
+export interface TaxonSpecies extends Taxon {
+  rank: "species";
+  scientificName: string;
+  genusId: string;
+  familyId: string;
+}
+export interface TaxonData {
+  families: TaxonFamily[];
+  genera: TaxonGenus[];
+  species: TaxonSpecies[];
+}

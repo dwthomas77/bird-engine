@@ -8,8 +8,9 @@ import type { Species } from "../../src/types.js";
 const peregrine: Species = {
   speciesId: "species-1",
   speciesName: "Peregrine Falcon",
-  family: "Falconidae",
-  genus: "Falco",
+  taxonId: "falco-test",
+  genusId: "falco",
+  familyId: "falconidae",
   localeName: "Peregrine",
   lengthMin: 34,
   lengthMax: 58,
@@ -51,8 +52,8 @@ describe("GET /bird", () => {
       speciesId: peregrine.speciesId,
       speciesName: peregrine.speciesName,
       localeName: peregrine.localeName,
-      genus: peregrine.genus,
-      family: peregrine.family,
+      familyId: peregrine.familyId,
+      genusId: peregrine.genusId,
       sex: expect.stringMatching(/^(male|female)$/),
     });
     expect(response.json().length).toBeGreaterThanOrEqual(peregrine.lengthMin);

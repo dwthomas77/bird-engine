@@ -2,10 +2,11 @@ import { schemaId } from "./ids.js";
 const requiredFields = [
   'birdId',
   'speciesId',
+  'taxonId',
   'speciesName',
   'localeName',
-  'genus',
-  'family',
+  'genusId',
+  'familyId',
 ] as const;
 
 const baseBirdProperties = {
@@ -15,16 +16,19 @@ const baseBirdProperties = {
   speciesId: {
     type: "string",
   },
+  taxonId: {
+    type: "string",
+  },
   speciesName: {
     type: "string",
   },
   localeName: {
     type: "string",
   },
-  genus: {
+  genusId: {
     type: "string",
   },
-  family: {
+  familyId: {
     type: "string",
   },
   sex: {
