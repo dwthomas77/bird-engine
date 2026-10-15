@@ -1,9 +1,6 @@
 import { schemaId, schemaRef } from "./ids.js";
 const requiredFields = [
-  "taxonId",
   "speciesName",
-  "genusId",
-  "familyId",
   "localeName",
   "lengthMin",
   "lengthMax",
@@ -14,16 +11,7 @@ const requiredFields = [
 ] as const;
 
 const baseSpeciesProperties = {
-  taxonId: {
-    type: "string",
-  },
   speciesName: {
-    type: "string",
-  },
-  genusId: {
-    type: "string",
-  },
-  familyId: {
     type: "string",
   },
   localeName: { type: "string" },
@@ -44,9 +32,12 @@ const SpeciesSchema = {
     speciesId: {
       type: "string",
     },
+    genusId: {
+      type: "string",
+    },
     ...baseSpeciesProperties,
   },
-  required: [...requiredFields, "speciesId"],
+  required: [...requiredFields, "speciesId", "genusId"],
 } as const;
 
 const SpeciesRequestSchema = {
@@ -56,6 +47,9 @@ const SpeciesRequestSchema = {
   type: "object",
   properties: {
     ...baseSpeciesProperties,
+      genusId: {
+    type: "string",
+  },
     habitats: {
       type: "array",
       items: {
@@ -63,7 +57,7 @@ const SpeciesRequestSchema = {
       },
     },
   },
-  required: [...requiredFields, "habitats"],
+  required: [...requiredFields, "genusId", "habitats"],
 } as const;
 
 const SpeciesReadSchema = {
@@ -75,6 +69,9 @@ const SpeciesReadSchema = {
     speciesId: {
       type: "string",
     },
+      genusId: {
+    type: "string",
+  },
     ...baseSpeciesProperties,
     habitats: {
       type: "array",
@@ -83,11 +80,56 @@ const SpeciesReadSchema = {
       },
     },
   },
-  required: [...requiredFields, "speciesId", "habitats"],
+  required: [...requiredFields, "speciesId", "genusId", "habitats"],
+} as const;
+
+const SpeciesSummarySchema = {
+  $id: schemaId("species/summary"),
+  title: "Species Summary",
+  description: "A species of bird",
+  type: "object",
+  properties: {
+    speciesId: {
+      type: "string",
+    },
+    family: {
+      type: "object",
+      properties: {
+        familyId: {
+          type: "string",
+        },
+        name: {
+          type: "string",
+        },
+      },
+      required: ["familyId", "name"],
+    },
+    genus: {
+      type: "object",
+      properties: {
+        genusId: {
+          type: "string",
+        },
+        name: {
+          type: "string",
+        },
+      },
+      required: ["genusId", "name"],
+    },
+    ...baseSpeciesProperties,
+    habitats: {
+      type: "array",
+      items: {
+        $ref: schemaRef("habitat"),
+      },
+    },
+  },
+  required: [...requiredFields, "speciesId", "genus", "family", "habitats"],
 } as const;
 
 export {
   SpeciesSchema,
   SpeciesRequestSchema,
   SpeciesReadSchema,
+  SpeciesSummarySchema,
 };

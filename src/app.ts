@@ -19,6 +19,7 @@ import {
   SpeciesSchema,
   SpeciesRequestSchema,
   SpeciesReadSchema,
+  SpeciesSummarySchema,
 } from "./schema/species.schema.js";
 import { BirdSchema } from "./schema/bird.schema.js";
 import { UserSchema, UserRequestSchema } from "./schema/user.schema.js";
@@ -129,11 +130,12 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(UserRequestSchema);
   app.addSchema(JournalSchema);
   app.addSchema(JournalRequestSchema);
-   app.addSchema(JournalSummarySchema);
+  app.addSchema(JournalSummarySchema);
   app.addSchema(LocationSchema);
   app.addSchema(SpeciesSchema);
   app.addSchema(SpeciesRequestSchema);
   app.addSchema(SpeciesReadSchema);
+  app.addSchema(SpeciesSummarySchema);
   app.addSchema(BirdSchema);
   app.addSchema(ObservationSchema);
   app.addSchema(ObservationRequestSchema);

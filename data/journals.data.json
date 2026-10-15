@@ -6,5 +6,13 @@
     "createdAt": "2026-10-08T12:37:25.324Z",
     "updatedAt": "2026-10-08T12:37:25.324Z",
     "journalId": "f3d2bdc5-015b-4db6-b51c-72d67b389113"
+  },
+  {
+    "userId": "bab9baee0432ecdfd339cf0f29fbe10752c47d81ba5804c00f93e4f282f45927",
+    "name": "Ernie's Awesome Eggventures",
+    "description": "Eggs",
+    "journalId": "5325eb5a-70ea-41fd-acc2-395fb2d076e2",
+    "createdAt": "2026-10-14T18:26:26.673Z",
+    "updatedAt": "2026-10-14T18:26:26.673Z"
   }
 ]

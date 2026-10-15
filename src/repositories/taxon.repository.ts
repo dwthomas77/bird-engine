@@ -12,7 +12,7 @@ export interface TaxonRepository {
   getTaxa(rank?: TaxonRank): Promise<Taxon[]>;
   getTaxonById(taxonId: string): Promise<Taxon | undefined>;
   getFamilies(): Promise<TaxonFamily[]>;
-  getFamilyById(familyId: string): Promise<TaxonFamily | undefined>;
+  getFamilyByGenusId(genusId: string): Promise<TaxonFamily | undefined>;
   getGenera(familyId?: string): Promise<TaxonGenus[]>;
   getGenusById(genusId: string): Promise<TaxonGenus | undefined>;
   getSpecies(genusId?: string): Promise<TaxonSpecies[]>;
@@ -65,8 +65,12 @@ export function taxonRepositoryFactory({
     getTaxa,
     getTaxonById: async (id) => (await getTaxa()).find((t) => t.taxonId === id),
     getFamilies,
-    getFamilyById: async (id) =>
-      (await getFamilies()).find((f) => f.taxonId === id),
+    getFamilyByGenusId: async (genusId) => {
+      const { families, genera } = await load();
+      const genus = genera.find((g) => g.taxonId === genusId);
+      if (!genus) return undefined;
+      return families.find((f) => f.taxonId === genus.familyId);
+    },
     getGenera,
     getGenusById: async (id) =>
       (await getGenera()).find((g) => g.taxonId === id),

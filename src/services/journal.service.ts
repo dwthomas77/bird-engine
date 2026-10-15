@@ -70,6 +70,8 @@ export function journalServiceFactory({
     return journalRepository.addJournalToRepository({
       ...newJournal,
       journalId: randomUUID(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     });
   }
 
@@ -87,10 +89,12 @@ export function journalServiceFactory({
     journalId: string,
     updatedJournal: JournalRequest,
   ): Promise<Journal> {
-    await getJournalByIdService(journalId);
+    const existingJournal = await getJournalByIdService(journalId);
     return journalRepository.updateJournalInRepository({
       ...updatedJournal,
       journalId,
+      updatedAt: new Date().toISOString(),
+      createdAt: existingJournal.createdAt,
     });
   }
 

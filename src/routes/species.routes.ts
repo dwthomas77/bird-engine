@@ -21,7 +21,7 @@ async function routes(fastify: FastifyInstance) {
 					200: {
 						type: "array",
 						items: {
-							$ref: schemaRef("species/read"),
+							$ref: schemaRef("species/summary"),
 						},
 					},
 				},
@@ -42,7 +42,7 @@ async function routes(fastify: FastifyInstance) {
 					required: ["uid"],
 				},
 				response: {
-					200: { $ref: schemaRef("species/read") },
+					200: { $ref: schemaRef("species/summary") },
 				},
 			},
 		},

@@ -2,6 +2,7 @@ import type {
   SpeciesRead,
   Species,
   SpeciesRequest,
+  SpeciesSummary,
 } from "../types.js";
 import type { SpeciesRepository } from "../repositories/species.repository.js";
 import type { SpeciesHabitatService } from "../services/habitatSpecies.service.js";
@@ -10,7 +11,7 @@ import { NotFoundError, ValidationError } from "../errors.js";
 
 // services/user.service.js
 export interface SpeciesService {
-  getSpeciesService(): Promise<SpeciesRead[]>;
+  getSpeciesService(): Promise<SpeciesSummary[]>;
   addSpeciesService(newSpecies: SpeciesRequest): Promise<SpeciesRead>;
   updateSpeciesService(
     uid: string,
@@ -31,26 +32,12 @@ export function speciesServiceFactory({
 }): SpeciesService {
 
   async function validateTaxonomy(
-    species: Pick<SpeciesRequest, "taxonId" | "genusId" | "familyId">,
+    species: Pick<SpeciesRequest, "genusId">,
   ): Promise<void> {
-    const errors: Record<string, string> = {};
-    const taxon = await taxonRepository.getSpeciesById(species.taxonId);
-    if (!taxon) {
-      errors.taxonId = "Taxon species ID does not exist";
-    } else {
-      if (!(await taxonRepository.getGenusById(species.genusId))) {
-        errors.genusId = "Genus ID does not exist";
-      } else if (species.genusId !== taxon.genusId) {
-        errors.genusId = "Genus ID does not match the taxon species";
-      }
-      if (!(await taxonRepository.getFamilyById(species.familyId))) {
-        errors.familyId = "Family ID does not exist";
-      } else if (species.familyId !== taxon.familyId) {
-        errors.familyId = "Family ID does not match the taxon species";
-      }
-    }
-    if (Object.keys(errors).length > 0) {
-      throw new ValidationError("Invalid taxonomy", errors);
+    if (!(await taxonRepository.getGenusById(species.genusId))) {
+      throw new ValidationError("Invalid taxonomy", {
+        genusId: "Genus ID does not exist",
+      });
     }
   }
 
@@ -64,6 +51,28 @@ export function speciesServiceFactory({
     };
   }
 
+  async function enrichSpeciesWithSummary(
+    species: Species,
+    habitats: Awaited<ReturnType<SpeciesHabitatService["getHabitatsForSpecies"]>>,
+    genusTaxon: Awaited<ReturnType<TaxonRepository["getGenusById"]>>,
+    familyTaxon: Awaited<ReturnType<TaxonRepository["getFamilyByGenusId"]>>,
+  ): Promise<SpeciesSummary> {
+    const genus = {
+      genusId: species.genusId,
+      name: genusTaxon?.name ?? "",
+    };
+    const family = {
+      familyId: familyTaxon?.taxonId ?? "",
+      name: familyTaxon?.name ?? "",
+    };
+    return {
+      ...species,
+      habitats,
+      genus,
+      family,
+    };
+  }
+
   async function addSpeciesHabitatRelationships(
     speciesId: string,
     habitatIds: string[],
@@ -71,17 +80,19 @@ export function speciesServiceFactory({
     await speciesHabitatService.synchronizeHabitats(speciesId, habitatIds);
   }
 
-  async function getSpeciesService(): Promise<SpeciesRead[]> {
+  async function getSpeciesService(): Promise<SpeciesSummary[]> {
     const species = await speciesRepository.getSpecies();
-    const speciesWithHabitats = await Promise.all(
+    const speciesWithSummaries = await Promise.all(
       species.map(async (s) =>
-        enrichSpeciesWithHabitats(
+        enrichSpeciesWithSummary(
           s,
           await speciesHabitatService.getHabitatsForSpecies(s.speciesId),
+          await taxonRepository.getGenusById(s.genusId),
+          await taxonRepository.getFamilyByGenusId(s.genusId),
         ),
       ),
     );
-    return speciesWithHabitats;
+    return speciesWithSummaries;
   }
 
   async function addSpeciesService(
@@ -159,9 +170,11 @@ export function speciesServiceFactory({
         speciesId: "Species ID does not exist",
       });
     }
-    return enrichSpeciesWithHabitats(
+    return enrichSpeciesWithSummary(
       existingSpecies,
       await speciesHabitatService.getHabitatsForSpecies(existingSpecies.speciesId),
+      await taxonRepository.getGenusById(existingSpecies.genusId),
+      await taxonRepository.getFamilyByGenusId(existingSpecies.genusId),
     );
   }
 

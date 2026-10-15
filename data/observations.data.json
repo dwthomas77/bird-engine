@@ -190,5 +190,29 @@
       "habitatId": "b9d514e3-ad0b-497b-9e47-968cf18df597"
     },
     "observationId": "84a34936-255c-4b3c-ae45-7a7368a6e21c"
+  },
+  {
+    "journalId": "5325eb5a-70ea-41fd-acc2-395fb2d076e2",
+    "bird": {
+      "birdId": "af6eb3b3-c505-41cf-a80a-06b385363e69",
+      "speciesId": "3bb7a1f9-24aa-475d-ae40-74b839d5aabd",
+      "taxonId": "great-horned-owl",
+      "speciesName": "Bubo virginianus",
+      "localeName": "Great Horned Owl",
+      "genusId": "bubo",
+      "familyId": "strigidae",
+      "sex": "female",
+      "length": 23.73897094702152,
+      "weight": 72.47830746645775,
+      "wingspan": 46.73688834276415
+    },
+    "observedAt": "2026-10-14T18:26:32.203Z",
+    "quantity": 1,
+    "notes": "",
+    "location": {
+      "name": "golden Rocky Areas (e.g., inland cliffs, mountain peaks)",
+      "habitatId": "8eeae1b3-c3b9-4467-b246-a448d3f372e0"
+    },
+    "observationId": "58de0027-17a8-4035-a8e1-34d8766271de"
   }
 ]

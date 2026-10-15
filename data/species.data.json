@@ -1,10 +1,8 @@
 [
   {
     "speciesId": "8aecb3b7-a16a-4033-8291-31ddadaf0f10",
-    "taxonId": "blue-jay",
     "speciesName": "Cyanocitta cristata",
     "genusId": "cyanocitta",
-    "familyId": "corvidae",
     "localeName": "Blue Jay",
     "lengthMin": 9,
     "lengthMax": 12,
@@ -22,10 +20,8 @@
   },
   {
     "speciesId": "2357f428-22ae-4344-a0e9-a73a20e890fe",
-    "taxonId": "northern-cardinal",
     "speciesName": "Cardinalis cardinalis",
     "genusId": "cardinalis",
-    "familyId": "cardinalidae",
     "localeName": "Northern Cardinal",
     "lengthMin": 8.3,
     "lengthMax": 9.1,
@@ -49,10 +45,8 @@
   },
   {
     "speciesId": "6bf321fe-c68e-4fa0-a336-659988ff5712",
-    "taxonId": "black-capped-chickadee",
     "speciesName": "Poecile atricapillus",
     "genusId": "poecile",
-    "familyId": "paridae",
     "localeName": "Black-capped Chickadee",
     "lengthMin": 4.7,
     "lengthMax": 5.9,
@@ -67,10 +61,8 @@
   },
   {
     "speciesId": "8f0c4ddc-40bc-4823-beca-c6f4baf454fc",
-    "taxonId": "american-robin",
     "speciesName": "Turdus migratorius",
     "genusId": "turdus",
-    "familyId": "turdidae",
     "localeName": "American Robin",
     "lengthMin": 9.1,
     "lengthMax": 11,
@@ -81,10 +73,8 @@
   },
   {
     "speciesId": "b777b1ea-065b-49c8-b39c-6be7bc25951e",
-    "taxonId": "bald-eagle",
     "speciesName": "Haliaeetus leucocephalus",
     "genusId": "haliaeetus",
-    "familyId": "accipitridae",
     "localeName": "Bald Eagle",
     "lengthMin": 28,
     "lengthMax": 38,
@@ -102,10 +92,8 @@
   },
   {
     "speciesId": "9f5ea474-809e-49b8-8f3d-9bc1c5882c0a",
-    "taxonId": "red-bellied-woodpecker",
     "speciesName": "Melanerpes carolinus",
     "genusId": "melanerpes",
-    "familyId": "picidae",
     "localeName": "Red-bellied Woodpecker",
     "lengthMin": 9.4,
     "lengthMax": 10.6,
@@ -116,10 +104,8 @@
   },
   {
     "speciesId": "aa631f3c-d6fb-4146-a2de-3e75960b1cf1",
-    "taxonId": "mourning-dove",
     "speciesName": "Zenaida macroura",
     "genusId": "zenaida",
-    "familyId": "columbidae",
     "localeName": "Mourning Dove",
     "lengthMin": 9.1,
     "lengthMax": 13.4,
@@ -130,10 +116,8 @@
   },
   {
     "speciesId": "cc064836-02cb-41a4-97ec-10b541a32a54",
-    "taxonId": "eastern-bluebird",
     "speciesName": "Sialia sialis",
     "genusId": "sialia",
-    "familyId": "turdidae",
     "localeName": "Eastern Bluebird",
     "lengthMin": 6.3,
     "lengthMax": 8.3,
@@ -144,10 +128,8 @@
   },
   {
     "speciesId": "981fc431-e978-44e9-bf4b-e6abef52c1f9",
-    "taxonId": "american-goldfinch",
     "speciesName": "Spinus tristis",
     "genusId": "spinus",
-    "familyId": "fringillidae",
     "localeName": "American Goldfinch",
     "lengthMin": 4.3,
     "lengthMax": 5.1,
@@ -157,25 +139,26 @@
     "wingspanMax": 8.7
   },
   {
-    "speciesId": "3723c5cb-781b-47cd-91e4-9c345bc4ffdd",
-    "taxonId": "red-winged-blackbird",
     "speciesName": "Agelaius phoeniceus",
     "genusId": "agelaius",
-    "familyId": "icteridae",
     "localeName": "Red-winged Blackbird",
     "lengthMin": 6.7,
     "lengthMax": 9.1,
     "weightMin": 1.1,
     "weightMax": 2.7,
     "wingspanMin": 12.2,
-    "wingspanMax": 15.8
+    "wingspanMax": 15.8,
+    "habitats": [
+      "04cade8c-4e1a-46a2-89e5-c3bc174f6345",
+      "d5caa0ad-dafa-4b1c-8c95-f7949c068a5b",
+      "3798eb00-4aef-4311-a54c-d5f19fc12c7b"
+    ],
+    "speciesId": "3723c5cb-781b-47cd-91e4-9c345bc4ffdd"
   },
   {
     "speciesId": "f8679b1b-404a-452c-b229-8985f005ad93",
-    "taxonId": "ruby-throated-hummingbird",
     "speciesName": "Archilochus colubris",
     "genusId": "archilochus",
-    "familyId": "trochilidae",
     "localeName": "Ruby-throated Hummingbird",
     "lengthMin": 2.8,
     "lengthMax": 3.5,
@@ -186,10 +169,8 @@
   },
   {
     "speciesId": "ad9da536-d78e-4c5f-8d99-e2deeb282afa",
-    "taxonId": "downy-woodpecker",
     "speciesName": "Dryobates pubescens",
     "genusId": "dryobates",
-    "familyId": "picidae",
     "localeName": "Downy Woodpecker",
     "lengthMin": 5.5,
     "lengthMax": 7.1,
@@ -200,10 +181,8 @@
   },
   {
     "speciesId": "c5eba287-ff6b-48ec-ba9d-f3923696908b",
-    "taxonId": "red-tailed-hawk",
     "speciesName": "Buteo jamaicensis",
     "genusId": "buteo",
-    "familyId": "accipitridae",
     "localeName": "Red-tailed Hawk",
     "lengthMin": 17.7,
     "lengthMax": 25.6,
@@ -214,10 +193,8 @@
   },
   {
     "speciesId": "b9fb89cd-f15e-40b7-b980-9742687d6a48",
-    "taxonId": "american-crow",
     "speciesName": "Corvus brachyrhynchos",
     "genusId": "corvus",
-    "familyId": "corvidae",
     "localeName": "American Crow",
     "lengthMin": 15.8,
     "lengthMax": 20.9,
@@ -228,10 +205,8 @@
   },
   {
     "speciesId": "ad05fa32-0876-40f5-8707-59820785c719",
-    "taxonId": "tufted-titmouse",
     "speciesName": "Baeolophus bicolor",
     "genusId": "baeolophus",
-    "familyId": "paridae",
     "localeName": "Tufted Titmouse",
     "lengthMin": 5.5,
     "lengthMax": 6.3,
@@ -242,10 +217,8 @@
   },
   {
     "speciesId": "d5836893-4202-47ed-ab0b-3012f0c9282d",
-    "taxonId": "white-breasted-nuthatch",
     "speciesName": "Sitta carolinensis",
     "genusId": "sitta",
-    "familyId": "sittidae",
     "localeName": "White-breasted Nuthatch",
     "lengthMin": 5.1,
     "lengthMax": 5.5,
@@ -256,10 +229,8 @@
   },
   {
     "speciesId": "d3251461-dfc8-4c55-b7a5-479c78b62ed5",
-    "taxonId": "turkey-vulture",
     "speciesName": "Cathartes aura",
     "genusId": "cathartes",
-    "familyId": "cathartidae",
     "localeName": "Turkey Vulture",
     "lengthMin": 25.2,
     "lengthMax": 31.9,
@@ -270,10 +241,8 @@
   },
   {
     "speciesId": "2e2beed2-5af7-4eba-8fc7-bba1ebcbec31",
-    "taxonId": "scarlet-tanager",
     "speciesName": "Piranga olivacea",
     "genusId": "piranga",
-    "familyId": "cardinalidae",
     "localeName": "Scarlet Tanager",
     "lengthMin": 6.3,
     "lengthMax": 6.7,
@@ -284,10 +253,8 @@
   },
   {
     "speciesId": "50975e56-b978-470b-9935-d1f4eb85e63c",
-    "taxonId": "osprey",
     "speciesName": "Pandion haliaetus",
     "genusId": "pandion",
-    "familyId": "pandionidae",
     "localeName": "Osprey",
     "lengthMin": 21.3,
     "lengthMax": 22.8,
@@ -298,10 +265,8 @@
   },
   {
     "speciesId": "0f82811f-2657-40b8-a859-e51cb425fa96",
-    "taxonId": "great-blue-heron",
     "speciesName": "Ardea herodias",
     "genusId": "ardea",
-    "familyId": "ardeidae",
     "localeName": "Great Blue Heron",
     "lengthMin": 38,
     "lengthMax": 54,
@@ -312,10 +277,8 @@
   },
   {
     "speciesId": "0fb41c15-1dcd-4180-a23e-598be6c198df",
-    "taxonId": "canada-goose",
     "speciesName": "Branta canadensis",
     "genusId": "branta",
-    "familyId": "anatidae",
     "localeName": "Canada Goose",
     "lengthMin": 30,
     "lengthMax": 43,
@@ -326,10 +289,8 @@
   },
   {
     "speciesId": "efe39ff3-8354-4780-804b-ff5d4803bc8a",
-    "taxonId": "indigo-bunting",
     "speciesName": "Passerina cyanea",
     "genusId": "passerina",
-    "familyId": "cardinalidae",
     "localeName": "Indigo Bunting",
     "lengthMin": 4.7,
     "lengthMax": 5.1,
@@ -340,10 +301,8 @@
   },
   {
     "speciesId": "c95f3444-b30b-4365-8bae-25036f692d01",
-    "taxonId": "baltimore-oriole",
     "speciesName": "Icterus galbula",
     "genusId": "icterus",
-    "familyId": "icteridae",
     "localeName": "Baltimore Oriole",
     "lengthMin": 6.7,
     "lengthMax": 7.5,
@@ -354,10 +313,8 @@
   },
   {
     "speciesId": "2ea007e8-442d-44da-ac9d-de65e4eb7369",
-    "taxonId": "northern-flicker",
     "speciesName": "Colaptes auratus",
     "genusId": "colaptes",
-    "familyId": "picidae",
     "localeName": "Northern Flicker",
     "lengthMin": 11,
     "lengthMax": 12.2,
@@ -368,10 +325,8 @@
   },
   {
     "speciesId": "3bb7a1f9-24aa-475d-ae40-74b839d5aabd",
-    "taxonId": "great-horned-owl",
     "speciesName": "Bubo virginianus",
     "genusId": "bubo",
-    "familyId": "strigidae",
     "localeName": "Great Horned Owl",
     "lengthMin": 18.1,
     "lengthMax": 24.8,
@@ -382,10 +337,8 @@
   },
   {
     "speciesId": "31174fd5-3f40-4ff6-81d3-b8197edcc789",
-    "taxonId": "yellow-warbler",
     "speciesName": "Setophaga petechia",
     "genusId": "setophaga",
-    "familyId": "parulidae",
     "localeName": "Yellow Warbler",
     "lengthMin": 4.3,
     "lengthMax": 5.1,
@@ -393,5 +346,35 @@
     "weightMax": 0.37,
     "wingspanMin": 6.3,
     "wingspanMax": 7.9
+  },
+  {
+    "speciesName": "Test Bird",
+    "genusId": "corvus",
+    "family": "",
+    "genus": "",
+    "localeName": "Test Birdy Birdy Bird",
+    "lengthMin": 0,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0,
+    "habitats": [],
+    "speciesId": "a0b9fd61-b945-4f80-898c-8df143eaf2c5"
+  },
+  {
+    "speciesName": "TEst Birdy 2",
+    "genusId": "spizella",
+    "localeName": "Test Birdy Birdy 2",
+    "lengthMin": 0,
+    "lengthMax": 0,
+    "weightMin": 0,
+    "weightMax": 0,
+    "wingspanMin": 0,
+    "wingspanMax": 0,
+    "habitats": [
+      "3e3d96a7-f459-45d9-abda-04d255c5469d"
+    ],
+    "speciesId": "de3075e3-9c18-443a-b236-a5cc05efa106"
   }
 ]
