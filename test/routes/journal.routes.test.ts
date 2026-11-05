@@ -10,8 +10,6 @@ const journalRequest: JournalRequest = {
   userId: "user-1",
   name: "Spring observations",
   description: "Bird sightings from spring",
-  createdAt: "2026-03-01T09:00:00.000Z",
-  updatedAt: "2026-03-01T09:00:00.000Z",
 };
 
 describe("Journal routes", () => {
@@ -55,6 +53,8 @@ describe("Journal routes", () => {
     expect(createdJournal).toEqual({
       ...journalRequest,
       journalId: expect.any(String),
+      createdAt: expect.any(String),
+      updatedAt: expect.any(String),
     });
 
     const getResponse = await app.inject({
@@ -66,8 +66,8 @@ describe("Journal routes", () => {
       journalId: createdJournal.journalId,
       name: journalRequest.name,
       description: journalRequest.description,
-      createdAt: journalRequest.createdAt,
-      updatedAt: journalRequest.updatedAt,
+      createdAt: createdJournal.createdAt,
+      updatedAt: createdJournal.updatedAt,
       owner: { userId: "user-1", displayName: "Test User" },
       entryCount: 0,
     });
@@ -75,7 +75,6 @@ describe("Journal routes", () => {
     const updatedRequest: JournalRequest = {
       ...journalRequest,
       name: "Updated spring observations",
-      updatedAt: "2026-03-02T09:00:00.000Z",
     };
     const updateResponse = await app.inject({
       method: "PUT",
@@ -86,6 +85,8 @@ describe("Journal routes", () => {
     expect(updateResponse.json()).toEqual({
       ...updatedRequest,
       journalId: createdJournal.journalId,
+      createdAt: createdJournal.createdAt,
+      updatedAt: expect.any(String),
     });
 
     const deleteResponse = await app.inject({

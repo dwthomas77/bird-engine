@@ -208,7 +208,12 @@ it("returns a species by ID with its habitats", async () => {
 
 	await expect(
 		service.getSpeciesByIdService(testSpecies.speciesId),
-	).resolves.toEqual({ ...testSpecies, habitats });
+	).resolves.toEqual({
+		...testSpecies,
+		habitats,
+		genus: { genusId: "falco", name: "Falco" },
+		family: { familyId: "falconidae", name: "Falcons" },
+	});
 });
 
 it("throws NotFoundError when getting a species that does not exist", async () => {

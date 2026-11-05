@@ -31,6 +31,20 @@ const eagle: Species = {
 	wingspanMax: 227,
 };
 
+function speciesSummary(
+	species: Species,
+	genusName: string,
+	familyId: string,
+	familyName: string,
+) {
+	const { genusId, ...summary } = species;
+	return {
+		...summary,
+		genus: { genusId, name: genusName },
+		family: { familyId, name: familyName },
+	};
+}
+
 describe("Species routes", () => {
 	const testDir = path.join(process.cwd(), "test", "temp", "species");
 
@@ -98,16 +112,12 @@ describe("Species routes", () => {
 		expect(response.statusCode).toBe(200);
 		expect(response.json()).toEqual([
 			{
-				...peregrine,
+				...speciesSummary(peregrine, "Falco", "falconidae", "Falcons"),
 				habitats: [],
-				genus: { genusId: "falco", name: "Falco" },
-				family: { familyId: "falconidae", name: "Falcons" },
 			},
 			{
-				...eagle,
+				...speciesSummary(eagle, "Aquila", "accipitridae", "Hawks"),
 				habitats: [],
-				genus: { genusId: "aquila", name: "Aquila" },
-				family: { familyId: "accipitridae", name: "Hawks" },
 			},
 		]);
 	});
@@ -124,7 +134,10 @@ describe("Species routes", () => {
 		});
 
 		expect(response.statusCode).toBe(200);
-		expect(response.json()).toEqual({ ...peregrine, habitats: [] });
+		expect(response.json()).toEqual({
+			...speciesSummary(peregrine, "Falco", "falconidae", "Falcons"),
+			habitats: [],
+		});
 	});
 
 	it("returns not found for an unknown species id", async () => {

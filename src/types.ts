@@ -6,6 +6,7 @@ import { SpeciesSchema, SpeciesRequestSchema, SpeciesSummarySchema } from './sch
 import { UserSchema, UserRequestSchema } from './schema/user.schema.js';
 import { ObservationSchema, ObservationRequestSchema } from './schema/observation.schema.js';
 import { JournalSchema, JournalRequestSchema, JournalSummarySchema } from './schema/journal.schema.js';
+import { ObservationGroupSchema, ObservationGroupRequestSchema } from './schema/observationGroup.schema.js';
 import { LocationSchema } from './schema/location.schema.js';
 import ServerErrorResponseSchema from './schema/server.errorResponse.schema.js';
 
@@ -28,6 +29,8 @@ export type ObservationRequest = FromSchema<
   Omit<typeof ObservationRequestSchema, "$schema">,
   { references: [typeof LocationSchema, typeof BirdSchema] }
 >;
+export type ObservationGroup = FromSchema<typeof ObservationGroupSchema>;
+export type ObservationGroupRequest = FromSchema<typeof ObservationGroupRequestSchema>;
 export type Journal = FromSchema<typeof JournalSchema>;
 export type JournalRequest = FromSchema<typeof JournalRequestSchema>;
 export type JournalSummary = FromSchema<typeof JournalSummarySchema>;
