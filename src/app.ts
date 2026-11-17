@@ -12,10 +12,13 @@ import userRoutes from "./routes/user.routes.js";
 import observationRoutes from "./routes/observation.routes.js";
 import journalRoutes from "./routes/journal.routes.js";
 import observationGroupRoutes from "./routes/observationGroup.routes.js";
+
 import {
   ObservationGroupSchema,
   ObservationGroupRequestSchema,
 } from "./schema/observationGroup.schema.js";
+import { ObservationGroupGenusSchema } from "./schema/observationGroupGenus.schema.js";
+import { ObservationGroupSpeciesSchema } from "./schema/observationGroupSpecies.schema.js";
 import {
   observationGroupRepositoryFactory,
   ObservationGroupRepository,
@@ -24,6 +27,14 @@ import {
   observationGroupServiceFactory,
   ObservationGroupService,
 } from "./services/observationGroup.service.js";
+import {
+  observationGroupSpeciesServiceFactory,
+  ObservationGroupSpeciesService,
+} from "./services/observationGroupSpecies.service.js";
+import {
+  observationGroupGenusServiceFactory,
+  ObservationGroupGenusService,
+} from "./services/observationGroupGenus.service.js";
 import {
   HabitatSchema,
   HabitatRequestSchema,
@@ -78,6 +89,14 @@ import {
   HabitatSpeciesRepository,
 } from "./repositories/habitatSpecies.repository.js";
 import {
+  observationGroupSpeciesRepositoryFactory,
+  ObservationGroupSpeciesRepository,
+} from "./repositories/observationGroupSpecies.repository.js";
+import {
+  observationGroupGenusRepositoryFactory,
+  ObservationGroupGenusRepository,
+} from "./repositories/observationGroupGenus.repository.js";
+import {
   userRepositoryFactory,
   UserRepository,
 } from "./repositories/user.repository.js";
@@ -110,6 +129,8 @@ declare module "fastify" {
       observation: ObservationRepository;
       journal: JournalRepository;
       observationGroup: ObservationGroupRepository;
+      observationGroupSpecies: ObservationGroupSpeciesRepository;
+      observationGroupGenus: ObservationGroupGenusRepository;
     };
     services: {
       habitat: HabitatService;
@@ -120,6 +141,8 @@ declare module "fastify" {
       observation: ObservationService;
       journal: JournalService;
       observationGroup: ObservationGroupService;
+      observationGroupSpecies: ObservationGroupSpeciesService;
+      observationGroupGenus: ObservationGroupGenusService;
     };
   }
 }
@@ -156,6 +179,8 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(ObservationRequestSchema);
   app.addSchema(ObservationGroupSchema);
   app.addSchema(ObservationGroupRequestSchema);
+  app.addSchema(ObservationGroupGenusSchema);
+  app.addSchema(ObservationGroupSpeciesSchema);
 
   app.register(swagger, {
     openapi: {
@@ -171,6 +196,8 @@ export async function buildApp(options: appOptions = {}) {
         { name: "observation", description: "Observations of Birds" },
         { name: "journal", description: "Journals of Bird Observations" },
         { name: "observationGroup", description: "Groups of related Observations" },
+        { name: "observationGroupGenus", description: "Genera in observation groups" },
+        { name: "observationGroupSpecies", description: "Species in observation groups" },
       ],
     },
   });
@@ -204,6 +231,12 @@ export async function buildApp(options: appOptions = {}) {
       dataDir: options.dataFilePath || dataSource,
     }),
     observationGroup: observationGroupRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
+    observationGroupSpecies: observationGroupSpeciesRepositoryFactory({
+      dataDir: options.dataFilePath || dataSource,
+    }),
+    observationGroupGenus: observationGroupGenusRepositoryFactory({
       dataDir: options.dataFilePath || dataSource,
     }),
   };
@@ -244,6 +277,16 @@ export async function buildApp(options: appOptions = {}) {
     }),
     observationGroup: observationGroupServiceFactory({
       observationGroupRepository: repositories.observationGroup,
+    }),
+    observationGroupSpecies: observationGroupSpeciesServiceFactory({
+      observationGroupSpeciesRepository: repositories.observationGroupSpecies,
+      observationGroupRepository: repositories.observationGroup,
+      speciesRepository: repositories.species,
+    }),
+    observationGroupGenus: observationGroupGenusServiceFactory({
+      observationGroupGenusRepository: repositories.observationGroupGenus,
+      observationGroupRepository: repositories.observationGroup,
+      taxonRepository: repositories.taxon,
     }),
   };
 
