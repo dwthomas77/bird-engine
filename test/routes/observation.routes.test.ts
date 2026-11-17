@@ -70,6 +70,9 @@ describe("Observation routes", () => {
         const problemDetails = errorToProblemDetails(error);
         return reply.status(problemDetails.status).send(problemDetails);
       }
+      if (error.code === "FST_ERR_VALIDATION") {
+        return reply.status(400).send({ error: "Bad Request" });
+      }
       return reply.status(500).send({ error: "Internal Server Error" });
     });
     await app.register(observationRoutes);
@@ -135,6 +138,42 @@ describe("Observation routes", () => {
     await expect(
       fs.readFile(path.join(testDir, "observations.data.json"), "utf-8"),
     ).resolves.toBe("[]");
+  });
+
+  it("creates an observation with notes and no bird", async () => {
+    const notesOnlyRequest = {
+      journalId: observation.journalId,
+      location: observation.location,
+      observedAt: observation.observedAt,
+      notes: "Tracks seen near the water",
+    };
+    const response = await app.inject({
+      method: "POST",
+      url: "/observations",
+      payload: notesOnlyRequest,
+    });
+
+    expect(response.statusCode).toBe(200);
+    expect(response.json()).toEqual({
+      ...notesOnlyRequest,
+      observationId: expect.any(String),
+    });
+  });
+
+  it("rejects an observation without a bird or notes", async () => {
+    const requestWithoutBirdOrNotes = {
+      journalId: observationRequest.journalId,
+      location: observationRequest.location,
+      observedAt: observationRequest.observedAt,
+      quantity: observationRequest.quantity,
+    };
+    const response = await app.inject({
+      method: "POST",
+      url: "/observations",
+      payload: requestWithoutBirdOrNotes,
+    });
+
+    expect(response.statusCode).toBe(400);
   });
 
   it("returns not found for an unknown observation", async () => {
