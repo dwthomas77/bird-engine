@@ -8,6 +8,7 @@ export const ObservationGroupGenusSchema = {
   properties: {
     observationGroupId: { type: "string" },
     genusId: { type: "string" },
+    excluded: { type: "boolean" },
   },
   required: ["observationGroupId", "genusId"],
   additionalProperties: false,

@@ -98,6 +98,28 @@ http://localhost:3000/docs/json
 
 # Data Models
 
+## Observation Group Family
+
+Observation groups can be linked directly to taxonomic families through
+`data/observationGroupFamily.data.json`. Each relationship has an
+`observationGroupId` and a `familyId`, which refers to a family `taxonId` in
+`data/taxon.data.json`. The service validates both IDs and prevents duplicate
+pairs. This relationship is managed through the service; it has no API route.
+
+### Observation group membership rules
+
+Species, genus, and family relationships accept an optional `excluded` boolean.
+Absent or `false` includes the taxon; `true` excludes it. Adding an existing
+group-and-taxon pair updates its rule, while removing it deletes the rule.
+`observationGroupMembership.getSpeciesForGroup()` resolves the most specific
+rule first: species, then genus, then family. Species with no matching rule are
+not members. Rules apply only to the specified group; `parentId` does not
+inherit membership rules. Relationship management and membership resolution are
+service operations and do not have API routes.
+
+The species repository's `synchronizeRelationships` replaces all species rules
+for one group with inclusive rules for the supplied species IDs.
+
 ## Habitat
 
 Represents a habitat where bird species may be found.

@@ -58,6 +58,7 @@ export function observationGroupGenusServiceFactory({
       await observationGroupGenusRepository.addRelationship(
         relationship.observationGroupId,
         relationship.genusId,
+        relationship.excluded,
       );
       return relationship;
     },

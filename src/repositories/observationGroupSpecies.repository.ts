@@ -7,6 +7,7 @@ export interface ObservationGroupSpeciesRepository {
   addRelationship(
     observationGroupId: string,
     speciesId: string,
+    excluded?: boolean,
   ): Promise<void>;
   removeRelationship(
     observationGroupId: string,
@@ -60,18 +61,23 @@ export function observationGroupSpeciesRepositoryFactory({
   async function addRelationship(
     observationGroupId: string,
     speciesId: string,
+    excluded?: boolean,
   ): Promise<void> {
     try {
       const relationships = await getRelationships();
-      const alreadyExists = relationships.some(
+      const existing = relationships.find(
         (relationship) =>
           relationship.observationGroupId === observationGroupId &&
           relationship.speciesId === speciesId,
       );
-      if (!alreadyExists) {
+      if (!existing || (existing.excluded ?? false) !== (excluded ?? false)) {
         await writeRelationships([
-          ...relationships,
-          { observationGroupId, speciesId },
+          ...relationships.filter(
+            (relationship) =>
+              relationship.observationGroupId !== observationGroupId ||
+              relationship.speciesId !== speciesId,
+          ),
+          { observationGroupId, speciesId, ...(excluded === undefined ? {} : { excluded }) },
         ]);
       }
     } catch (error) {
@@ -108,23 +114,12 @@ export function observationGroupSpeciesRepositoryFactory({
 		try {
 			const relationships = await getRelationships();
 			const retainedRelationships = relationships.filter(
-				(relationship) =>
-				relationship.observationGroupId !== observationGroupId ||
-				speciesIds.includes(relationship.speciesId),
+				(relationship) => relationship.observationGroupId !== observationGroupId,
 			);
-			const replacementRelationships = speciesIds
-				.filter(
-					(speciesId) =>
-						!retainedRelationships.some(
-							(relationship) =>
-								relationship.observationGroupId === observationGroupId &&
-								relationship.speciesId === speciesId,
-						),
-				)
-				.map((speciesId) => ({
-					observationGroupId,
-					speciesId,
-				}));
+			const replacementRelationships = [...new Set(speciesIds)].map((speciesId) => ({
+				observationGroupId,
+				speciesId,
+			}));
 			await writeRelationships([
 				...retainedRelationships,
 				...replacementRelationships,

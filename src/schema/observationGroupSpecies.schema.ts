@@ -11,6 +11,7 @@ export const ObservationGroupSpeciesSchema = {
     "speciesId": {
       type: "string",
     },
+    "excluded": { type: "boolean" },
   },
   "required": ["observationGroupId", "speciesId"],
   "additionalProperties": false

@@ -70,6 +70,7 @@ describe("ObservationGroupGenusService", () => {
     expect(observationGroupGenusRepository.addRelationship).toHaveBeenCalledWith(
       "group-1",
       "genus-1",
+      undefined,
     );
   });
 

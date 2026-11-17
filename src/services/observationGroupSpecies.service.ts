@@ -59,6 +59,7 @@ export function observationGroupSpeciesServiceFactory({
       await observationGroupSpeciesRepository.addRelationship(
         relationship.observationGroupId,
         relationship.speciesId,
+        relationship.excluded,
       );
       return relationship;
     },

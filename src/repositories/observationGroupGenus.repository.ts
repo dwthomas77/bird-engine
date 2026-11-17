@@ -7,6 +7,7 @@ export interface ObservationGroupGenusRepository {
   addRelationship(
     observationGroupId: string,
     genusId: string,
+    excluded?: boolean,
   ): Promise<void>;
   removeRelationship(
     observationGroupId: string,
@@ -56,18 +57,23 @@ export function observationGroupGenusRepositoryFactory({
   async function addRelationship(
     observationGroupId: string,
     genusId: string,
+    excluded?: boolean,
   ): Promise<void> {
     try {
       const relationships = await getRelationships();
-      const alreadyExists = relationships.some(
+      const existing = relationships.find(
         (relationship) =>
           relationship.observationGroupId === observationGroupId &&
           relationship.genusId === genusId,
       );
-      if (!alreadyExists) {
+      if (!existing || (existing.excluded ?? false) !== (excluded ?? false)) {
         await writeRelationships([
-          ...relationships,
-          { observationGroupId, genusId },
+          ...relationships.filter(
+            (relationship) =>
+              relationship.observationGroupId !== observationGroupId ||
+              relationship.genusId !== genusId,
+          ),
+          { observationGroupId, genusId, ...(excluded === undefined ? {} : { excluded }) },
         ]);
       }
     } catch (error) {
