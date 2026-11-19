@@ -47,9 +47,9 @@ const SpeciesRequestSchema = {
   type: "object",
   properties: {
     ...baseSpeciesProperties,
-      genusId: {
-    type: "string",
-  },
+    genusId: {
+      type: "string",
+    },
     habitats: {
       type: "array",
       items: {
@@ -69,9 +69,9 @@ const SpeciesReadSchema = {
     speciesId: {
       type: "string",
     },
-      genusId: {
-    type: "string",
-  },
+    genusId: {
+      type: "string",
+    },
     ...baseSpeciesProperties,
     habitats: {
       type: "array",

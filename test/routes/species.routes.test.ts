@@ -267,7 +267,8 @@ describe("Species routes", () => {
 	});
 
 	it("rejects a species with an unknown genus", async () => {
-		const { speciesId, ...rest } = peregrine;
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const { speciesId: _speciesId, ...rest } = peregrine;
 		const response = await app.inject({
 			method: "POST",
 			url: "/species",

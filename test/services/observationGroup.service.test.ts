@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { observationGroupServiceFactory } from "../../src/services/observationGroup.service.js";
 import type { ObservationGroupRepository } from "../../src/repositories/observationGroup.repository.js";
 import type { ObservationGroup } from "../../src/types.js";
@@ -32,6 +32,22 @@ describe("ObservationGroupService", () => {
   beforeEach(() => {
     service = observationGroupServiceFactory({
       observationGroupRepository: fakeRepository(),
+      observationGroupFamilyRepository: {
+        getRelationships: vi.fn().mockResolvedValue([]),
+        addRelationship: vi.fn(),
+        removeRelationship: vi.fn(),
+      },
+      observationGroupGenusRepository: {
+        getRelationships: vi.fn().mockResolvedValue([]),
+        addRelationship: vi.fn(),
+        removeRelationship: vi.fn(),
+      },
+      observationGroupSpeciesRepository: {
+        getRelationships: vi.fn().mockResolvedValue([]),
+        addRelationship: vi.fn(),
+        removeRelationship: vi.fn(),
+        synchronizeRelationships: vi.fn(),
+      },
     });
   });
 

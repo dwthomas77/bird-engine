@@ -7,6 +7,24 @@ function observationGroupControllerFactory({
 }: {
   service: ObservationGroupService;
 }) {
+  async function getObservationGroupSummaryByIdController(
+    request: FastifyRequest,
+    reply: FastifyReply,
+  ) {
+    const { observationGroupId } = request.params as {
+      observationGroupId: string;
+    };
+    return reply.send(
+      await service.getObservationGroupSummaryByIdService(observationGroupId),
+    );
+  }
+
+  async function getAllObservationGroupSummariesController(
+    _request: FastifyRequest,
+    reply: FastifyReply,
+  ) {
+    return reply.send(await service.getAllObservationGroupSummariesService());
+  }
   async function getAllObservationGroupsController(
     _request: FastifyRequest,
     reply: FastifyReply,
@@ -69,6 +87,8 @@ function observationGroupControllerFactory({
     getObservationGroupByIdController,
     updateObservationGroupController,
     deleteObservationGroupController,
+    getObservationGroupSummaryByIdController,
+    getAllObservationGroupSummariesController,
   };
 }
 

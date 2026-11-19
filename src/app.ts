@@ -16,6 +16,7 @@ import observationGroupRoutes from "./routes/observationGroup.routes.js";
 import {
   ObservationGroupSchema,
   ObservationGroupRequestSchema,
+  ObservationGroupSummarySchema,
 } from "./schema/observationGroup.schema.js";
 import { ObservationGroupFamilySchema } from "./schema/observationGroupFamily.schema.js";
 import { ObservationGroupGenusSchema } from "./schema/observationGroupGenus.schema.js";
@@ -195,6 +196,7 @@ export async function buildApp(options: appOptions = {}) {
   app.addSchema(ObservationRequestSchema);
   app.addSchema(ObservationGroupSchema);
   app.addSchema(ObservationGroupRequestSchema);
+  app.addSchema(ObservationGroupSummarySchema);
   app.addSchema(ObservationGroupFamilySchema);
   app.addSchema(ObservationGroupGenusSchema);
   app.addSchema(ObservationGroupSpeciesSchema);
@@ -298,6 +300,9 @@ export async function buildApp(options: appOptions = {}) {
     }),
     observationGroup: observationGroupServiceFactory({
       observationGroupRepository: repositories.observationGroup,
+      observationGroupFamilyRepository: repositories.observationGroupFamily,
+      observationGroupGenusRepository: repositories.observationGroupGenus,
+      observationGroupSpeciesRepository: repositories.observationGroupSpecies,
     }),
     observationGroupSpecies: observationGroupSpeciesServiceFactory({
       observationGroupSpeciesRepository: repositories.observationGroupSpecies,

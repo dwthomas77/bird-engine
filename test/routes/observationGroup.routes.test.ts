@@ -39,6 +39,32 @@ describe("ObservationGroup routes", () => {
     expect(response.json()).toEqual([]);
   });
 
+  it("serializes individual and collection summaries with their relationships", async () => {
+    const group = { observationGroupId: "group-1", name: "Waterfowl" };
+    const otherGroup = { observationGroupId: "group-2", name: "Owls" };
+    const family = { observationGroupId: "group-1", familyId: "family-1" };
+    const genus = { observationGroupId: "group-1", genusId: "genus-1", excluded: true };
+    const species = { observationGroupId: "group-1", speciesId: "species-1", excluded: false };
+    await Promise.all([
+      fs.writeFile(path.join(testDir, "observationGroups.data.json"), JSON.stringify([group, otherGroup])),
+      fs.writeFile(path.join(testDir, "observationGroupFamily.data.json"), JSON.stringify([family])),
+      fs.writeFile(path.join(testDir, "observationGroupGenus.data.json"), JSON.stringify([genus])),
+      fs.writeFile(path.join(testDir, "observationGroupSpecies.data.json"), JSON.stringify([species])),
+    ]);
+
+    const summary = { ...group, families: [family], genera: [genus], species: [species] };
+    const single = await app.inject({ method: "GET", url: "/observation-groups/group-1/summary" });
+    expect(single.statusCode).toBe(200);
+    expect(single.json()).toEqual(summary);
+
+    const list = await app.inject({ method: "GET", url: "/observation-groups/summary" });
+    expect(list.statusCode).toBe(200);
+    expect(list.json()).toEqual([
+      summary,
+      { ...otherGroup, families: [], genera: [], species: [] },
+    ]);
+  });
+
   it("creates, retrieves, lists, updates, and deletes a group", async () => {
     const createResponse = await app.inject({
       method: "POST",

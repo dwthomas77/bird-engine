@@ -10,8 +10,7 @@ const baseObservationProperties = {
 
 const requiredObservationProperties = ["journalId", "location", "observedAt"] as const;
 
-export const ObservationSchema = {
-  $id: schemaId("observation"),
+const baseObservationSchema = {
   title: "Observation",
   description: "An observation of a bird in a habitat",
   type: "object",
@@ -27,8 +26,12 @@ export const ObservationSchema = {
   "additionalProperties": false
 } as const;
 
-export const ObservationRequestSchema = {
-  $id: schemaId("observation/request"),
+export const ObservationSchema = {
+  $id: schemaId("observation"),
+  ...baseObservationSchema,
+} as const;
+
+const baseObservationRequestSchema = {
   title: "Observation Request",
   description: "A request for an observation",
   type: "object",
@@ -41,4 +44,9 @@ export const ObservationRequestSchema = {
     { "required": ["notes"] },
   ],
   "additionalProperties": false
+} as const;
+
+export const ObservationRequestSchema = {
+  $id: schemaId("observation/request"),
+  ...baseObservationRequestSchema,
 } as const;

@@ -37,6 +37,27 @@ async function routes(fastify: FastifyInstance) {
     },
     controllers.getObservationGroupByIdController,
   );
+  fastify.get(
+    "/observation-groups/:observationGroupId/summary",
+    {
+      schema: {
+        tags: ["observationGroup"],
+        params,
+        response: { 200: { $ref: schemaRef("observationGroup/summary") } },
+      },
+    },
+    controllers.getObservationGroupSummaryByIdController,
+  );
+  fastify.get(
+    "/observation-groups/summary",
+    {
+      schema: {
+        tags: ["observationGroup"],
+        response: { 200: { type: "array", items: { $ref: schemaRef("observationGroup/summary") } } },
+      },
+    },
+    controllers.getAllObservationGroupSummariesController,
+  );
   fastify.post(
     "/observation-groups",
     {
