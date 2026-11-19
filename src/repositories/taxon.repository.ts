@@ -2,17 +2,15 @@ import fs from "fs/promises";
 import type {
   Taxon,
   TaxonData,
-  TaxonFamily,
   TaxonGenus,
-  TaxonRank,
   TaxonSpecies,
 } from "../types.js";
 
 export interface TaxonRepository {
-  getTaxa(rank?: TaxonRank): Promise<Taxon[]>;
+  getTaxa(rank?: string): Promise<Taxon[]>;
   getTaxonById(taxonId: string): Promise<Taxon | undefined>;
-  getFamilies(): Promise<TaxonFamily[]>;
-  getFamilyByGenusId(genusId: string): Promise<TaxonFamily | undefined>;
+  getFamilies(): Promise<Taxon[]>;
+  getFamilyByGenusId(genusId: string): Promise<Taxon | undefined>;
   getGenera(familyId?: string): Promise<TaxonGenus[]>;
   getGenusById(genusId: string): Promise<TaxonGenus | undefined>;
   getSpecies(genusId?: string): Promise<TaxonSpecies[]>;
@@ -55,7 +53,7 @@ export function taxonRepositoryFactory({
     return genusId ? species.filter((s) => s.genusId === genusId) : species;
   }
 
-  async function getTaxa(rank?: TaxonRank): Promise<Taxon[]> {
+  async function getTaxa(rank?: string): Promise<Taxon[]> {
     const { families, genera, species } = await load();
     const all: Taxon[] = [...families, ...genera, ...species];
     return rank ? all.filter((t) => t.rank === rank) : all;

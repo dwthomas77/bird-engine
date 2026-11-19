@@ -31,6 +31,42 @@ const ObservationGroupRequestSchema = {
   type: "object",
   properties: {
     ...baseObservationGroupProperties,
+    families: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          familyId: { type: "string" },
+          excluded: { type: "boolean" },
+        },
+        required: ["familyId"],
+        additionalProperties: false,
+      },
+    },
+    genera: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          genusId: { type: "string" },
+          excluded: { type: "boolean" },
+        },
+        required: ["genusId"],
+        additionalProperties: false,
+      },
+    },
+    species: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          speciesId: { type: "string" },
+          excluded: { type: "boolean" },
+        },
+        required: ["speciesId"],
+        additionalProperties: false,
+      },
+    },
   },
   required: [...requiredFields],
 } as const;
